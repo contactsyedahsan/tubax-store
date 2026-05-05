@@ -534,12 +534,13 @@
     .na-title { font-family: var(--display); font-size: 64px; color: #fff; letter-spacing: 2px; line-height: 1; margin-bottom: 12px; }
     .na-title span { color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.3); }
     .na-sub { font-family: var(--mono); font-size: 13px; color: rgba(255,255,255,0.7); letter-spacing: 0.05em; }
-    .na-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 24px; align-items: start; }
+    .na-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
     .na-card {
       background: rgba(10,13,10,0.7); 
       backdrop-filter: blur(15px);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 24px; overflow: hidden; padding: 24px; position: relative;
+      border-radius: 24px; overflow: hidden; padding: 32px 24px; position: relative;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
       transition: all .4s cubic-bezier(.175,.885,.32,1.275);
     }
     .na-card:hover { transform: translateY(-12px); border-color: rgba(255,255,255,0.3); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
@@ -1243,15 +1244,13 @@
         <p class="na-sub">Fresh gaming gear — handpicked for competitive players</p>
       </div>
       <div class="na-grid">
-        <div class="na-card na-card-wide">
+        <div class="na-card">
           <div class="na-card-img"><img src="ZorX-TUBA Store/headphones.png" alt="Headset"></div>
-          <div class="na-card-info">
-            <span class="na-badge">⚡ NEW</span>
-            <div class="na-card-name">TubaX Pro Headset</div>
-            <div class="na-card-desc">50mm drivers · 7.1 Surround · Noise-Cancel Mic</div>
-            <div class="na-card-price">PKR 4,500</div>
-            <button class="na-btn" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('headset')">SHOP NOW →</button>
-          </div>
+          <span class="na-badge">⚡ NEW</span>
+          <div class="na-card-name">TubaX Pro Headset</div>
+          <div class="na-card-desc">50mm drivers · 7.1 Surround · Noise-Cancel Mic</div>
+          <div class="na-card-price">PKR 4,500</div>
+          <button class="na-btn" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('headset')">SHOP NOW →</button>
         </div>
         <div class="na-card">
           <div class="na-card-img"><img src="ZorX-TUBA Store/airpods.png" alt="AirBuds"></div>
