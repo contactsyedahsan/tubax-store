@@ -494,13 +494,28 @@
     }
     #storeToast.show { transform: translateX(-50%) translateY(0); }
 
+    @keyframes moveGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     /* ═══ NEW ARRIVALS ═══ */
-    .na-section { margin-bottom: 56px; }
+    .na-section { 
+      margin-bottom: 56px; 
+      padding: 60px 30px;
+      border-radius: 30px;
+      background: linear-gradient(-45deg, #a166ab, #b876b8, #8a53a0, #734380);
+      background-size: 400% 400%;
+      animation: moveGradient 12s ease infinite;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 20px 50px rgba(184,118,184,0.2);
+    }
     .na-header { text-align: center; margin-bottom: 32px; }
-    .na-label { font-family: var(--mono); font-size: 11px; color: var(--neon); letter-spacing: .2em; margin-bottom: 10px; }
+    .na-label { font-family: var(--mono); font-size: 11px; color: #fff; letter-spacing: .2em; margin-bottom: 10px; opacity: 0.9; }
     .na-title { font-family: var(--display); font-size: 52px; color: #fff; letter-spacing: 2px; line-height: 1; margin-bottom: 10px; }
-    .na-title span { color: var(--neon); }
-    .na-sub { font-family: var(--mono); font-size: 12px; color: var(--ink-muted); }
+    .na-title span { color: #fff; text-shadow: 0 0 15px rgba(0,0,0,0.2); }
+    .na-sub { font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,0.8); }
     .na-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 18px; align-items: start; }
     .na-card {
       background: rgba(15,20,16,0.85); border: 1px solid rgba(184,118,184,0.12);
@@ -521,7 +536,16 @@
     @media(max-width:768px) { .na-grid { grid-template-columns: 1fr; } .na-card-wide { flex-direction: column; } }
 
     /* ═══ BEST SELLING ═══ */
-    .bs-section { margin-bottom: 56px; }
+    .bs-section { 
+      margin-bottom: 56px; 
+      padding: 60px 30px;
+      border-radius: 30px;
+      background: linear-gradient(-45deg, #a166ab, #b876b8, #8a53a0, #734380);
+      background-size: 400% 400%;
+      animation: moveGradient 12s ease infinite;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 20px 50px rgba(184,118,184,0.2);
+    }
     .bs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
     .bs-card {
       background: rgba(15,20,16,0.85); border: 1px solid rgba(184,118,184,0.12);
