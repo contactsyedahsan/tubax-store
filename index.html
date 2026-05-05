@@ -53,14 +53,14 @@
   <style>
     :root {
       --neon:    #b876b8;
-      --neon-2:  #00ffae;
-      --magenta: #ff2b6e;
-      --gold:    #ffd24a;
+      --neon-2:  #b876b8;
+      --magenta: #b876b8;
+      --gold:    #b876b8;
       --bg:      #0a0d0a;
       --bg-2:    #0f1410;
       --bg-3:    #141a14;
-      --ink:     #e8f0e8;
-      --ink-muted: #5a7a5a;
+      --ink:     #ffffff;
+      --ink-muted: rgba(255,255,255,0.6);
       --line:    rgba(184,118,184,0.1);
       --display: 'Bebas Neue', sans-serif;
       --mono:    'JetBrains Mono', monospace;
@@ -112,7 +112,7 @@
       position: fixed;
       width: 500px; height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,255,174,0.05) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(184,118,184,0.05) 0%, transparent 70%);
       bottom: -80px; right: -80px;
       animation: floatGlow2 15s ease-in-out infinite;
       pointer-events: none; z-index: 0;
@@ -121,7 +121,7 @@
       position: fixed;
       width: 400px; height: 400px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,43,110,0.04) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(184,118,184,0.04) 0%, transparent 70%);
       top: 40%; left: 50%;
       transform: translate(-50%, -50%);
       animation: floatGlow3 18s ease-in-out infinite;
@@ -419,9 +419,9 @@
       font-family: var(--mono); font-size: 9px; font-weight: 700;
       letter-spacing: .1em;
     }
-    .badge-new  { background: var(--neon); color: #000; }
+    .badge-new  { background: var(--neon); color: #fff; }
     .badge-sale { background: var(--magenta); color: #fff; }
-    .badge-hot  { background: var(--gold); color: #000; }
+    .badge-hot  { background: var(--gold); color: #fff; }
     .store-card-body { padding: 18px; position: relative; z-index: 2; }
     .store-card-cat {
       font-family: var(--mono); font-size: 9px;
@@ -451,19 +451,19 @@
     .store-wa-btn {
       display: flex; align-items: center; justify-content: center;
       width: 40px; height: 40px; border-radius: 50%;
-      background: #25D366; color: #fff; flex-shrink: 0;
+      background: var(--neon); color: #fff; flex-shrink: 0;
       transition: background .2s, box-shadow .2s; text-decoration: none;
     }
-    .store-wa-btn:hover { background: #1ebe5d; box-shadow: 0 4px 14px rgba(37,211,102,0.4); }
+    .store-wa-btn:hover { background: #fff; color: var(--neon); box-shadow: 0 4px 14px rgba(184,118,184,0.4); }
     .store-wa-btn:active { transform: scale(0.93); }
     .store-buy-btn {
       padding: 10px 18px; border-radius: 50px;
-      background: var(--neon); border: none; color: #000;
+      background: var(--neon); border: none; color: #fff;
       font-family: var(--mono); font-size: 10px; font-weight: 700;
       letter-spacing: .1em; cursor: pointer; white-space: nowrap;
-      transition: background .2s, transform .15s, box-shadow .2s;
+      transition: background .2s, transform .15s, box-shadow .2s, color .2s;
     }
-    .store-buy-btn:hover { background: #d4ff6a; box-shadow: 0 4px 16px rgba(184,118,184,0.3); }
+    .store-buy-btn:hover { background: #fff; color: var(--neon); box-shadow: 0 4px 16px rgba(184,118,184,0.3); }
     .store-buy-btn:active { transform: scale(0.95); }
 
     /* ═══ TOAST ═══ */
@@ -515,11 +515,11 @@
       transition: transform .25s, border-color .25s, box-shadow .25s;
     }
     .bs-card:hover { transform: translateY(-8px); border-color: rgba(184,118,184,0.45); box-shadow: 0 20px 50px rgba(184,118,184,0.12); }
-    .bs-rank { font-family: var(--display); font-size: 48px; color: #ffd24a; line-height: 1; margin-bottom: 10px; }
+    .bs-rank { font-family: var(--display); font-size: 48px; color: var(--neon); line-height: 1; margin-bottom: 10px; }
     .bs-img { width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
     .bs-img img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 24px rgba(184,118,184,0.25)); }
     .bs-info { width: 100%; }
-    .bs-stars { font-size: 14px; color: #ffd24a; margin-bottom: 8px; }
+    .bs-stars { font-size: 14px; color: var(--neon); margin-bottom: 8px; }
     .bs-stars span { color: var(--ink-muted); font-size: 11px; font-family: var(--mono); }
     @media(max-width:768px) { .bs-grid { grid-template-columns: 1fr; } }
 
@@ -538,8 +538,8 @@
     .slide-duo img:hover { transform: scale(1.07); }
     .slide-save-pill {
       display: inline-block; padding: 4px 14px; border-radius: 50px;
-      background: rgba(255,43,110,0.15); border: 1px solid rgba(255,43,110,0.45);
-      color: #ff2b6e; font-family: var(--mono); font-size: 10px;
+      background: rgba(184,118,184,0.15); border: 1px solid rgba(184,118,184,0.45);
+      color: var(--neon); font-family: var(--mono); font-size: 10px;
       letter-spacing: .12em; font-weight: 700; margin-bottom: 8px;
     }
     .slide-orig {
@@ -574,7 +574,7 @@
     .rv-meta { flex: 1; }
     .rv-name { font-family: var(--display); font-size: 18px; color: #fff; letter-spacing: 1px; line-height: 1.1; }
     .rv-product { font-family: var(--mono); font-size: 9px; color: var(--neon); letter-spacing: .14em; margin-top: 3px; }
-    .rv-stars { font-size: 13px; color: #ffd24a; margin-bottom: 12px; }
+    .rv-stars { font-size: 13px; color: var(--neon); margin-bottom: 12px; }
     .rv-stars span { color: rgba(255,255,255,0.2); }
     .rv-text {
       font-family: var(--mono); font-size: 11px;
@@ -583,7 +583,7 @@
     .rv-verified {
       display: inline-flex; align-items: center; gap: 5px;
       margin-top: 14px; font-family: var(--mono); font-size: 9px;
-      color: #00ffae; letter-spacing: .1em;
+      color: var(--neon); letter-spacing: .1em;
     }
     @media(max-width:768px) { .rv-grid { grid-template-columns: 1fr; } }
 
@@ -919,13 +919,13 @@
           <div class="slide-scanlines"></div>
           <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(184,118,184,0.18) 0%,transparent 70%);"></div>
           <div class="slide-content">
-            <div class="slide-tag" style="background:var(--neon);color:#000;box-shadow:0 0 20px rgba(184,118,184,0.5);">⚡ BUNDLE DEAL</div>
+            <div class="slide-tag" style="background:var(--neon);color:#fff;box-shadow:0 0 20px rgba(184,118,184,0.5);">⚡ BUNDLE DEAL</div>
             <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(184,118,184,0.3);">HEADSET<span style="color:var(--neon);display:block;">+ AIRBUDS</span></div>
             <div class="slide-sub">Buy both together and save big — 30% off combined price. Limited stock!</div>
             <div class="slide-save-pill">🎁 YOU SAVE PKR 3,600</div>
             <span class="slide-orig">PKR 12,000</span>
             <div class="slide-price-tag">PKR 8,400</div>
-            <button class="slide-cta" style="background:var(--neon);color:#000;box-shadow:0 0 30px rgba(184,118,184,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
+            <button class="slide-cta" style="background:var(--neon);color:#fff;box-shadow:0 0 30px rgba(184,118,184,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
           </div>
           <div class="slide-duo">
             <img src="ZorX-TUBA Store/headphones.png" alt="Headset" onerror="this.style.display='none'">
@@ -937,15 +937,15 @@
         <div class="store-slide" data-slide-idx="2">
           <div class="slide-bg" style="background:linear-gradient(120deg,#0d0015 0%,#1a0030 40%,#300060 70%,#1a0040 100%);"></div>
           <div class="slide-scanlines"></div>
-          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(255,43,110,0.2) 0%,transparent 70%);"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(184,118,184,0.2) 0%,transparent 70%);"></div>
           <div class="slide-content">
-            <div class="slide-tag" style="background:var(--magenta);color:#fff;box-shadow:0 0 20px rgba(255,43,110,0.5);">🔥 COMBO DEAL</div>
-            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(255,43,110,0.3);">KEYBOARD<span style="color:#ff2b6e;display:block;">+ MOUSE</span></div>
+            <div class="slide-tag" style="background:var(--magenta);color:#fff;box-shadow:0 0 20px rgba(184,118,184,0.5);">🔥 COMBO DEAL</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(184,118,184,0.3);">KEYBOARD<span style="color:var(--neon);display:block;">+ MOUSE</span></div>
             <div class="slide-sub">Ultimate setup combo — mechanical keyboard + precision gaming mouse at 30% off!</div>
             <div class="slide-save-pill">🎁 YOU SAVE PKR 3,000</div>
             <span class="slide-orig">PKR 10,000</span>
-            <div class="slide-price-tag" style="color:#ff2b6e;">PKR 7,000</div>
-            <button class="slide-cta" style="background:var(--magenta);color:#fff;box-shadow:0 0 30px rgba(255,43,110,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
+            <div class="slide-price-tag" style="color:var(--neon);">PKR 7,000</div>
+            <button class="slide-cta" style="background:var(--magenta);color:#fff;box-shadow:0 0 30px rgba(184,118,184,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
           </div>
           <div class="slide-duo">
             <img src="ZorX-TUBA Store/keyboard.png" alt="Keyboard" onerror="this.style.display='none'">
@@ -957,15 +957,15 @@
         <div class="store-slide" data-slide-idx="3">
           <div class="slide-bg" style="background:linear-gradient(120deg,#000d1a 0%,#001830 40%,#002a4a 70%,#001020 100%);"></div>
           <div class="slide-scanlines"></div>
-          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(0,255,174,0.18) 0%,transparent 70%);"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(184,118,184,0.18) 0%,transparent 70%);"></div>
           <div class="slide-content">
-            <div class="slide-tag" style="background:#00ffae;color:#000;box-shadow:0 0 20px rgba(0,255,174,0.5);">✦ BEST VALUE</div>
-            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(0,255,174,0.3);">HEADSET<span style="color:#00ffae;display:block;">+ MOUSE</span></div>
+            <div class="slide-tag" style="background:var(--neon);color:#fff;box-shadow:0 0 20px rgba(184,118,184,0.5);">✦ BEST VALUE</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(184,118,184,0.3);">HEADSET<span style="color:var(--neon);display:block;">+ MOUSE</span></div>
             <div class="slide-sub">Hear every footstep, click with precision — 30% off this gaming essentials bundle!</div>
             <div class="slide-save-pill">🎁 YOU SAVE PKR 2,400</div>
             <span class="slide-orig">PKR 8,000</span>
-            <div class="slide-price-tag" style="color:#00ffae;">PKR 5,600</div>
-            <button class="slide-cta" style="background:#00ffae;color:#000;box-shadow:0 0 30px rgba(0,255,174,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
+            <div class="slide-price-tag" style="color:var(--neon);">PKR 5,600</div>
+            <button class="slide-cta" style="background:var(--neon);color:#fff;box-shadow:0 0 30px rgba(184,118,184,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
           </div>
           <div class="slide-duo">
             <img src="ZorX-TUBA Store/headphones.png" alt="Headset" onerror="this.style.display='none'">
@@ -979,11 +979,11 @@
           <div class="slide-scanlines"></div>
           <div class="slide-glow" style="background:radial-gradient(ellipse 70% 70% at 65% 50%,rgba(184,118,184,0.25) 0%,transparent 70%);"></div>
           <div class="slide-content">
-            <div class="slide-tag" style="background:var(--neon);color:#000;box-shadow:0 0 20px rgba(184,118,184,0.6);">🖥️ GAMING PC</div>
+            <div class="slide-tag" style="background:var(--neon);color:#fff;box-shadow:0 0 20px rgba(184,118,184,0.6);">🖥️ GAMING PC</div>
             <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(184,118,184,0.4);">TUBAX<span style="color:var(--neon);display:block;">GAMING PC</span></div>
             <div class="slide-sub">Beast-level performance — built for competitive gaming. Dominate every match.</div>
             <div class="slide-price-tag" style="color:var(--neon);">PKR 1,00,000</div>
-            <button class="slide-cta" style="background:var(--neon);color:#000;box-shadow:0 0 30px rgba(184,118,184,0.5);" onclick="filterCat('all')">ORDER NOW →</button>
+            <button class="slide-cta" style="background:var(--neon);color:#fff;box-shadow:0 0 30px rgba(184,118,184,0.5);" onclick="filterCat('all')">ORDER NOW →</button>
           </div>
           <div style="position:absolute;right:0;top:0;bottom:0;width:52%;display:flex;align-items:center;justify-content:center;padding:16px 32px 16px 0;">
             <img src="ZorX-TUBA Store/PC_IMAGE.png" alt="TubaX Gaming PC" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 40px rgba(184,118,184,0.6));" onerror="this.style.display='none'">
@@ -994,15 +994,15 @@
         <div class="store-slide" data-slide-idx="5">
           <div class="slide-bg" style="background:linear-gradient(120deg,#1a0f00 0%,#2e1a00 40%,#4a2d00 70%,#2e1800 100%);"></div>
           <div class="slide-scanlines"></div>
-          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(255,210,74,0.2) 0%,transparent 70%);"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(184,118,184,0.2) 0%,transparent 70%);"></div>
           <div class="slide-content">
-            <div class="slide-tag" style="background:var(--gold);color:#000;box-shadow:0 0 20px rgba(255,210,74,0.5);">🎯 MEGA BUNDLE</div>
-            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(255,210,74,0.3);">AIRBUDS<span style="color:#ffd24a;display:block;">+ KEYBOARD</span></div>
+            <div class="slide-tag" style="background:var(--gold);color:#fff;box-shadow:0 0 20px rgba(184,118,184,0.5);">🎯 MEGA BUNDLE</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(184,118,184,0.3);">AIRBUDS<span style="color:var(--neon);display:block;">+ KEYBOARD</span></div>
             <div class="slide-sub">Wireless audio + clicky keys — the pro player combo at 30% off combined price!</div>
             <div class="slide-save-pill">🎁 YOU SAVE PKR 3,600</div>
             <span class="slide-orig">PKR 12,000</span>
-            <div class="slide-price-tag" style="color:#ffd24a;">PKR 8,400</div>
-            <button class="slide-cta" style="background:var(--gold);color:#000;box-shadow:0 0 30px rgba(255,210,74,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
+            <div class="slide-price-tag" style="color:var(--neon);">PKR 8,400</div>
+            <button class="slide-cta" style="background:var(--gold);color:#fff;box-shadow:0 0 30px rgba(184,118,184,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
           </div>
           <div class="slide-duo">
             <img src="ZorX-TUBA Store/airpods.png" alt="AirBuds" onerror="this.style.display='none'">
@@ -1036,19 +1036,19 @@
         </div>
         <div class="na-card">
           <div class="na-card-img"><img src="ZorX-TUBA Store/airpods.png" alt="AirBuds"></div>
-          <span class="na-badge" style="background:#ff2b6e;">🔥 SALE</span>
+          <span class="na-badge" style="background:var(--neon);">🔥 SALE</span>
           <div class="na-card-name">TubaX AirBuds Pro</div>
           <div class="na-card-desc">ANC · 30hr battery · 10min = 2hr charge</div>
-          <div class="na-card-price" style="color:#ff2b6e;"><s style="color:#555;font-size:13px;">PKR 7,000</s> PKR 5,500</div>
-          <button class="na-btn" style="background:#ff2b6e;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('airbuds')">SHOP NOW →</button>
+          <div class="na-card-price" style="color:var(--neon);"><s style="color:#555;font-size:13px;">PKR 7,000</s> PKR 5,500</div>
+          <button class="na-btn" style="background:var(--neon);" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('airbuds')">SHOP NOW →</button>
         </div>
         <div class="na-card">
           <div class="na-card-img"><img src="ZorX-TUBA Store/mouse.png" alt="Mouse"></div>
-          <span class="na-badge" style="background:#ffd24a;color:#000;">🎯 HOT</span>
+          <span class="na-badge" style="background:var(--neon);color:#fff;">🎯 HOT</span>
           <div class="na-card-name">TubaX Precision Pro</div>
           <div class="na-card-desc">25600 DPI · 6 Buttons · RGB Lighting</div>
-          <div class="na-card-price" style="color:#ffd24a;">PKR 3,500</div>
-          <button class="na-btn" style="background:#ffd24a;color:#000;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('mouse')">SHOP NOW →</button>
+          <div class="na-card-price" style="color:var(--neon);">PKR 3,500</div>
+          <button class="na-btn" style="background:var(--neon);color:#fff;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('mouse')">SHOP NOW →</button>
         </div>
       </div>
     </div>
@@ -1065,16 +1065,16 @@
           <div class="bs-rank">#1</div>
           <div class="bs-img"><img src="ZorX-TUBA Store/keyboard.png" alt="Keyboard"></div>
           <div class="bs-info">
-            <span class="na-badge" style="background:#ffd24a;color:#000;">🔥 BEST SELLER</span>
+            <span class="na-badge" style="background:var(--neon);color:#fff;">🔥 BEST SELLER</span>
             <div class="na-card-name">TubaX Mech Pro</div>
             <div class="na-card-desc">Cherry MX Switches · RGB Per-Key · TKL Layout</div>
             <div class="bs-stars">★★★★★ <span>(128 sold)</span></div>
-            <div class="na-card-price" style="color:#ffd24a;">PKR 6,500</div>
-            <button class="na-btn" style="background:#ffd24a;color:#000;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('keyboard')">ORDER NOW →</button>
+            <div class="na-card-price" style="color:var(--neon);">PKR 6,500</div>
+            <button class="na-btn" style="background:var(--neon);color:#fff;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('keyboard')">ORDER NOW →</button>
           </div>
         </div>
         <div class="bs-card">
-          <div class="bs-rank" style="color:#c0c0c0;">#2</div>
+          <div class="bs-rank" style="color:var(--neon);">#2</div>
           <div class="bs-img"><img src="ZorX-TUBA Store/headphones.png" alt="Headset"></div>
           <div class="bs-info">
             <span class="na-badge">⚡ TOP RATED</span>
@@ -1086,15 +1086,15 @@
           </div>
         </div>
         <div class="bs-card">
-          <div class="bs-rank" style="color:#cd7f32;">#3</div>
+          <div class="bs-rank" style="color:var(--neon);">#3</div>
           <div class="bs-img"><img src="ZorX-TUBA Store/airpods.png" alt="AirBuds"></div>
           <div class="bs-info">
-            <span class="na-badge" style="background:#ff2b6e;">🎵 POPULAR</span>
+            <span class="na-badge" style="background:var(--neon);">🎵 POPULAR</span>
             <div class="na-card-name">TubaX AirBuds Pro</div>
             <div class="na-card-desc">ANC · 30hr Battery · Fast Charge</div>
             <div class="bs-stars">★★★★☆ <span>(76 sold)</span></div>
-            <div class="na-card-price" style="color:#ff2b6e;">PKR 5,500</div>
-            <button class="na-btn" style="background:#ff2b6e;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('airbuds')">ORDER NOW →</button>
+            <div class="na-card-price" style="color:var(--neon);">PKR 5,500</div>
+            <button class="na-btn" style="background:var(--neon);" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('airbuds')">ORDER NOW →</button>
           </div>
         </div>
       </div>
@@ -1318,10 +1318,10 @@
       this.r  = Math.random() * 1.5 + 0.3;
       this.a  = Math.random() * 0.5 + 0.1;
       this.color = Math.random() > 0.7
-        ? 'rgba(0,255,174,'
+        ? 'rgba(184,118,184,'
         : Math.random() > 0.5
           ? 'rgba(184,118,184,'
-          : 'rgba(255,43,110,';
+          : 'rgba(184,118,184,';
     };
     Particle.prototype.update = function() {
       this.x += this.vx;
@@ -1710,7 +1710,7 @@
       border-top: 1px solid rgba(184,118,184,0.1); padding-top: 16px; margin-bottom: 18px;
     }
     .om-total-lbl { color: #7a9a7a; font-size: 11px; letter-spacing: .12em; font-family: monospace; }
-    .om-total-val { color: #ffd24a; font-family: 'Bebas Neue', sans-serif; font-size: 22px; }
+    .om-total-val { color: var(--neon); font-family: 'Bebas Neue', sans-serif; font-size: 22px; }
     .om-submit {
       width: 100%; padding: 14px; background: #b876b8; border: none;
       border-radius: 50px; color: #000; font-family: 'Bebas Neue', sans-serif;
@@ -1782,14 +1782,14 @@
           <textarea id="tsMessage" class="ts-input" rows="5" placeholder="Describe your issue in detail..." style="resize:vertical;"></textarea>
         </div>
         <div id="tsSupportMsg" style="display:none;font-family:'JetBrains Mono',monospace;font-size:12px;padding:10px 14px;border-radius:6px;margin-bottom:14px;"></div>
-        <button type="submit" id="tsSupportBtn" style="padding:16px 32px;background:#b876b8;color:#000;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;border:none;cursor:pointer;width:100%;border-radius:4px;">SEND MESSAGE</button>
+        <button type="submit" id="tsSupportBtn" style="padding:16px 32px;background:#b876b8;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;border:none;cursor:pointer;width:100%;border-radius:4px;">SEND MESSAGE</button>
       </form>
 
       <div id="tubaSupportSuccess" style="display:none;text-align:center;padding:40px 24px;">
         <div style="font-size:52px;margin-bottom:18px;">✅</div>
         <h2 style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:#b876b8;letter-spacing:2px;margin-bottom:10px;">MESSAGE SENT!</h2>
         <p style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#b0c8b0;line-height:1.7;margin-bottom:24px;">We have received your message. We will reply within 24 hours. Thank you!</p>
-        <button onclick="closeTubaSupport()" style="padding:12px 32px;background:#b876b8;color:#000;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;border:none;cursor:pointer;border-radius:4px;">CLOSE</button>
+        <button onclick="closeTubaSupport()" style="padding:12px 32px;background:#b876b8;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;border:none;cursor:pointer;border-radius:4px;">CLOSE</button>
       </div>
     </div>
   </div>
@@ -1866,8 +1866,8 @@
         var msg = document.getElementById('tsSupportMsg');
         msg.textContent = 'Name, email and message are required.';
         msg.style.display = 'block';
-        msg.style.background = 'rgba(255,43,110,0.12)';
-        msg.style.color = '#ff2b6e';
+        msg.style.background = 'rgba(184,118,184,0.12)';
+        msg.style.color = 'var(--neon)';
         return;
       }
 
@@ -1897,8 +1897,8 @@
         var msg = document.getElementById('tsSupportMsg');
         msg.textContent = 'Failed to send. Please try again.';
         msg.style.display = 'block';
-        msg.style.background = 'rgba(255,43,110,0.12)';
-        msg.style.color = '#ff2b6e';
+        msg.style.background = 'rgba(184,118,184,0.12)';
+        msg.style.color = 'var(--neon)';
       });
     });
   </script>
