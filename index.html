@@ -1993,7 +1993,13 @@
     saveCart();
     showToast('✓ ' + prod.name + ' added to cart!');
     if (!document.getElementById('cartDrawer').classList.contains('open')) {
-      setTimeout(toggleCart, 500);
+      setTimeout(function() {
+        var d = document.getElementById('cartDrawer');
+        var o = document.getElementById('cartOverlay');
+        d.classList.add('open');
+        o.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }, 500);
     }
   };
 
