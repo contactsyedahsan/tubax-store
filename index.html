@@ -181,19 +181,28 @@
       transition: all .2s;
     }
     .store-nav-back:hover { color: var(--neon); border-color: var(--neon); }
-    .store-nav-cats {
-      display: flex; align-items: center; gap: 4px;
+    .store-nav-links {
+      display: flex; align-items: center; gap: 32px;
     }
-    .store-nav-cat {
-      font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+    .store-nav-link {
+      font-family: var(--mono); font-size: 11px; letter-spacing: .15em;
       color: #fff; text-decoration: none; cursor: pointer;
-      padding: 6px 14px; border-radius: 50px;
-      border: 1px solid transparent;
-      transition: all .2s;
+      transition: color .2s; text-transform: uppercase;
     }
-    .store-nav-cat:hover { color: var(--neon); border-color: rgba(184,118,184,0.3); }
-    .store-nav-cat.active { color: #000; background: var(--neon); border-color: var(--neon); }
-    @media(max-width:768px) { .store-nav-cats { display: none; } }
+    .store-nav-link:hover { color: var(--neon); text-shadow: 0 0 14px rgba(184,118,184,0.75); }
+    .store-nav-right {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .store-nav-official {
+      font-family: var(--mono); font-size: 11px; color: #fff; letter-spacing: .12em;
+    }
+    .store-nav-avatar {
+      width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(184,118,184,0.3);
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(10,13,10,0.8); box-shadow: 0 0 10px rgba(184,118,184,0.15);
+    }
+    .store-nav-avatar svg { width: 18px; height: 18px; }
+    @media(max-width:768px) { .store-nav-links, .store-nav-official { display: none; } }
 
     /* ═══ PAGE CONTENT ═══ */
     .store-page {
@@ -639,7 +648,6 @@
     .bs-rank { text-shadow: 0 0 14px var(--pg); }
 
     /* active / filled button glow */
-    .store-nav-cat.active,
     .store-cat-btn.active {
       box-shadow: 0 0 14px rgba(184,118,184,0.55), 0 0 28px rgba(184,118,184,0.25);
     }
@@ -843,19 +851,23 @@
         </g>
       </svg>
     </a>
-    <div class="store-nav-cats" id="navCats">
-      <a class="store-nav-cat active" data-cat="all">ALL</a>
-      <a class="store-nav-cat" data-cat="headset">HEADSET</a>
-      <a class="store-nav-cat" data-cat="airbuds">AIRBUDS</a>
-      <a class="store-nav-cat" data-cat="keyboard">KEYBOARD</a>
-      <a class="store-nav-cat" data-cat="mouse">MOUSE</a>
-      <a class="store-nav-cat" data-cat="console">CONSOLE</a>
-      <a class="store-nav-cat" data-cat="mic">MIC</a>
-      <a class="store-nav-cat" data-cat="mousepad">MOUSEPAD</a>
-      <a class="store-nav-cat" data-cat="soundbar">SOUNDBAR</a>
-      <a class="store-nav-cat" data-cat="cooling">COOLING</a>
+    <div class="store-nav-links">
+      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="store-nav-link">HOME</a>
+      <a href="#storeCats" class="store-nav-link">PRODUCTS</a>
+      <a href="#new-arrivals" class="store-nav-link">NEW ARRIVALS</a>
+      <a href="#best-selling" class="store-nav-link">BEST SELLING</a>
     </div>
-    <a href="index.html" class="store-nav-back">&#8592; ZorX Pro</a>
+    <div class="store-nav-right">
+      <span class="store-nav-official">TubaX Official</span>
+      <div class="store-nav-avatar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205 205">
+          <g transform="translate(0, 25)">
+            <polygon fill="#8a53a0" points="196.83 7.75 179.82 43.85 142.99 65.41 142.99 35.37 132.77 35.37 132.77 121.08 102.69 151.15 72.62 121.08 72.62 35.37 62.39 35.37 62.39 65.41 25.56 43.85 8.56 7.75 100.24 7.75 100.24 109.64 102.69 112.1 105.15 109.64 105.15 7.75 196.83 7.75"/>
+            <polygon fill="#b577b2" points="193.07 7.75 177.19 41.45 146.39 59.48 146.39 31.97 129.37 31.97 129.37 119.67 102.69 146.35 76.02 119.67 76.02 31.97 58.99 31.97 58.99 59.48 28.19 41.45 12.32 7.75 100.24 7.75 100.24 109.64 102.69 112.1 105.15 109.64 105.15 7.75 193.07 7.75"/>
+          </g>
+        </svg>
+      </div>
+    </div>
   </nav>
 
   <!-- Store Content -->
@@ -1005,7 +1017,7 @@
     </div>
 
     <!-- NEW ARRIVALS -->
-    <div class="na-section">
+    <div class="na-section" id="new-arrivals">
       <div class="na-header">
         <div class="na-label">// JUST DROPPED</div>
         <h2 class="na-title">NEW <span>ARRIVALS</span></h2>
@@ -1042,7 +1054,7 @@
     </div>
 
     <!-- BEST SELLING -->
-    <div class="bs-section">
+    <div class="bs-section" id="best-selling">
       <div class="na-header">
         <div class="na-label">// CUSTOMER FAVORITES</div>
         <h2 class="na-title">BEST <span>SELLING</span></h2>
@@ -1411,25 +1423,15 @@
     document.querySelectorAll('.store-cat-btn').forEach(function(b){
       b.classList.toggle('active', b.dataset.cat === cat);
     });
-    document.querySelectorAll('.store-nav-cat').forEach(function(a){
-      a.classList.toggle('active', a.dataset.cat === cat);
-    });
     renderGrid(cat);
     document.getElementById('storeCats').scrollIntoView({ behavior:'smooth', block:'center' });
   }
 
-  document.getElementById('navCats').addEventListener('click', function(e){
-    var a = e.target.closest('.store-nav-cat');
-    if (!a) return;
-    filterCat(a.dataset.cat);
-  });
+
 
   document.getElementById('storeCats').addEventListener('click', function(e){
     var btn = e.target.closest('.store-cat-btn');
     if (!btn) return;
-    document.querySelectorAll('.store-nav-cat').forEach(function(a){
-      a.classList.toggle('active', a.dataset.cat === btn.dataset.cat);
-    });
   });
 
   /* Buy Now — handled by order modal below */
