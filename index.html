@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TubaX Store — Gaming Gear</title>
+  <meta name="description" content="Shop the best gaming gear, headsets, handfrees, and airbuds in Pakistan at TubaX Store."/>
+  <meta name="keywords" content="gaming gear, gaming headsets, gaming handfree, airbuds, gaming accessories pakistan, zorx store, tubax store"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TubaX Store — Premium Gaming Gear" />
+  <meta property="og:description" content="Shop the best gaming gear, headsets, handfrees, and airbuds in Pakistan." />
+  <meta property="og:image" content="https://zorx.pro/ZorX%20Logo%20SVG/Fav%20Logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var canvas = document.createElement('canvas');
+      canvas.width = 64; canvas.height = 64;
+      var ctx = canvas.getContext('2d');
+      var link = document.createElement('link');
+      link.rel = 'icon'; link.type = 'image/png';
+      document.head.appendChild(link);
+      var svgStr = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><polygon fill="#b876b8" points="465.59 137.37 394.98 207.98 361.48 241.49 311.55 291.41 303.41 283.26 269.27 249.12 261.62 241.49 295.13 207.98 311.56 191.57 365.73 137.39 365.74 137.37 465.59 137.37"/><polygon fill="#b876b8" points="249.13 269.27 143.78 374.61 128.54 374.57 128.49 374.63 43.91 374.63 149.27 269.27 199.19 219.34 224.27 244.42 241.49 261.62 249.13 269.27"/><polygon fill="#ffffff" points="331.31 137.37 294.34 174.35 260.7 207.98 245 223.69 244.42 224.27 228.3 208.17 228.12 207.98 87.99 207.98 17.38 137.37 331.31 137.37"/><polygon fill="#ffffff" points="494.62 374.63 178.2 374.63 265.32 287.5 266.34 286.49 283.87 304.02 424.01 304.02 494.62 374.63"/></svg>';
+      var blob = new Blob([svgStr], { type: 'image/svg+xml' });
+      var url = URL.createObjectURL(blob);
+      var img = new Image();
+      img.onload = function () {
+        URL.revokeObjectURL(url);
+        var frame = 0;
+        function draw() {
+          frame++;
+          ctx.clearRect(0, 0, 64, 64);
+          ctx.fillStyle = '#0a0d0a';
+          ctx.beginPath();
+          ctx.roundRect(0, 0, 64, 64, 10);
+          ctx.fill();
+          var pulse = Math.sin(frame * 0.07) * 0.5 + 0.5;
+          ctx.shadowColor = '#b876b8';
+          ctx.shadowBlur = 4 + pulse * 14;
+          ctx.drawImage(img, 7, 7, 50, 50);
+          ctx.shadowBlur = 0;
+          link.href = canvas.toDataURL('image/png');
+          requestAnimationFrame(draw);
+        }
+        draw();
+      };
+      img.src = url;
+    })();
+  </script>
+  <style>
+    :root {
+      --neon:    #b876b8;
+      --neon-2:  #00ffae;
+      --magenta: #ff2b6e;
+      --gold:    #ffd24a;
+      --bg:      #0a0d0a;
+      --bg-2:    #0f1410;
+      --bg-3:    #141a14;
+      --ink:     #e8f0e8;
+      --ink-muted: #5a7a5a;
+      --line:    rgba(184,118,184,0.1);
+      --display: 'Bebas Neue', sans-serif;
+      --mono:    'JetBrains Mono', monospace;
+      --body:    'Inter', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ═══ ANIMATED BACKGROUND ═══ */
+    #bgCanvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(184,118,184,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,118,184,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift {
+      from { background-position: 0 0; }
+      to   { background-position: 60px 60px; }
+    }
+    .bg-glow-1 {
+      position: fixed;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,118,184,0.06) 0%, transparent 70%);
+      top: -100px; left: -100px;
+      animation: floatGlow1 12s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+    }
+    .bg-glow-2 {
+      position: fixed;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,174,0.05) 0%, transparent 70%);
+      bottom: -80px; right: -80px;
+      animation: floatGlow2 15s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+    }
+    .bg-glow-3 {
+      position: fixed;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,43,110,0.04) 0%, transparent 70%);
+      top: 40%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: floatGlow3 18s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+    }
+    @keyframes floatGlow1 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(80px, 60px) scale(1.1); }
+      66%      { transform: translate(-40px, 100px) scale(0.9); }
+    }
+    @keyframes floatGlow2 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50%      { transform: translate(-100px, -60px) scale(1.15); }
+    }
+    @keyframes floatGlow3 {
+      0%,100% { transform: translate(-50%,-50%) scale(1); opacity:.6; }
+      50%      { transform: translate(-50%,-50%) scale(1.3); opacity:.3; }
+    }
+
+    /* ═══ SCAN LINE ═══ */
+    .scanline {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(184,118,184,0.4), transparent);
+      animation: scanDown 6s linear infinite;
+      pointer-events: none; z-index: 1;
+    }
+    @keyframes scanDown {
+      from { top: -4px; }
+      to   { top: 100vh; }
+    }
+
+    /* ═══ NAV ═══ */
+    .store-nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      background: rgba(10,13,10,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(184,118,184,0.1);
+    }
+    .store-nav-logo {
+      text-decoration: none;
+      display: flex; align-items: center;
+    }
+    .store-nav-logo svg { height: 36px; width: auto; filter: drop-shadow(0 0 8px rgba(184,118,184,0.5)); transition: filter .25s; }
+    .store-nav-logo:hover svg { filter: drop-shadow(0 0 16px rgba(184,118,184,0.8)); }
+    .store-nav-back {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 11px;
+      color: #fff; text-decoration: none;
+      letter-spacing: .1em;
+      padding: 8px 18px; border: 1px solid rgba(184,118,184,0.2);
+      border-radius: 50px;
+      transition: all .2s;
+    }
+    .store-nav-back:hover { color: var(--neon); border-color: var(--neon); }
+    .store-nav-cats {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .store-nav-cat {
+      font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+      color: #fff; text-decoration: none; cursor: pointer;
+      padding: 6px 14px; border-radius: 50px;
+      border: 1px solid transparent;
+      transition: all .2s;
+    }
+    .store-nav-cat:hover { color: var(--neon); border-color: rgba(184,118,184,0.3); }
+    .store-nav-cat.active { color: #000; background: var(--neon); border-color: var(--neon); }
+    @media(max-width:768px) { .store-nav-cats { display: none; } }
+
+    /* ═══ PAGE CONTENT ═══ */
+    .store-page {
+      position: relative; z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    /* ═══ HERO ═══ */
+    .store-hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .store-hero-label {
+      font-family: var(--mono); font-size: 11px;
+      color: var(--neon); letter-spacing: .3em;
+      margin-bottom: 12px;
+    }
+    .store-hero-logo {
+      display: flex; justify-content: center; align-items: center;
+      margin-bottom: 16px;
+    }
+    .store-hero-sub {
+      font-family: var(--mono); font-size: 13px;
+      color: #fff; letter-spacing: .08em;
+    }
+
+    /* ═══ SLIDER ═══ */
+    .store-slider {
+      position: relative;
+      width: 1080px;
+      max-width: 100%;
+      margin: 0 auto 48px;
+      overflow: hidden;
+      border-radius: 24px;
+      height: 560px; min-height: 480px;
+      border: 1px solid rgba(184,118,184,0.2);
+      box-shadow: 0 0 80px rgba(184,118,184,0.12);
+    }
+    .store-slider-track {
+      display: flex; height: 100%;
+      transition: transform .7s cubic-bezier(.77,0,.175,1);
+    }
+    .store-slide {
+      min-width: 100%; height: 100%;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 0 64px; position: relative; overflow: hidden;
+      gap: 32px;
+    }
+    .slide-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .slide-scanlines {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px);
+    }
+    .slide-glow {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    }
+    .slide-content { position: relative; z-index: 3; flex: 1; max-width: 520px; }
+    .slide-tag {
+      display: inline-block; padding: 8px 22px; border-radius: 50px;
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      letter-spacing: .18em; margin-bottom: 28px;
+    }
+    .slide-title {
+      font-family: var(--display); font-size: 80px; line-height: .95;
+      margin-bottom: 18px; letter-spacing: 2px;
+    }
+    .slide-sub {
+      font-family: var(--mono); font-size: 13px;
+      color: rgba(255,255,255,0.55); max-width: 420px;
+      line-height: 1.9; margin-bottom: 16px;
+    }
+    .slide-price-tag {
+      font-family: var(--display); font-size: 36px;
+      color: #b876b8; letter-spacing: 2px; margin-bottom: 32px;
+    }
+    .slide-cta {
+      display: inline-block; padding: 18px 44px; border-radius: 50px;
+      font-family: var(--mono); font-size: 13px; font-weight: 700;
+      letter-spacing: .14em; cursor: pointer; border: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .slide-cta:hover { transform: scale(1.06); }
+    .slide-product-img {
+      position: relative; z-index: 3; flex-shrink: 0;
+      width: 380px; height: 380px;
+      display: flex; align-items: center; justify-content: center;
+      animation: floatEmoji 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 50px rgba(184,118,184,.3));
+    }
+    .slide-product-img img {
+      width: 100%; height: 100%; object-fit: contain;
+    }
+    @keyframes floatEmoji {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-16px); }
+    }
+    .slider-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      z-index: 10; width: 48px; height: 48px;
+      background: rgba(0,0,0,0.5); border: 1px solid rgba(184,118,184,0.2);
+      color: #fff; font-size: 24px; cursor: pointer; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s; user-select: none;
+    }
+    .slider-arrow:hover { background: rgba(184,118,184,0.15); border-color: var(--neon); color: var(--neon); }
+    .slider-prev { left: 16px; }
+    .slider-next { right: 16px; }
+    .slider-dots {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 10;
+    }
+    .slider-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.25); cursor: pointer;
+      transition: all .3s;
+    }
+    .slider-dot.active { background: var(--neon); transform: scale(1.4); }
+    .slide-bg-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.5;
+      display: none;
+    }
+
+    /* ═══ CATEGORY TABS ═══ */
+    .store-cats {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 36px; justify-content: center;
+    }
+    .store-cat-btn {
+      padding: 10px 26px; border-radius: 50px;
+      border: 1px solid rgba(184,118,184,0.2);
+      background: transparent; color: var(--ink-muted);
+      font-family: var(--mono); font-size: 11px; letter-spacing: .15em;
+      cursor: pointer; transition: all .2s;
+    }
+    .store-cat-btn:hover { border-color: var(--neon); color: var(--neon); background: rgba(184,118,184,0.04); }
+    .store-cat-btn.active {
+      background: var(--neon); border-color: var(--neon);
+      color: #000; font-weight: 700;
+    }
+
+    /* ═══ PRODUCT GRID ═══ */
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+    @keyframes cardDrop {
+      0%   { opacity:0; transform: translateY(-80px) scale(0.92); }
+      60%  { opacity:1; transform: translateY(10px) scale(1.01); }
+      80%  { transform: translateY(-4px) scale(1); }
+      100% { opacity:1; transform: translateY(0) scale(1); }
+    }
+    .store-card {
+      background: rgba(15,20,16,0.8);
+      border: 1px solid rgba(184,118,184,0.1);
+      border-radius: 20px; overflow: hidden;
+      backdrop-filter: blur(10px);
+      transition: transform .3s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .3s;
+      cursor: pointer; position: relative;
+      animation: cardDrop .55s cubic-bezier(.2,.8,.2,1) both;
+    }
+    .store-card::before {
+      content: '';
+      position: absolute; inset: 0; border-radius: 20px; z-index: 0;
+      background: linear-gradient(135deg, rgba(184,118,184,0.06) 0%, transparent 60%);
+      opacity: 0; transition: opacity .3s;
+      pointer-events: none;
+    }
+    .store-card:hover::before { opacity: 1; }
+    .store-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(184,118,184,0.55);
+      box-shadow: 0 20px 60px rgba(184,118,184,0.18), 0 0 0 1px rgba(184,118,184,0.1);
+    }
+    .store-card-img {
+      width: 100%; aspect-ratio: 4/3;
+      min-height: 220px;
+      background: var(--bg-3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 80px; position: relative;
+      overflow: hidden;
+    }
+    .store-card-img::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
+      background: linear-gradient(transparent, rgba(10,13,10,0.8));
+    }
+    .store-card-img::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(120deg, transparent 30%, rgba(184,118,184,0.08) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform .6s ease;
+      pointer-events: none;
+    }
+    .store-card:hover .store-card-img::before { transform: translateX(100%); }
+    .store-card-img img {
+      width: 88%; height: 88%; object-fit: contain;
+      position: absolute; inset: 6%;
+      transition: transform .4s cubic-bezier(.2,.8,.2,1);
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+    }
+    .store-card:hover .store-card-img img { transform: scale(1.07); }
+    .store-card-badge {
+      position: absolute; top: 14px; left: 14px; z-index: 2;
+      padding: 4px 12px; border-radius: 50px;
+      font-family: var(--mono); font-size: 9px; font-weight: 700;
+      letter-spacing: .1em;
+    }
+    .badge-new  { background: var(--neon); color: #000; }
+    .badge-sale { background: var(--magenta); color: #fff; }
+    .badge-hot  { background: var(--gold); color: #000; }
+    .store-card-body { padding: 18px; position: relative; z-index: 2; }
+    .store-card-cat {
+      font-family: var(--mono); font-size: 9px;
+      color: var(--neon); letter-spacing: .18em; margin-bottom: 5px;
+    }
+    .store-card-name {
+      font-family: var(--display); font-size: 22px;
+      letter-spacing: 1px; margin-bottom: 5px; line-height: 1.1;
+    }
+    .store-card-desc {
+      font-family: var(--mono); font-size: 10px;
+      color: var(--ink-muted); margin-bottom: 16px; line-height: 1.6;
+    }
+    .store-card-footer {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .store-card-price {
+      font-family: var(--display); font-size: 24px;
+      color: var(--neon); letter-spacing: 1px;
+    }
+    .old-price {
+      font-size: 12px; color: var(--ink-muted);
+      text-decoration: line-through; font-family: var(--mono);
+      display: block; line-height: 1; margin-bottom: 2px;
+    }
+    .store-card-btns { display: flex; align-items: center; gap: 8px; }
+    .store-wa-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: #25D366; color: #fff; flex-shrink: 0;
+      transition: background .2s, box-shadow .2s; text-decoration: none;
+    }
+    .store-wa-btn:hover { background: #1ebe5d; box-shadow: 0 4px 14px rgba(37,211,102,0.4); }
+    .store-wa-btn:active { transform: scale(0.93); }
+    .store-buy-btn {
+      padding: 10px 18px; border-radius: 50px;
+      background: var(--neon); border: none; color: #000;
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      letter-spacing: .1em; cursor: pointer; white-space: nowrap;
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .store-buy-btn:hover { background: #d4ff6a; box-shadow: 0 4px 16px rgba(184,118,184,0.3); }
+    .store-buy-btn:active { transform: scale(0.95); }
+
+    /* ═══ TOAST ═══ */
+    #storeToast {
+      position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px);
+      z-index: 999;
+      background: rgba(15,20,16,0.95); border: 1px solid rgba(184,118,184,0.3);
+      color: var(--ink); padding: 14px 24px; border-radius: 50px;
+      font-family: var(--mono); font-size: 12px; letter-spacing: .05em;
+      backdrop-filter: blur(20px);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+      white-space: nowrap;
+    }
+    #storeToast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ═══ NEW ARRIVALS ═══ */
+    .na-section { margin-bottom: 56px; }
+    .na-header { text-align: center; margin-bottom: 32px; }
+    .na-label { font-family: var(--mono); font-size: 11px; color: var(--neon); letter-spacing: .2em; margin-bottom: 10px; }
+    .na-title { font-family: var(--display); font-size: 52px; color: #fff; letter-spacing: 2px; line-height: 1; margin-bottom: 10px; }
+    .na-title span { color: var(--neon); }
+    .na-sub { font-family: var(--mono); font-size: 12px; color: var(--ink-muted); }
+    .na-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 18px; align-items: start; }
+    .na-card {
+      background: rgba(15,20,16,0.85); border: 1px solid rgba(184,118,184,0.12);
+      border-radius: 18px; overflow: hidden; padding: 20px; position: relative;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+    .na-card:hover { transform: translateY(-6px); border-color: rgba(184,118,184,0.4); box-shadow: 0 16px 40px rgba(184,118,184,0.1); }
+    .na-card-wide { display: flex; gap: 24px; align-items: center; padding: 28px; }
+    .na-card-img { flex-shrink: 0; width: 190px; height: 190px; display: flex; align-items: center; justify-content: center; }
+    .na-card-wide .na-card-img { width: 230px; height: 230px; }
+    .na-card-img img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 20px rgba(184,118,184,0.2)); }
+    .na-badge { display: inline-block; padding: 4px 12px; border-radius: 50px; font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .12em; background: var(--neon); color: #000; margin-bottom: 10px; }
+    .na-card-name { font-family: var(--display); font-size: 22px; color: #fff; letter-spacing: 1px; margin-bottom: 6px; }
+    .na-card-desc { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 14px; }
+    .na-card-price { font-family: var(--display); font-size: 24px; color: var(--neon); margin-bottom: 16px; }
+    .na-btn { padding: 10px 22px; border-radius: 50px; border: none; cursor: pointer; background: var(--neon); color: #000; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .1em; transition: transform .2s, box-shadow .2s; }
+    .na-btn:hover { transform: scale(1.04); box-shadow: 0 4px 16px rgba(184,118,184,0.3); }
+    @media(max-width:768px) { .na-grid { grid-template-columns: 1fr; } .na-card-wide { flex-direction: column; } }
+
+    /* ═══ BEST SELLING ═══ */
+    .bs-section { margin-bottom: 56px; }
+    .bs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .bs-card {
+      background: rgba(15,20,16,0.85); border: 1px solid rgba(184,118,184,0.12);
+      border-radius: 18px; padding: 24px; position: relative;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+    .bs-card:hover { transform: translateY(-8px); border-color: rgba(184,118,184,0.45); box-shadow: 0 20px 50px rgba(184,118,184,0.12); }
+    .bs-rank { font-family: var(--display); font-size: 48px; color: #ffd24a; line-height: 1; margin-bottom: 10px; }
+    .bs-img { width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .bs-img img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 24px rgba(184,118,184,0.25)); }
+    .bs-info { width: 100%; }
+    .bs-stars { font-size: 14px; color: #ffd24a; margin-bottom: 8px; }
+    .bs-stars span { color: var(--ink-muted); font-size: 11px; font-family: var(--mono); }
+    @media(max-width:768px) { .bs-grid { grid-template-columns: 1fr; } }
+
+    /* ── Bundle deal slide additions ── */
+    .slide-duo {
+      position: relative; z-index: 3; flex-shrink: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      width: 560px;
+      animation: floatEmoji 5s ease-in-out infinite;
+    }
+    .slide-duo img {
+      width: 270px; height: 270px; object-fit: contain;
+      filter: drop-shadow(0 0 50px rgba(184,118,184,.3));
+      transition: transform .3s;
+    }
+    .slide-duo img:hover { transform: scale(1.07); }
+    .slide-save-pill {
+      display: inline-block; padding: 4px 14px; border-radius: 50px;
+      background: rgba(255,43,110,0.15); border: 1px solid rgba(255,43,110,0.45);
+      color: #ff2b6e; font-family: var(--mono); font-size: 10px;
+      letter-spacing: .12em; font-weight: 700; margin-bottom: 8px;
+    }
+    .slide-orig {
+      font-family: var(--mono); font-size: 12px; letter-spacing: .06em;
+      color: rgba(255,255,255,0.32); text-decoration: line-through;
+      display: block; margin-bottom: 2px;
+    }
+
+    /* ═══ REVIEWS ═══ */
+    .rv-section { margin-bottom: 56px; }
+    .rv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .rv-card {
+      background: rgba(15,20,16,0.85);
+      border: 1px solid rgba(184,118,184,0.12);
+      border-radius: 18px; padding: 26px 24px; position: relative;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+    .rv-card:hover { transform: translateY(-6px); border-color: rgba(184,118,184,0.4); box-shadow: 0 16px 40px rgba(184,118,184,0.1); }
+    .rv-quote {
+      position: absolute; top: 16px; right: 20px;
+      font-size: 52px; color: rgba(184,118,184,0.07);
+      font-family: Georgia, serif; line-height: 1; user-select: none;
+    }
+    .rv-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .rv-avatar {
+      width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(184,118,184,0.25), rgba(184,118,184,0.05));
+      border: 1px solid rgba(184,118,184,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--display); font-size: 22px; color: var(--neon);
+    }
+    .rv-meta { flex: 1; }
+    .rv-name { font-family: var(--display); font-size: 18px; color: #fff; letter-spacing: 1px; line-height: 1.1; }
+    .rv-product { font-family: var(--mono); font-size: 9px; color: var(--neon); letter-spacing: .14em; margin-top: 3px; }
+    .rv-stars { font-size: 13px; color: #ffd24a; margin-bottom: 12px; }
+    .rv-stars span { color: rgba(255,255,255,0.2); }
+    .rv-text {
+      font-family: var(--mono); font-size: 11px;
+      color: var(--ink-muted); line-height: 1.75;
+    }
+    .rv-verified {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 14px; font-family: var(--mono); font-size: 9px;
+      color: #00ffae; letter-spacing: .1em;
+    }
+    @media(max-width:768px) { .rv-grid { grid-template-columns: 1fr; } }
+
+    /* ═══ SOCIALS ═══ */
+    .sc-section { margin-bottom: 56px; }
+    .sc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .sc-card {
+      background: rgba(15,20,16,0.85);
+      border: 1px solid rgba(184,118,184,0.1);
+      border-radius: 20px; padding: 36px 20px 28px;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      text-decoration: none; position: relative; overflow: hidden;
+      transition: transform .25s, border-color .3s, box-shadow .3s;
+    }
+    .sc-card::before {
+      content: ''; position: absolute; inset: 0; opacity: 0;
+      transition: opacity .3s; pointer-events: none;
+    }
+    .sc-card.ig::before  { background: radial-gradient(circle at 50% 0%, rgba(221,42,123,0.18) 0%, transparent 70%); }
+    .sc-card.fb::before  { background: radial-gradient(circle at 50% 0%, rgba(24,119,242,0.18) 0%, transparent 70%); }
+    .sc-card.tt::before  { background: radial-gradient(circle at 50% 0%, rgba(254,44,85,0.18) 0%, transparent 70%); }
+    .sc-card.yt::before  { background: radial-gradient(circle at 50% 0%, rgba(255,0,0,0.18) 0%, transparent 70%); }
+    .sc-card:hover::before { opacity: 1; }
+    .sc-card.ig:hover { border-color: #DD2A7B; box-shadow: 0 16px 40px rgba(221,42,123,0.2); transform: translateY(-8px); }
+    .sc-card.fb:hover { border-color: #1877F2; box-shadow: 0 16px 40px rgba(24,119,242,0.2); transform: translateY(-8px); }
+    .sc-card.tt:hover { border-color: #FE2C55; box-shadow: 0 16px 40px rgba(254,44,85,0.2); transform: translateY(-8px); }
+    .sc-card.yt:hover { border-color: #FF0000; box-shadow: 0 16px 40px rgba(255,0,0,0.2); transform: translateY(-8px); }
+    .sc-icon {
+      width: 64px; height: 64px; border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 6px;
+    }
+    .sc-card.ig .sc-icon { background: linear-gradient(135deg,#F58529,#DD2A7B,#8134AF); }
+    .sc-card.fb .sc-icon { background: #1877F2; }
+    .sc-card.tt .sc-icon { background: #010101; border: 1px solid rgba(254,44,85,0.4); }
+    .sc-card.yt .sc-icon { background: #FF0000; }
+    .sc-platform { font-family: var(--display); font-size: 22px; color: #fff; letter-spacing: 2px; }
+    .sc-handle { font-family: var(--mono); font-size: 10px; color: var(--ink-muted); letter-spacing: .1em; }
+    .sc-btn {
+      margin-top: 8px; padding: 9px 24px; border-radius: 50px;
+      font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .12em;
+      border: none; cursor: pointer; transition: transform .15s, box-shadow .2s;
+    }
+    .sc-card.ig .sc-btn { background: linear-gradient(135deg,#F58529,#DD2A7B); color: #fff; }
+    .sc-card.fb .sc-btn { background: #1877F2; color: #fff; }
+    .sc-card.tt .sc-btn { background: #FE2C55; color: #fff; }
+    .sc-card.yt .sc-btn { background: #FF0000; color: #fff; }
+    .sc-btn:hover { transform: scale(1.06); box-shadow: 0 4px 14px rgba(0,0,0,0.3); }
+    @media(max-width:768px) { .sc-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:480px) { .sc-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .sc-card { padding: 24px 14px 20px; } }
+
+    /* ═══ PURPLE GLOW ═══ */
+    :root { --pg: rgba(184,118,184,0.75); }
+
+    /* text glow */
+    .store-nav-logo span,
+    .na-label, .na-title span,
+    .store-card-cat, .store-card-name,
+    .store-card-price,
+    .rv-product, .rv-name,
+    .slide-tag,
+    .bs-rank { text-shadow: 0 0 14px var(--pg); }
+
+    /* active / filled button glow */
+    .store-nav-cat.active,
+    .store-cat-btn.active {
+      box-shadow: 0 0 14px rgba(184,118,184,0.55), 0 0 28px rgba(184,118,184,0.25);
+    }
+
+    /* buy button glow */
+    .store-buy-btn {
+      box-shadow: 0 0 12px rgba(184,118,184,0.45);
+    }
+    .store-buy-btn:hover {
+      box-shadow: 0 0 22px rgba(184,118,184,0.7), 0 4px 20px rgba(184,118,184,0.35) !important;
+    }
+
+    /* NEW badge glow */
+    .badge-new {
+      box-shadow: 0 0 10px rgba(184,118,184,0.6), 0 0 20px rgba(184,118,184,0.3);
+    }
+
+    /* slider dot active glow */
+    .slider-dot.active {
+      box-shadow: 0 0 8px rgba(184,118,184,0.8), 0 0 16px rgba(184,118,184,0.4);
+    }
+
+    /* slider cta button glow */
+    .slide-cta {
+      box-shadow: 0 0 20px rgba(184,118,184,0.55), 0 0 40px rgba(184,118,184,0.25) !important;
+    }
+
+    /* new arrivals / best selling order button */
+    .na-btn {
+      box-shadow: 0 0 10px rgba(184,118,184,0.45);
+    }
+
+    /* whatsapp button glow */
+    .store-wa-btn {
+      box-shadow: 0 0 10px rgba(184,118,184,0.35);
+    }
+
+    /* nav back button hover glow */
+    .store-nav-back:hover {
+      box-shadow: 0 0 12px rgba(184,118,184,0.35);
+    }
+
+    /* ═══ FOOTER ═══ */
+    .store-footer {
+      position: relative; z-index: 2;
+      text-align: center; padding: 32px 24px;
+      border-top: 1px solid rgba(184,118,184,0.07);
+      font-family: var(--mono); font-size: 10px;
+      color: var(--ink-muted); letter-spacing: .1em;
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:768px) {
+
+      /* ── NAV ── */
+      .store-nav { padding: 0 16px; height: 56px; }
+      .store-nav-logo svg { height: 28px; }
+      .store-nav-back { font-size: 10px; padding: 7px 14px; }
+
+      /* ── PAGE ── */
+      .store-page { padding: 28px 14px 100px; }
+
+      /* ── HERO ── */
+      .store-hero { margin-bottom: 28px; }
+      .store-hero-logo svg { max-width: 280px; }
+      .store-hero-sub { font-size: 12px; }
+
+      /* ── SLIDER ── */
+      .store-slider { height: 72vw; min-height: 260px; max-height: 400px; }
+      .store-slide { padding: 22px 18px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 0; }
+      .slide-title { font-size: 36px; line-height: 1; }
+      .slide-sub { font-size: 10px; max-width: 55vw; margin-bottom: 10px; }
+      .slide-save-pill { font-size: 9px; }
+      .slide-orig { font-size: 10px; }
+      .slide-price-tag { font-size: 26px; }
+      .slide-cta { padding: 10px 20px; font-size: 12px; min-height: 44px; }
+      .slide-duo { width: 140px; gap: 6px; position: absolute; right: 6px; bottom: 40px; opacity: 0.65; }
+      .slide-duo img { width: 64px; height: 64px; }
+      .slide-product-img { width: 150px; height: 150px; position: absolute; right: 10px; bottom: 40px; opacity: 0.65; }
+      .slider-arrow { width: 36px; height: 36px; font-size: 16px; }
+      .slider-dots { bottom: 10px; }
+
+      /* ── CATEGORY FILTER ── */
+      .store-cats {
+        flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start;
+        gap: 8px; padding-bottom: 8px; margin-bottom: 24px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .store-cats::-webkit-scrollbar { display: none; }
+      .store-cat-btn { flex-shrink: 0; padding: 9px 18px; font-size: 10px; min-height: 40px; }
+
+      /* ── PRODUCT GRID ── */
+      .store-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .store-card-img { min-height: 150px; }
+      .store-card-body { padding: 12px; }
+      .store-card-name { font-size: 15px; }
+      .store-card-desc { font-size: 10px; }
+      .store-card-price { font-size: 18px; }
+      .store-buy-btn { padding: 9px 14px; font-size: 11px; min-height: 40px; }
+      .store-wa-btn { width: 40px; height: 40px; min-width: 40px; }
+
+      /* ── SECTION HEADERS ── */
+      .na-title { font-size: 36px; }
+      .na-label { font-size: 10px; }
+      .na-sub { font-size: 12px; }
+      .na-header { margin-bottom: 20px; }
+
+      /* ── NEW ARRIVALS ── */
+      .na-grid { grid-template-columns: 1fr !important; }
+      .na-card-wide { flex-direction: column; align-items: center; text-align: center; padding: 20px 16px; gap: 14px; }
+      .na-card-img { width: 140px !important; height: 140px !important; }
+      .na-card-wide .na-card-img { width: 160px !important; height: 160px !important; }
+      .na-card-name { font-size: 20px; }
+      .na-btn { min-height: 44px; width: 100%; }
+
+      /* ── BEST SELLING ── */
+      .bs-grid { grid-template-columns: 1fr !important; }
+      .bs-card { padding: 18px 16px; gap: 14px; }
+      .bs-img { width: 80px; height: 80px; }
+      .bs-rank { font-size: 32px; }
+      .bs-name { font-size: 20px; }
+      .bs-price { font-size: 22px; }
+      .bs-btn { min-height: 44px; }
+
+      /* ── REVIEWS ── */
+      .rv-grid { grid-template-columns: 1fr !important; }
+      .rv-card { padding: 20px 16px; }
+
+      /* ── SOCIAL ── */
+      .sc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .sc-card { padding: 24px 14px 20px; }
+      .sc-icon { width: 52px; height: 52px; border-radius: 14px; }
+      .sc-platform { font-size: 18px; }
+      .sc-btn { padding: 8px 18px; min-height: 40px; }
+
+      /* ── SUPPORT FAB ── */
+      #tubaSupportFab {
+        bottom: 20px; right: 20px;
+        padding: 14px; border-radius: 50%;
+        background: #1a0d1a;
+        border: 2px solid #b876b8;
+        box-shadow: 0 0 18px rgba(184,118,184,0.6), 0 4px 20px rgba(0,0,0,0.7);
+        z-index: 9999;
+      }
+      #tubaSupportFab span { display: none; }
+      #tubaSupportFab svg { width: 22px; height: 22px; }
+      .ts-box { padding: 32px 20px 28px; border-radius: 14px; }
+
+      /* ── FOOTER ── */
+      .store-footer { font-size: 9px; padding: 20px 16px; }
+    }
+
+    @media(max-width:400px) {
+      .store-grid { grid-template-columns: 1fr; }
+      .slide-duo { display: none; }
+      .slide-product-img { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated BG layers -->
+  <canvas id="bgCanvas"></canvas>
+  <div class="bg-grid"></div>
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+  <div class="bg-glow-3"></div>
+  <div class="scanline"></div>
+
+  <!-- Nav -->
+  <nav class="store-nav">
+    <a href="" onclick="location.reload();return false;" class="store-nav-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 643.5 164">
+        <defs>
+          <style>.nl-1{fill:#b577b3}.nl-2{fill:#fff}.nl-3{fill:url(#nl-g3)}.nl-4{fill:url(#nl-g2);filter:url(#nl-ds)}.nl-5{fill:url(#nl-g1)}</style>
+          <linearGradient id="nl-g1" x1="102.69" y1="-36.53" x2="102.69" y2="151.74" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#b577b2"/><stop offset="1" stop-color="#8a52a0"/></linearGradient>
+          <linearGradient id="nl-g2" x1="104.16" y1="127.47" x2="102.97" y2="30.66" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#b477b1"/><stop offset="1" stop-color="#8a53a0"/></linearGradient>
+          <filter id="nl-ds" x="0" y="0" width="206" height="164" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="5"/><feGaussianBlur result="blur" stdDeviation="4"/><feFlood flood-color="#000" flood-opacity=".5"/><feComposite in2="blur" operator="in"/><feComposite in="SourceGraphic"/></filter>
+          <linearGradient id="nl-g3" x1="549.66" y1="65.61" x2="643.5" y2="65.61" xlink:href="#nl-g2"/>
+        </defs>
+        <g>
+          <g>
+            <polygon class="nl-5" points="196.83 7.75 179.82 43.85 142.99 65.41 142.99 35.37 132.77 35.37 132.77 121.08 102.69 151.15 72.62 121.08 72.62 35.37 62.39 35.37 62.39 65.41 25.56 43.85 8.56 7.75 100.24 7.75 100.24 109.64 102.69 112.1 105.15 109.64 105.15 7.75 196.83 7.75"/>
+            <polygon class="nl-4" points="193.07 7.75 177.19 41.45 146.39 59.48 146.39 31.97 129.37 31.97 129.37 119.67 102.69 146.35 76.02 119.67 76.02 31.97 58.99 31.97 58.99 59.48 28.19 41.45 12.32 7.75 100.24 7.75 100.24 109.64 102.69 112.1 105.15 109.64 105.15 7.75 193.07 7.75"/>
+          </g>
+          <g>
+            <path class="nl-1" d="M485.15,114.37c41.24-1,82.95-1.01,124.2,0-41.24,1.01-82.95,1-124.2,0h0Z"/>
+            <path class="nl-1" d="M259.6,114.37c41.24-1,82.95-1.01,124.19,0-41.24,1.01-82.95,1-124.19,0h0Z"/>
+            <path class="nl-2" d="M303.45,37.44l-13.98,14.66h-20.05l-7.41,41.7h-17.44l7.33-41.7h-26.45l13.98-14.66h64.02Z"/>
+            <path class="nl-2" d="M376.23,69.19c-3.03,17.02-16.09,25.52-39.59,25.52s-34.87-6.74-34.87-20.22c0-1.68.17-3.45.51-5.31l5.64-31.76h17.44l-5.73,31.76c-.17,1.18-.25,2.19-.25,3.12,0,5.9,4.38,7.92,19.79,7.92,13.48,0,18.11-3.12,19.54-11.03l5.64-31.76h17.52l-5.64,31.76Z"/>
+            <path class="nl-2" d="M457.43,75.09c0,9.18-4.63,18.7-26.11,18.7h-49.53l6.07-34.28h49.87c2.86,0,5.56-1.1,5.56-4.46,0-2.19-2.11-2.95-4.3-2.95h-49.87l14.49-14.66h37.32c12.13,0,19.54,4.55,19.54,13.22,0,8.09-5.14,12.55-10.02,14.15,4.04,1.18,6.99,4.8,6.99,10.28ZM403.18,71.55l-1.35,7.75h32.09c4.3,0,6.23-1.68,6.23-4.55,0-2.11-1.52-3.2-4.89-3.2h-32.09Z"/>
+            <path class="nl-2" d="M481.77,93.79l13.14-14.49h14.07c3.45,0,7.33,0,10.02.17-1.18-2.02-2.95-5.48-4.3-8.17l-7.5-14.91-33.02,37.4h-20.64l45.15-50.96c2.95-3.29,6.91-6.32,12.38-6.32s8.17,2.78,10.02,6.32l26.2,50.96h-65.53Z"/>
+            <path class="nl-3" d="M643.5,37.44l-20.64,16.26c-9.1,7.08-12.13,9.35-14.4,10.95,1.68,1.35,6.15,6.4,11.37,12.21l15.08,16.93h-24.6l-15.92-18.62-23.08,18.62h-21.65l21.31-16.93c10.02-7.92,12.8-9.94,15.16-11.54-1.77-1.52-3.62-3.45-11.03-11.71l-14.32-16.17h24.09l14.83,17.52,21.23-17.52h22.57Z"/>
+            <path class="nl-2" d="M404.42,122.39c-1.05,0-1.96-.11-2.74-.33-.78-.22-1.44-.54-1.97-.95-.53-.41-.94-.9-1.22-1.48-.28-.58-.45-1.23-.5-1.96h1.12c.11.7.32,1.28.64,1.74.31.46.69.83,1.15,1.1s.98.47,1.56.58c.58.11,1.21.17,1.87.17s1.31-.07,1.86-.22c.55-.15,1.02-.36,1.41-.64.39-.28.69-.61.9-1s.31-.83.31-1.32c0-.52-.09-.95-.27-1.31-.18-.35-.48-.66-.9-.93-.42-.26-.98-.5-1.67-.71-.69-.21-1.55-.42-2.58-.64-.85-.19-1.58-.41-2.18-.65-.61-.24-1.11-.53-1.51-.85s-.69-.7-.88-1.12-.28-.91-.28-1.46c0-.6.13-1.15.38-1.65.25-.5.61-.93,1.08-1.29.47-.36,1.03-.64,1.68-.83.65-.2,1.38-.3,2.17-.3s1.52.09,2.18.28c.66.18,1.24.45,1.73.8.5.35.9.77,1.2,1.27.31.5.5,1.06.59,1.7h-1.09c-.1-.41-.27-.8-.51-1.16-.24-.36-.54-.67-.91-.93-.37-.26-.81-.46-1.33-.61-.51-.15-1.1-.22-1.76-.22-1.39,0-2.43.25-3.14.76-.71.51-1.07,1.21-1.07,2.09,0,.41.07.76.2,1.06.13.3.36.57.67.81.32.24.73.45,1.25.64.52.18,1.16.36,1.94.52.45.09.92.19,1.4.3.48.1.95.23,1.41.37.46.14.89.32,1.31.52s.78.46,1.08.76c.31.3.55.66.74,1.08s.28.92.28,1.49c0,.66-.14,1.26-.42,1.82-.28.55-.66,1.03-1.16,1.43-.5.4-1.08.71-1.77.93-.68.22-1.42.33-2.23.33Z"/>
+            <path class="nl-2" d="M424.03,107.77h-5.41v14.34h-1.13v-14.34h-5.36v-1.13h11.9v1.13Z"/>
+            <path class="nl-2" d="M433.36,106.35c1.06,0,2.03.19,2.93.57.89.38,1.66.91,2.31,1.61.65.7,1.15,1.54,1.51,2.52.36.98.54,2.07.54,3.28s-.18,2.29-.54,3.28c-.36.99-.86,1.84-1.5,2.55s-1.41,1.26-2.3,1.65c-.89.39-1.87.59-2.95.59s-2.06-.2-2.95-.59-1.67-.94-2.31-1.65-1.15-1.55-1.5-2.54c-.36-.99-.54-2.09-.54-3.29s.18-2.31.54-3.29c.36-.98.87-1.82,1.52-2.51.65-.69,1.42-1.23,2.31-1.6.89-.38,1.87-.57,2.93-.57ZM433.35,121.26c.89,0,1.7-.15,2.45-.46.75-.31,1.4-.76,1.94-1.35.55-.59.97-1.32,1.27-2.18.3-.86.45-1.84.45-2.95s-.15-2.09-.46-2.94c-.31-.85-.73-1.56-1.27-2.14-.54-.58-1.18-1.02-1.92-1.31s-1.55-.45-2.42-.45-1.72.15-2.47.45c-.75.3-1.4.74-1.94,1.32-.55.58-.97,1.29-1.28,2.14-.31.85-.46,1.82-.46,2.93s.15,2.08.45,2.95c.3.86.72,1.59,1.26,2.18.54.59,1.19,1.04,1.94,1.35.75.31,1.57.46,2.45.46Z"/>
+            <path class="nl-2" d="M456.32,122.11h-1.24l-1.54-4.11c-.15-.4-.32-.77-.5-1.12-.18-.35-.4-.65-.64-.91-.25-.26-.53-.46-.84-.61-.32-.15-.69-.23-1.11-.23h-5.41v6.98h-1.13v-15.47h6.97c.65,0,1.28.06,1.89.18.61.12,1.15.33,1.63.63s.85.72,1.14,1.25c.28.53.42,1.21.42,2.04,0,.52-.06,1-.19,1.45-.13.45-.32.85-.58,1.2-.26.35-.59.65-.99.9-.4.25-.87.43-1.41.54.29.23.53.44.72.65s.35.43.49.66c.14.24.26.49.37.78.11.28.23.61.37.97l1.6,4.21ZM445.03,114h5.37c.76,0,1.42-.06,1.96-.17.55-.11,1-.3,1.35-.56.35-.26.61-.6.78-1.01s.25-.92.25-1.53c0-1.06-.34-1.83-1.01-2.28-.67-.46-1.68-.69-3.02-.69h-5.7v6.23Z"/>
+            <path class="nl-2" d="M470.96,122.11h-11.18v-15.47h10.8v1.13h-9.67v5.72h9.06v1.13h-9.06v6.36h10.05v1.13Z"/>
+          </g>
+        </g>
+      </svg>
+    </a>
+    <div class="store-nav-cats" id="navCats">
+      <a class="store-nav-cat active" data-cat="all">ALL</a>
+      <a class="store-nav-cat" data-cat="headset">HEADSET</a>
+      <a class="store-nav-cat" data-cat="airbuds">AIRBUDS</a>
+      <a class="store-nav-cat" data-cat="keyboard">KEYBOARD</a>
+      <a class="store-nav-cat" data-cat="mouse">MOUSE</a>
+      <a class="store-nav-cat" data-cat="console">CONSOLE</a>
+      <a class="store-nav-cat" data-cat="mic">MIC</a>
+      <a class="store-nav-cat" data-cat="mousepad">MOUSEPAD</a>
+      <a class="store-nav-cat" data-cat="soundbar">SOUNDBAR</a>
+      <a class="store-nav-cat" data-cat="cooling">COOLING</a>
+    </div>
+    <a href="index.html" class="store-nav-back">&#8592; ZorX Pro</a>
+  </nav>
+
+  <!-- Store Content -->
+  <div class="store-page">
+
+    <!-- Hero -->
+    <div class="store-hero">
+      <div class="store-hero-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 643.5 164" style="width:100%;max-width:520px;height:auto;filter:drop-shadow(0 0 28px rgba(184,118,184,0.55));">
+          <defs>
+            <style>.sh-1{fill:#b577b3}.sh-2{fill:#fff}.sh-3{fill:url(#sh-g3)}.sh-4{fill:url(#sh-g2);filter:url(#sh-ds)}.sh-5{fill:url(#sh-g1)}</style>
+            <linearGradient id="sh-g1" x1="102.69" y1="-36.53" x2="102.69" y2="151.74" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#b577b2"/><stop offset="1" stop-color="#8a52a0"/></linearGradient>
+            <linearGradient id="sh-g2" x1="104.16" y1="127.47" x2="102.97" y2="30.66" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#b477b1"/><stop offset="1" stop-color="#8a53a0"/></linearGradient>
+            <filter id="sh-ds" x="0" y="0" width="206" height="164" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="5"/><feGaussianBlur result="blur" stdDeviation="4"/><feFlood flood-color="#000" flood-opacity=".5"/><feComposite in2="blur" operator="in"/><feComposite in="SourceGraphic"/></filter>
+            <linearGradient id="sh-g3" x1="549.66" y1="65.61" x2="643.5" y2="65.61" xlink:href="#sh-g2"/>
+          </defs>
+          <g>
+            <g>
+              <polygon class="sh-5" points="196.83 7.75 179.82 43.85 142.99 65.41 142.99 35.37 132.77 35.37 132.77 121.08 102.69 151.15 72.62 121.08 72.62 35.37 62.39 35.37 62.39 65.41 25.56 43.85 8.56 7.75 100.24 7.75 100.24 109.64 102.69 112.1 105.15 109.64 105.15 7.75 196.83 7.75"/>
+              <polygon class="sh-4" points="193.07 7.75 177.19 41.45 146.39 59.48 146.39 31.97 129.37 31.97 129.37 119.67 102.69 146.35 76.02 119.67 76.02 31.97 58.99 31.97 58.99 59.48 28.19 41.45 12.32 7.75 100.24 7.75 100.24 109.64 102.69 112.1 105.15 109.64 105.15 7.75 193.07 7.75"/>
+            </g>
+            <g>
+              <path class="sh-1" d="M485.15,114.37c41.24-1,82.95-1.01,124.2,0-41.24,1.01-82.95,1-124.2,0h0Z"/>
+              <path class="sh-1" d="M259.6,114.37c41.24-1,82.95-1.01,124.19,0-41.24,1.01-82.95,1-124.19,0h0Z"/>
+              <path class="sh-2" d="M303.45,37.44l-13.98,14.66h-20.05l-7.41,41.7h-17.44l7.33-41.7h-26.45l13.98-14.66h64.02Z"/>
+              <path class="sh-2" d="M376.23,69.19c-3.03,17.02-16.09,25.52-39.59,25.52s-34.87-6.74-34.87-20.22c0-1.68.17-3.45.51-5.31l5.64-31.76h17.44l-5.73,31.76c-.17,1.18-.25,2.19-.25,3.12,0,5.9,4.38,7.92,19.79,7.92,13.48,0,18.11-3.12,19.54-11.03l5.64-31.76h17.52l-5.64,31.76Z"/>
+              <path class="sh-2" d="M457.43,75.09c0,9.18-4.63,18.7-26.11,18.7h-49.53l6.07-34.28h49.87c2.86,0,5.56-1.1,5.56-4.46,0-2.19-2.11-2.95-4.3-2.95h-49.87l14.49-14.66h37.32c12.13,0,19.54,4.55,19.54,13.22,0,8.09-5.14,12.55-10.02,14.15,4.04,1.18,6.99,4.8,6.99,10.28ZM403.18,71.55l-1.35,7.75h32.09c4.3,0,6.23-1.68,6.23-4.55,0-2.11-1.52-3.2-4.89-3.2h-32.09Z"/>
+              <path class="sh-2" d="M481.77,93.79l13.14-14.49h14.07c3.45,0,7.33,0,10.02.17-1.18-2.02-2.95-5.48-4.3-8.17l-7.5-14.91-33.02,37.4h-20.64l45.15-50.96c2.95-3.29,6.91-6.32,12.38-6.32s8.17,2.78,10.02,6.32l26.2,50.96h-65.53Z"/>
+              <path class="sh-3" d="M643.5,37.44l-20.64,16.26c-9.1,7.08-12.13,9.35-14.4,10.95,1.68,1.35,6.15,6.4,11.37,12.21l15.08,16.93h-24.6l-15.92-18.62-23.08,18.62h-21.65l21.31-16.93c10.02-7.92,12.8-9.94,15.16-11.54-1.77-1.52-3.62-3.45-11.03-11.71l-14.32-16.17h24.09l14.83,17.52,21.23-17.52h22.57Z"/>
+              <path class="sh-2" d="M404.42,122.39c-1.05,0-1.96-.11-2.74-.33-.78-.22-1.44-.54-1.97-.95-.53-.41-.94-.9-1.22-1.48-.28-.58-.45-1.23-.5-1.96h1.12c.11.7.32,1.28.64,1.74.31.46.69.83,1.15,1.1s.98.47,1.56.58c.58.11,1.21.17,1.87.17s1.31-.07,1.86-.22c.55-.15,1.02-.36,1.41-.64.39-.28.69-.61.9-1s.31-.83.31-1.32c0-.52-.09-.95-.27-1.31-.18-.35-.48-.66-.9-.93-.42-.26-.98-.5-1.67-.71-.69-.21-1.55-.42-2.58-.64-.85-.19-1.58-.41-2.18-.65-.61-.24-1.11-.53-1.51-.85s-.69-.7-.88-1.12-.28-.91-.28-1.46c0-.6.13-1.15.38-1.65.25-.5.61-.93,1.08-1.29.47-.36,1.03-.64,1.68-.83.65-.2,1.38-.3,2.17-.3s1.52.09,2.18.28c.66.18,1.24.45,1.73.8.5.35.9.77,1.2,1.27.31.5.5,1.06.59,1.7h-1.09c-.1-.41-.27-.8-.51-1.16-.24-.36-.54-.67-.91-.93-.37-.26-.81-.46-1.33-.61-.51-.15-1.1-.22-1.76-.22-1.39,0-2.43.25-3.14.76-.71.51-1.07,1.21-1.07,2.09,0,.41.07.76.2,1.06.13.3.36.57.67.81.32.24.73.45,1.25.64.52.18,1.16.36,1.94.52.45.09.92.19,1.4.3.48.1.95.23,1.41.37.46.14.89.32,1.31.52s.78.46,1.08.76c.31.3.55.66.74,1.08s.28.92.28,1.49c0,.66-.14,1.26-.42,1.82-.28.55-.66,1.03-1.16,1.43-.5.4-1.08.71-1.77.93-.68.22-1.42.33-2.23.33Z"/>
+              <path class="sh-2" d="M424.03,107.77h-5.41v14.34h-1.13v-14.34h-5.36v-1.13h11.9v1.13Z"/>
+              <path class="sh-2" d="M433.36,106.35c1.06,0,2.03.19,2.93.57.89.38,1.66.91,2.31,1.61.65.7,1.15,1.54,1.51,2.52.36.98.54,2.07.54,3.28s-.18,2.29-.54,3.28c-.36.99-.86,1.84-1.5,2.55s-1.41,1.26-2.3,1.65c-.89.39-1.87.59-2.95.59s-2.06-.2-2.95-.59-1.67-.94-2.31-1.65-1.15-1.55-1.5-2.54c-.36-.99-.54-2.09-.54-3.29s.18-2.31.54-3.29c.36-.98.87-1.82,1.52-2.51.65-.69,1.42-1.23,2.31-1.6.89-.38,1.87-.57,2.93-.57ZM433.35,121.26c.89,0,1.7-.15,2.45-.46.75-.31,1.4-.76,1.94-1.35.55-.59.97-1.32,1.27-2.18.3-.86.45-1.84.45-2.95s-.15-2.09-.46-2.94c-.31-.85-.73-1.56-1.27-2.14-.54-.58-1.18-1.02-1.92-1.31s-1.55-.45-2.42-.45-1.72.15-2.47.45c-.75.3-1.4.74-1.94,1.32-.55.58-.97,1.29-1.28,2.14-.31.85-.46,1.82-.46,2.93s.15,2.08.45,2.95c.3.86.72,1.59,1.26,2.18.54.59,1.19,1.04,1.94,1.35.75.31,1.57.46,2.45.46Z"/>
+              <path class="sh-2" d="M456.32,122.11h-1.24l-1.54-4.11c-.15-.4-.32-.77-.5-1.12-.18-.35-.4-.65-.64-.91-.25-.26-.53-.46-.84-.61-.32-.15-.69-.23-1.11-.23h-5.41v6.98h-1.13v-15.47h6.97c.65,0,1.28.06,1.89.18.61.12,1.15.33,1.63.63s.85.72,1.14,1.25c.28.53.42,1.21.42,2.04,0,.52-.06,1-.19,1.45-.13.45-.32.85-.58,1.2-.26.35-.59.65-.99.9-.4.25-.87.43-1.41.54.29.23.53.44.72.65s.35.43.49.66c.14.24.26.49.37.78.11.28.23.61.37.97l1.6,4.21ZM445.03,114h5.37c.76,0,1.42-.06,1.96-.17.55-.11,1-.3,1.35-.56.35-.26.61-.6.78-1.01s.25-.92.25-1.53c0-1.06-.34-1.83-1.01-2.28-.67-.46-1.68-.69-3.02-.69h-5.7v6.23Z"/>
+              <path class="sh-2" d="M470.96,122.11h-11.18v-15.47h10.8v1.13h-9.67v5.72h9.06v1.13h-9.06v6.36h10.05v1.13Z"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <p class="store-hero-sub">Premium gaming gear — handpicked for competitive players</p>
+    </div>
+
+    <!-- Slider -->
+    <div class="store-slider" id="storeSlider">
+      <div class="store-slider-track" id="storeSliderTrack">
+
+        <!-- SLIDE 1 — Headset + AirBuds Bundle -->
+        <div class="store-slide" data-slide-idx="1">
+          <div class="slide-bg" style="background:linear-gradient(120deg,#020d02 0%,#071a07 40%,#0d3010 70%,#041004 100%);"></div>
+          <div class="slide-scanlines"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(184,118,184,0.18) 0%,transparent 70%);"></div>
+          <div class="slide-content">
+            <div class="slide-tag" style="background:var(--neon);color:#000;box-shadow:0 0 20px rgba(184,118,184,0.5);">⚡ BUNDLE DEAL</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(184,118,184,0.3);">HEADSET<span style="color:var(--neon);display:block;">+ AIRBUDS</span></div>
+            <div class="slide-sub">Buy both together and save big — 30% off combined price. Limited stock!</div>
+            <div class="slide-save-pill">🎁 YOU SAVE PKR 3,600</div>
+            <span class="slide-orig">PKR 12,000</span>
+            <div class="slide-price-tag">PKR 8,400</div>
+            <button class="slide-cta" style="background:var(--neon);color:#000;box-shadow:0 0 30px rgba(184,118,184,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
+          </div>
+          <div class="slide-duo">
+            <img src="ZorX-TUBA Store/headphones.png" alt="Headset" onerror="this.style.display='none'">
+            <img src="ZorX-TUBA Store/airpods.png" alt="AirBuds" onerror="this.style.display='none'">
+          </div>
+        </div>
+
+        <!-- SLIDE 2 — Keyboard + Mouse Bundle -->
+        <div class="store-slide" data-slide-idx="2">
+          <div class="slide-bg" style="background:linear-gradient(120deg,#0d0015 0%,#1a0030 40%,#300060 70%,#1a0040 100%);"></div>
+          <div class="slide-scanlines"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(255,43,110,0.2) 0%,transparent 70%);"></div>
+          <div class="slide-content">
+            <div class="slide-tag" style="background:var(--magenta);color:#fff;box-shadow:0 0 20px rgba(255,43,110,0.5);">🔥 COMBO DEAL</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(255,43,110,0.3);">KEYBOARD<span style="color:#ff2b6e;display:block;">+ MOUSE</span></div>
+            <div class="slide-sub">Ultimate setup combo — mechanical keyboard + precision gaming mouse at 30% off!</div>
+            <div class="slide-save-pill">🎁 YOU SAVE PKR 3,000</div>
+            <span class="slide-orig">PKR 10,000</span>
+            <div class="slide-price-tag" style="color:#ff2b6e;">PKR 7,000</div>
+            <button class="slide-cta" style="background:var(--magenta);color:#fff;box-shadow:0 0 30px rgba(255,43,110,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
+          </div>
+          <div class="slide-duo">
+            <img src="ZorX-TUBA Store/keyboard.png" alt="Keyboard" onerror="this.style.display='none'">
+            <img src="ZorX-TUBA Store/mouse.png" alt="Mouse" onerror="this.style.display='none'">
+          </div>
+        </div>
+
+        <!-- SLIDE 3 — Headset + Mouse Bundle -->
+        <div class="store-slide" data-slide-idx="3">
+          <div class="slide-bg" style="background:linear-gradient(120deg,#000d1a 0%,#001830 40%,#002a4a 70%,#001020 100%);"></div>
+          <div class="slide-scanlines"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(0,255,174,0.18) 0%,transparent 70%);"></div>
+          <div class="slide-content">
+            <div class="slide-tag" style="background:#00ffae;color:#000;box-shadow:0 0 20px rgba(0,255,174,0.5);">✦ BEST VALUE</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(0,255,174,0.3);">HEADSET<span style="color:#00ffae;display:block;">+ MOUSE</span></div>
+            <div class="slide-sub">Hear every footstep, click with precision — 30% off this gaming essentials bundle!</div>
+            <div class="slide-save-pill">🎁 YOU SAVE PKR 2,400</div>
+            <span class="slide-orig">PKR 8,000</span>
+            <div class="slide-price-tag" style="color:#00ffae;">PKR 5,600</div>
+            <button class="slide-cta" style="background:#00ffae;color:#000;box-shadow:0 0 30px rgba(0,255,174,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
+          </div>
+          <div class="slide-duo">
+            <img src="ZorX-TUBA Store/headphones.png" alt="Headset" onerror="this.style.display='none'">
+            <img src="ZorX-TUBA Store/mouse.png" alt="Mouse" onerror="this.style.display='none'">
+          </div>
+        </div>
+
+        <!-- SLIDE 4 — Gaming PC -->
+        <div class="store-slide" data-slide-idx="4">
+          <div class="slide-bg" style="background:linear-gradient(120deg,#0a0015 0%,#15002a 40%,#250040 70%,#100020 100%);"></div>
+          <div class="slide-scanlines"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 70% 70% at 65% 50%,rgba(184,118,184,0.25) 0%,transparent 70%);"></div>
+          <div class="slide-content">
+            <div class="slide-tag" style="background:var(--neon);color:#000;box-shadow:0 0 20px rgba(184,118,184,0.6);">🖥️ GAMING PC</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(184,118,184,0.4);">TUBAX<span style="color:var(--neon);display:block;">GAMING PC</span></div>
+            <div class="slide-sub">Beast-level performance — built for competitive gaming. Dominate every match.</div>
+            <div class="slide-price-tag" style="color:var(--neon);">PKR 1,00,000</div>
+            <button class="slide-cta" style="background:var(--neon);color:#000;box-shadow:0 0 30px rgba(184,118,184,0.5);" onclick="filterCat('all')">ORDER NOW →</button>
+          </div>
+          <div style="position:absolute;right:0;top:0;bottom:0;width:52%;display:flex;align-items:center;justify-content:center;padding:16px 32px 16px 0;">
+            <img src="ZorX-TUBA Store/PC_IMAGE.png" alt="TubaX Gaming PC" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 40px rgba(184,118,184,0.6));" onerror="this.style.display='none'">
+          </div>
+        </div>
+
+        <!-- SLIDE 5 — AirBuds + Keyboard Bundle -->
+        <div class="store-slide" data-slide-idx="5">
+          <div class="slide-bg" style="background:linear-gradient(120deg,#1a0f00 0%,#2e1a00 40%,#4a2d00 70%,#2e1800 100%);"></div>
+          <div class="slide-scanlines"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(255,210,74,0.2) 0%,transparent 70%);"></div>
+          <div class="slide-content">
+            <div class="slide-tag" style="background:var(--gold);color:#000;box-shadow:0 0 20px rgba(255,210,74,0.5);">🎯 MEGA BUNDLE</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(255,210,74,0.3);">AIRBUDS<span style="color:#ffd24a;display:block;">+ KEYBOARD</span></div>
+            <div class="slide-sub">Wireless audio + clicky keys — the pro player combo at 30% off combined price!</div>
+            <div class="slide-save-pill">🎁 YOU SAVE PKR 3,600</div>
+            <span class="slide-orig">PKR 12,000</span>
+            <div class="slide-price-tag" style="color:#ffd24a;">PKR 8,400</div>
+            <button class="slide-cta" style="background:var(--gold);color:#000;box-shadow:0 0 30px rgba(255,210,74,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
+          </div>
+          <div class="slide-duo">
+            <img src="ZorX-TUBA Store/airpods.png" alt="AirBuds" onerror="this.style.display='none'">
+            <img src="ZorX-TUBA Store/keyboard.png" alt="Keyboard" onerror="this.style.display='none'">
+          </div>
+        </div>
+
+      </div>
+      <button class="slider-arrow slider-prev" id="sliderPrev">&#8249;</button>
+      <button class="slider-arrow slider-next" id="sliderNext">&#8250;</button>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+
+    <!-- NEW ARRIVALS -->
+    <div class="na-section">
+      <div class="na-header">
+        <div class="na-label">// JUST DROPPED</div>
+        <h2 class="na-title">NEW <span>ARRIVALS</span></h2>
+        <p class="na-sub">Fresh gaming gear — handpicked for competitive players</p>
+      </div>
+      <div class="na-grid">
+        <div class="na-card na-card-wide">
+          <div class="na-card-img"><img src="ZorX-TUBA Store/headphones.png" alt="Headset"></div>
+          <div class="na-card-info">
+            <span class="na-badge">⚡ NEW</span>
+            <div class="na-card-name">TubaX Pro Headset</div>
+            <div class="na-card-desc">50mm drivers · 7.1 Surround · Noise-Cancel Mic</div>
+            <div class="na-card-price">PKR 4,500</div>
+            <button class="na-btn" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('headset')">SHOP NOW →</button>
+          </div>
+        </div>
+        <div class="na-card">
+          <div class="na-card-img"><img src="ZorX-TUBA Store/airpods.png" alt="AirBuds"></div>
+          <span class="na-badge" style="background:#ff2b6e;">🔥 SALE</span>
+          <div class="na-card-name">TubaX AirBuds Pro</div>
+          <div class="na-card-desc">ANC · 30hr battery · 10min = 2hr charge</div>
+          <div class="na-card-price" style="color:#ff2b6e;"><s style="color:#555;font-size:13px;">PKR 7,000</s> PKR 5,500</div>
+          <button class="na-btn" style="background:#ff2b6e;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('airbuds')">SHOP NOW →</button>
+        </div>
+        <div class="na-card">
+          <div class="na-card-img"><img src="ZorX-TUBA Store/mouse.png" alt="Mouse"></div>
+          <span class="na-badge" style="background:#ffd24a;color:#000;">🎯 HOT</span>
+          <div class="na-card-name">TubaX Precision Pro</div>
+          <div class="na-card-desc">25600 DPI · 6 Buttons · RGB Lighting</div>
+          <div class="na-card-price" style="color:#ffd24a;">PKR 3,500</div>
+          <button class="na-btn" style="background:#ffd24a;color:#000;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('mouse')">SHOP NOW →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BEST SELLING -->
+    <div class="bs-section">
+      <div class="na-header">
+        <div class="na-label">// CUSTOMER FAVORITES</div>
+        <h2 class="na-title">BEST <span>SELLING</span></h2>
+        <p class="na-sub">Top picks by our gaming community</p>
+      </div>
+      <div class="bs-grid">
+        <div class="bs-card">
+          <div class="bs-rank">#1</div>
+          <div class="bs-img"><img src="ZorX-TUBA Store/keyboard.png" alt="Keyboard"></div>
+          <div class="bs-info">
+            <span class="na-badge" style="background:#ffd24a;color:#000;">🔥 BEST SELLER</span>
+            <div class="na-card-name">TubaX Mech Pro</div>
+            <div class="na-card-desc">Cherry MX Switches · RGB Per-Key · TKL Layout</div>
+            <div class="bs-stars">★★★★★ <span>(128 sold)</span></div>
+            <div class="na-card-price" style="color:#ffd24a;">PKR 6,500</div>
+            <button class="na-btn" style="background:#ffd24a;color:#000;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('keyboard')">ORDER NOW →</button>
+          </div>
+        </div>
+        <div class="bs-card">
+          <div class="bs-rank" style="color:#c0c0c0;">#2</div>
+          <div class="bs-img"><img src="ZorX-TUBA Store/headphones.png" alt="Headset"></div>
+          <div class="bs-info">
+            <span class="na-badge">⚡ TOP RATED</span>
+            <div class="na-card-name">TubaX Pro Headset</div>
+            <div class="na-card-desc">50mm Drivers · 7.1 Surround · Noise-Cancel Mic</div>
+            <div class="bs-stars">★★★★★ <span>(94 sold)</span></div>
+            <div class="na-card-price">PKR 4,500</div>
+            <button class="na-btn" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('headset')">ORDER NOW →</button>
+          </div>
+        </div>
+        <div class="bs-card">
+          <div class="bs-rank" style="color:#cd7f32;">#3</div>
+          <div class="bs-img"><img src="ZorX-TUBA Store/airpods.png" alt="AirBuds"></div>
+          <div class="bs-info">
+            <span class="na-badge" style="background:#ff2b6e;">🎵 POPULAR</span>
+            <div class="na-card-name">TubaX AirBuds Pro</div>
+            <div class="na-card-desc">ANC · 30hr Battery · Fast Charge</div>
+            <div class="bs-stars">★★★★☆ <span>(76 sold)</span></div>
+            <div class="na-card-price" style="color:#ff2b6e;">PKR 5,500</div>
+            <button class="na-btn" style="background:#ff2b6e;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('airbuds')">ORDER NOW →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="store-cats" id="storeCats">
+      <button class="store-cat-btn active" data-cat="all">ALL</button>
+      <button class="store-cat-btn" data-cat="headset">🎧 HEADSET</button>
+      <button class="store-cat-btn" data-cat="airbuds">🎵 AIRBUDS</button>
+      <button class="store-cat-btn" data-cat="keyboard">⌨️ KEYBOARD</button>
+      <button class="store-cat-btn" data-cat="mouse">🖱️ MOUSE</button>
+      <button class="store-cat-btn" data-cat="console">🎮 CONSOLE</button>
+      <button class="store-cat-btn" data-cat="mic">🎙️ MIC</button>
+      <button class="store-cat-btn" data-cat="mousepad">🟫 MOUSEPAD</button>
+      <button class="store-cat-btn" data-cat="soundbar">🔊 SOUNDBAR</button>
+      <button class="store-cat-btn" data-cat="cooling">💨 COOLING</button>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="store-grid" id="storeGrid"></div>
+
+    <!-- REVIEWS -->
+    <div class="rv-section">
+      <div class="na-header">
+        <div class="na-label">// WHAT OUR CUSTOMERS SAY</div>
+        <h2 class="na-title">CUSTOMER <span>REVIEWS</span></h2>
+        <p class="na-sub">Real feedback from real gamers</p>
+      </div>
+      <div class="rv-grid">
+
+        <div class="rv-card">
+          <div class="rv-quote">"</div>
+          <div class="rv-top">
+            <div class="rv-avatar">A</div>
+            <div class="rv-meta">
+              <div class="rv-name">Ahmed Khan</div>
+              <div class="rv-product">// TubaX Pro Headset</div>
+            </div>
+          </div>
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-text">Bhai ye headset zabardast hai! Sound quality ekdum clear hai aur 7.1 surround gaming mein complete game-changer hai. Noise cancel mic bhi teammates ko bilkul saaf sunai deta hai.</div>
+          <div class="rv-verified">✔ Verified Purchase</div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-quote">"</div>
+          <div class="rv-top">
+            <div class="rv-avatar">S</div>
+            <div class="rv-meta">
+              <div class="rv-name">Sara Ali</div>
+              <div class="rv-product">// TubaX AirBuds Pro</div>
+            </div>
+          </div>
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-text">Battery life amazing hai! Subah charge karo, pure din chalti hai. ANC bhi bahut acha kaam karta hai — office mein bhi use karti hoon. Price ke hisaab se best deal hai.</div>
+          <div class="rv-verified">✔ Verified Purchase</div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-quote">"</div>
+          <div class="rv-top">
+            <div class="rv-avatar">H</div>
+            <div class="rv-meta">
+              <div class="rv-name">Hamza Malik</div>
+              <div class="rv-product">// TubaX Mech Pro</div>
+            </div>
+          </div>
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-text">Keyboard ka tactile feel ekdum acha hai. RGB lighting full colorful hai aur per-key control bhi milta hai. Competitive gaming ke liye must-have hai. Highly recommend!</div>
+          <div class="rv-verified">✔ Verified Purchase</div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-quote">"</div>
+          <div class="rv-top">
+            <div class="rv-avatar">Z</div>
+            <div class="rv-meta">
+              <div class="rv-name">Zainab Raza</div>
+              <div class="rv-product">// TubaX SoundBar</div>
+            </div>
+          </div>
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-text">Gaming setup complete ho gaya soundbar se! Bass ekdum thandi hai, Bluetooth connect bhi perfect kaam karta hai. RGB bhi setup ko pro look deta hai. Bohot khush hoon!</div>
+          <div class="rv-verified">✔ Verified Purchase</div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-quote">"</div>
+          <div class="rv-top">
+            <div class="rv-avatar">U</div>
+            <div class="rv-meta">
+              <div class="rv-name">Usman Tariq</div>
+              <div class="rv-product">// TubaX Game Console</div>
+            </div>
+          </div>
+          <div class="rv-stars">★★★★<span>★</span></div>
+          <div class="rv-text">Portable gaming ke liye perfect choice hai. Graphics smooth hain aur battery easily 5 ghante chalti hai. Travel mein time pass ke liye best gadget. Delivery bhi fast thi!</div>
+          <div class="rv-verified">✔ Verified Purchase</div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-quote">"</div>
+          <div class="rv-top">
+            <div class="rv-avatar">F</div>
+            <div class="rv-meta">
+              <div class="rv-name">Fatima Sheikh</div>
+              <div class="rv-product">// TubaX Laptop Cooler</div>
+            </div>
+          </div>
+          <div class="rv-stars">★★★★★</div>
+          <div class="rv-text">Laptop temperature gaming mein kaafi neeche aa gayi. Pehle throttling hoti thi ab nahi hoti. RGB bhi setup mein acha lagta hai. Price ekdum sahi hai quality ke liye!</div>
+          <div class="rv-verified">✔ Verified Purchase</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ SOCIALS ═══ -->
+    <div class="sc-section">
+      <div class="na-header">
+        <div class="na-label">// FOLLOW US</div>
+        <h2 class="na-title">JOIN THE <span>COMMUNITY</span></h2>
+        <p class="na-sub">Stay connected with TubaX across all platforms</p>
+      </div>
+      <div class="sc-grid">
+
+        <a href="https://instagram.com" target="_blank" class="sc-card ig">
+          <div class="sc-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#fff" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="2"/>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="sc-platform">INSTAGRAM</div>
+          <div class="sc-handle">@tubastore</div>
+          <button class="sc-btn">FOLLOW</button>
+        </a>
+
+        <a href="https://facebook.com" target="_blank" class="sc-card fb">
+          <div class="sc-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </div>
+          <div class="sc-platform">FACEBOOK</div>
+          <div class="sc-handle">TubaX Store</div>
+          <button class="sc-btn">LIKE PAGE</button>
+        </a>
+
+        <a href="https://tiktok.com" target="_blank" class="sc-card tt">
+          <div class="sc-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
+            </svg>
+          </div>
+          <div class="sc-platform">TIKTOK</div>
+          <div class="sc-handle">@tubastore</div>
+          <button class="sc-btn">FOLLOW</button>
+        </a>
+
+        <a href="https://youtube.com" target="_blank" class="sc-card yt">
+          <div class="sc-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#FF0000"/>
+            </svg>
+          </div>
+          <div class="sc-platform">YOUTUBE</div>
+          <div class="sc-handle">TubaX Gaming</div>
+          <button class="sc-btn">SUBSCRIBE</button>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="store-footer">// TUBA STORE &nbsp;·&nbsp; ALL RIGHTS RESERVED</div>
+
+  <!-- Toast -->
+  <div id="storeToast"></div>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+  (function(){
+    var SUPA_URL = 'https://linqxcqxggjmkcgrgcrv.supabase.co';
+    var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpbnF4Y3F4Z2dqbWtjZ3JnY3J2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3MjI4MDYsImV4cCI6MjA5MzI5ODgwNn0.jNJ0irurnWBvsVkgMDkyeVPGJHz9cfDN-J-S3Dngous';
+    window.sb = supabase.createClient(SUPA_URL, SUPA_KEY);
+    window.sbUrl = function(path) {
+      return window.sb.storage.from('ZorX Images Data').getPublicUrl(path).data.publicUrl;
+    };
+  })();
+  </script>
+
+  <script>
+  /* ═══ CANVAS PARTICLES ═══ */
+  (function(){
+    var canvas = document.getElementById('bgCanvas');
+    var ctx    = canvas.getContext('2d');
+    var W, H, particles = [];
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function Particle() {
+      this.reset();
+    }
+    Particle.prototype.reset = function() {
+      this.x  = Math.random() * W;
+      this.y  = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.r  = Math.random() * 1.5 + 0.3;
+      this.a  = Math.random() * 0.5 + 0.1;
+      this.color = Math.random() > 0.7
+        ? 'rgba(0,255,174,'
+        : Math.random() > 0.5
+          ? 'rgba(184,118,184,'
+          : 'rgba(255,43,110,';
+    };
+    Particle.prototype.update = function() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+    };
+    Particle.prototype.draw = function() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = this.color + this.a + ')';
+      ctx.fill();
+    };
+
+    for (var i = 0; i < 120; i++) particles.push(new Particle());
+
+    /* Connect nearby particles */
+    function drawLines() {
+      for (var i = 0; i < particles.length; i++) {
+        for (var j = i + 1; j < particles.length; j++) {
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(184,118,184,' + (0.06 * (1 - dist/120)) + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function loop() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(function(p){ p.update(); p.draw(); });
+      drawLines();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
+
+  /* ═══ PRODUCTS ═══ */
+  var PRODUCTS = [
+    { id:1, cat:'headset',   emoji:'🎧', badge:'hot',  name:'TubaX Pro Headset',    desc:'50mm drivers · 7.1 surround · noise-cancel mic',      price:4500, oldPrice:null,  img:'ZorX-TUBA Store/headphones.png' },
+    { id:2, cat:'airbuds',   emoji:'🎵', badge:'new',  name:'TubaX AirBuds Pro',    desc:'ANC · 30hr total · 10min = 2hr charge',               price:5500, oldPrice:7000,  img:'ZorX-TUBA Store/airpods.png' },
+    { id:3, cat:'keyboard',  emoji:'⌨️', badge:'hot',  name:'TubaX Mech Pro',       desc:'Cherry MX switches · RGB per-key · TKL layout',       price:6500, oldPrice:null,  img:'ZorX-TUBA Store/keyboard.png' },
+    { id:4, cat:'mouse',     emoji:'🖱️', badge:'new',  name:'TubaX Precision Pro',  desc:'25600 DPI · 6 buttons · RGB lighting',                price:3500, oldPrice:null,  img:'ZorX-TUBA Store/mouse.png' },
+    { id:5, cat:'console',   emoji:'🎮', badge:'new',  name:'TubaX Game Console',   desc:'Portable gaming · HD display · 5000mAh battery',      price:8000, oldPrice:null,  img:'ZorX-TUBA Store/Console.png' },
+    { id:6, cat:'mic',       emoji:'🎙️', badge:'new',  name:'TubaX USB Mic',        desc:'Studio quality · Cardioid pattern · RGB glow',        price:3500, oldPrice:null,  img:'ZorX-TUBA Store/MIC.png' },
+    { id:7, cat:'mousepad',  emoji:'🟫', badge:'new',  name:'TubaX XL Mouse Pad',   desc:'900×400mm · Non-slip base · Stitched edges',          price:1200, oldPrice:null,  img:'ZorX-TUBA Store/Mouse_Pad.png' },
+    { id:8, cat:'soundbar',  emoji:'🔊', badge:'new',  name:'TubaX SoundBar',       desc:'2.1 stereo · RGB · Bluetooth 5.0 · USB powered',     price:5500, oldPrice:null,  img:'ZorX-TUBA Store/SOUNDBAR.png' },
+    { id:9, cat:'cooling',   emoji:'💨', badge:'new',  name:'TubaX Laptop Cooler',  desc:'5 fans · RGB lighting · USB powered · fits 15-17"',  price:2500, oldPrice:null,  img:'ZorX-TUBA Store/laptop-fan.png' },
+  ];
+
+  var BADGE_LABEL = { hot:'🔥 HOT', new:'NEW', sale:'SALE' };
+  var BADGE_CLASS = { hot:'badge-hot', new:'badge-new', sale:'badge-sale' };
+  var activeCat = 'all';
+
+  function fmt(n){ return 'PKR ' + n.toLocaleString(); }
+
+  function renderGrid(cat) {
+    activeCat = cat;
+    var list = cat === 'all' ? PRODUCTS : PRODUCTS.filter(function(p){ return p.cat === cat; });
+    var grid = document.getElementById('storeGrid');
+    grid.innerHTML = list.map(function(p, i){
+      var badge = p.badge ? '<span class="store-card-badge ' + BADGE_CLASS[p.badge] + '">' + BADGE_LABEL[p.badge] + '</span>' : '';
+      var oldP  = p.oldPrice ? '<span class="old-price">' + fmt(p.oldPrice) + '</span>' : '';
+      var imgEl = p.img
+        ? '<img src="' + p.img + '" alt="' + p.name + '" onerror="this.style.display=\'none\'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:20px;background:var(--bg-3);">'
+        : '';
+      return '<div class="store-card" style="animation-delay:' + (i * 0.1) + 's">' +
+        '<div class="store-card-img" style="' + (imgEl ? 'font-size:0' : '') + '">' + badge + imgEl + (imgEl ? '' : p.emoji) + '</div>' +
+        '<div class="store-card-body">' +
+          '<div class="store-card-cat">' + p.cat.toUpperCase() + '</div>' +
+          '<div class="store-card-name">' + p.name + '</div>' +
+          '<div class="store-card-desc">' + p.desc + '</div>' +
+          '<div class="store-card-footer">' +
+            '<div class="store-card-price">' + oldP + fmt(p.price) + '</div>' +
+            '<div class="store-card-btns">' +
+              '<button class="store-buy-btn" data-pid="' + p.id + '">BUY NOW</button>' +
+              '<a class="store-wa-btn" href="https://wa.me/923076046783?text=' + encodeURIComponent('🛒 *TUBAX STORE*\n\n📦 *Product:* ' + p.name + '\n💰 *Price:* ' + fmt(p.price) + '\n\nI want to order this product.') + '" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  /* Category buttons */
+  document.getElementById('storeCats').addEventListener('click', function(e){
+    var btn = e.target.closest('.store-cat-btn');
+    if (!btn) return;
+    filterCat(btn.dataset.cat);
+  });
+
+  function filterCat(cat) {
+    document.querySelectorAll('.store-cat-btn').forEach(function(b){
+      b.classList.toggle('active', b.dataset.cat === cat);
+    });
+    document.querySelectorAll('.store-nav-cat').forEach(function(a){
+      a.classList.toggle('active', a.dataset.cat === cat);
+    });
+    renderGrid(cat);
+    document.getElementById('storeCats').scrollIntoView({ behavior:'smooth', block:'center' });
+  }
+
+  document.getElementById('navCats').addEventListener('click', function(e){
+    var a = e.target.closest('.store-nav-cat');
+    if (!a) return;
+    filterCat(a.dataset.cat);
+  });
+
+  document.getElementById('storeCats').addEventListener('click', function(e){
+    var btn = e.target.closest('.store-cat-btn');
+    if (!btn) return;
+    document.querySelectorAll('.store-nav-cat').forEach(function(a){
+      a.classList.toggle('active', a.dataset.cat === btn.dataset.cat);
+    });
+  });
+
+  /* Buy Now — handled by order modal below */
+
+  function showToast(msg) {
+    var t = document.getElementById('storeToast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 4000);
+  }
+
+  /* ═══ SLIDER ═══ */
+  var sliderIdx = 0, sliderTotal = 4, sliderTimer = null;
+
+  function sliderGoTo(n) {
+    sliderIdx = (n + sliderTotal) % sliderTotal;
+    document.getElementById('storeSliderTrack').style.transform = 'translateX(-' + (sliderIdx * 100) + '%)';
+    document.querySelectorAll('.slider-dot').forEach(function(d,i){ d.classList.toggle('active', i === sliderIdx); });
+  }
+  function sliderBuildDots() {
+    var el = document.getElementById('sliderDots');
+    el.innerHTML = '';
+    for (var i = 0; i < sliderTotal; i++) {
+      var d = document.createElement('div');
+      d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      d.dataset.idx = i;
+      el.appendChild(d);
+    }
+  }
+  function sliderStart() {
+    sliderStop();
+    sliderTimer = setInterval(function(){ sliderGoTo(sliderIdx + 1); }, 3500);
+  }
+  function sliderStop() { if (sliderTimer) { clearInterval(sliderTimer); sliderTimer = null; } }
+
+  document.getElementById('sliderNext').addEventListener('click', function(){ sliderGoTo(sliderIdx+1); sliderStop(); sliderStart(); });
+  document.getElementById('sliderPrev').addEventListener('click', function(){ sliderGoTo(sliderIdx-1); sliderStop(); sliderStart(); });
+  document.getElementById('sliderDots').addEventListener('click', function(e){
+    var d = e.target.closest('.slider-dot');
+    if (d) { sliderGoTo(parseInt(d.dataset.idx)); sliderStop(); sliderStart(); }
+  });
+
+  /* Load Supabase slider images */
+  function loadSliderImages() {
+    if (typeof window.sbUrl !== 'function') return;
+    document.querySelectorAll('.store-slide[data-slide-idx]').forEach(function(slide){
+      var img = slide.querySelector('.slide-bg-img');
+      if (!img) return;
+      var url = window.sbUrl('store/slider/slide-' + slide.dataset.slideIdx + '.jpg');
+      img.onload = function(){ img.style.display = 'block'; };
+      img.src = url;
+    });
+  }
+
+  /* Init */
+  sliderBuildDots();
+  sliderGoTo(0);
+  sliderStart();
+  renderGrid('all');
+  loadSliderImages();
+
+  </script>
+
+  <!-- ORDER MODAL -->
+  <div id="orderModal" class="om-backdrop" onclick="if(event.target===this)closeOrderModal()">
+    <div class="om-box">
+      <button class="om-close" id="omClose" onclick="closeOrderModal()">✕</button>
+      <div class="om-header">
+        <div class="om-label">// PLACE ORDER</div>
+        <div class="om-pname" id="omProductName"></div>
+        <div class="om-pprice" id="omProductPrice"></div>
+      </div>
+
+      <form id="orderForm" autocomplete="off">
+        <div class="om-row">
+          <div class="om-field">
+            <label class="om-lbl">Full Name *</label>
+            <input id="omName" class="om-input" type="text" placeholder="Ahmed Khan" required>
+          </div>
+          <div class="om-field">
+            <label class="om-lbl">Phone Number *</label>
+            <input id="omPhone" class="om-input" type="tel" placeholder="03XX-XXXXXXX" required>
+          </div>
+        </div>
+        <div class="om-row">
+          <div class="om-field">
+            <label class="om-lbl">City *</label>
+            <input id="omCity" class="om-input" type="text" placeholder="Karachi" required>
+          </div>
+          <div class="om-field">
+            <label class="om-lbl">Quantity</label>
+            <input id="omQty" class="om-input" type="number" min="1" value="1" data-price="0">
+          </div>
+        </div>
+        <div class="om-field" style="margin-bottom:14px;">
+          <label class="om-lbl">Full Address *</label>
+          <input id="omAddress" class="om-input" type="text" placeholder="Street, Area, Block..." required>
+        </div>
+        <div class="om-field" style="margin-bottom:14px;">
+          <label class="om-lbl">Email (optional)</label>
+          <input id="omEmail" class="om-input" type="email" placeholder="you@email.com">
+        </div>
+        <div class="om-field" style="margin-bottom:20px;">
+          <label class="om-lbl">Payment Method *</label>
+          <select id="omPayment" class="om-input om-select" required>
+            <option value="">— Select —</option>
+            <option value="cod">Cash on Delivery</option>
+            <option value="easypaisa">EasyPaisa</option>
+            <option value="jazzcash">JazzCash</option>
+            <option value="bank">Bank Transfer</option>
+          </select>
+        </div>
+        <div class="om-total-row">
+          <span class="om-total-lbl">ORDER TOTAL</span>
+          <span class="om-total-val" id="omTotal">PKR 0</span>
+        </div>
+        <button type="submit" class="om-submit">PLACE ORDER</button>
+        <button type="button" class="om-wa-btn" id="omWhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:8px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          ORDER VIA WHATSAPP
+        </button>
+      </form>
+
+      <div id="omSuccess" class="om-success" style="display:none;">
+        <div class="om-success-icon">✓</div>
+        <div class="om-success-title">Order Placed!</div>
+        <div class="om-success-sub">We'll contact you on your number to confirm delivery.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER MODAL JS — placed after modal HTML so elements exist -->
+  <script>
+    var WA_NUMBER = '923076046783';
+
+    function closeOrderModal() {
+      document.getElementById('orderModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function getOrderData() {
+      var sel = document.getElementById('omPayment');
+      return {
+        name:    document.getElementById('omName').value.trim(),
+        phone:   document.getElementById('omPhone').value.trim(),
+        city:    document.getElementById('omCity').value.trim(),
+        address: document.getElementById('omAddress').value.trim(),
+        qty:     document.getElementById('omQty').value,
+        payment: sel.options[sel.selectedIndex].text,
+        product: document.getElementById('omProductName').textContent,
+        total:   document.getElementById('omTotal').textContent
+      };
+    }
+
+    function validateForm(d) {
+      if (!d.name || !d.phone || !d.city || !d.address || !d.payment || d.payment === '— Select —') {
+        showToast('⚠️ Please fill all required fields!'); return false;
+      }
+      return true;
+    }
+
+    /* Buy Now — open modal */
+    document.getElementById('storeGrid').addEventListener('click', function(e) {
+      var btn = e.target.closest('.store-buy-btn');
+      if (!btn) return;
+      var pid  = parseInt(btn.dataset.pid);
+      var prod = PRODUCTS.find(function(p) { return p.id === pid; });
+      if (!prod) return;
+      document.getElementById('omProductName').textContent = prod.name;
+      document.getElementById('omProductPrice').textContent = 'PKR ' + prod.price.toLocaleString();
+      document.getElementById('omQty').value = 1;
+      document.getElementById('omQty').dataset.price = prod.price;
+      document.getElementById('omTotal').textContent = 'PKR ' + prod.price.toLocaleString();
+      document.getElementById('orderModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    /* Qty change → update total */
+    document.getElementById('omQty').addEventListener('input', function() {
+      var qty = Math.max(1, parseInt(this.value) || 1);
+      this.value = qty;
+      document.getElementById('omTotal').textContent = 'PKR ' + (parseInt(this.dataset.price) * qty).toLocaleString();
+    });
+
+    /* Place Order */
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var d = getOrderData();
+      if (!validateForm(d)) return;
+      document.getElementById('orderForm').style.display = 'none';
+      document.getElementById('omSuccess').style.display = 'flex';
+      setTimeout(function() {
+        closeOrderModal();
+        document.getElementById('orderForm').style.display = 'block';
+        document.getElementById('omSuccess').style.display = 'none';
+        document.getElementById('orderForm').reset();
+      }, 3500);
+    });
+
+    /* WhatsApp Order */
+    document.getElementById('omWhatsApp').addEventListener('click', function() {
+      var d = getOrderData();
+      if (!validateForm(d)) return;
+      var msg =
+        '🛒 *New Order — TUBAX STORE*\n\n' +
+        '📦 *Product:* ' + d.product + '\n' +
+        '🔢 *Qty:* ' + d.qty + '\n' +
+        '💰 *Total:* ' + d.total + '\n\n' +
+        '👤 *Name:* ' + d.name + '\n' +
+        '📞 *Phone:* ' + d.phone + '\n' +
+        '🏙️ *City:* ' + d.city + '\n' +
+        '📍 *Address:* ' + d.address + '\n' +
+        '💳 *Payment:* ' + d.payment;
+      window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+    });
+  </script>
+
+  <style>
+    .om-backdrop {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.75); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .om-backdrop.open { display: flex; }
+    .om-box {
+      background: #0f1410; border: 1px solid rgba(184,118,184,0.25);
+      border-radius: 20px; width: 100%; max-width: 520px;
+      max-height: 90vh; overflow-y: auto; padding: 32px 28px;
+      position: relative; box-shadow: 0 0 40px rgba(184,118,184,0.1);
+    }
+    .om-close {
+      position: absolute; top: 16px; right: 18px;
+      background: none; border: none; color: #666; font-size: 18px;
+      cursor: pointer; line-height: 1;
+    }
+    .om-close:hover { color: #b876b8; }
+    .om-label { color: #b876b8; font-family: monospace; font-size: 11px; letter-spacing: .15em; margin-bottom: 6px; }
+    .om-pname { color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: .05em; }
+    .om-pprice { color: #b876b8; font-family: monospace; font-size: 15px; margin-bottom: 22px; }
+    .om-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .om-field { display: flex; flex-direction: column; }
+    .om-lbl { color: #7a9a7a; font-size: 10px; letter-spacing: .12em; font-family: monospace; margin-bottom: 6px; }
+    .om-input {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(184,118,184,0.15);
+      border-radius: 10px; color: #fff; font-size: 14px; padding: 10px 14px;
+      outline: none; font-family: inherit; transition: border-color .2s;
+    }
+    .om-input:focus { border-color: #b876b8; }
+    .om-select { cursor: pointer; }
+    .om-select option { background: #0f1410; }
+    .om-total-row {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid rgba(184,118,184,0.1); padding-top: 16px; margin-bottom: 18px;
+    }
+    .om-total-lbl { color: #7a9a7a; font-size: 11px; letter-spacing: .12em; font-family: monospace; }
+    .om-total-val { color: #ffd24a; font-family: 'Bebas Neue', sans-serif; font-size: 22px; }
+    .om-submit {
+      width: 100%; padding: 14px; background: #b876b8; border: none;
+      border-radius: 50px; color: #000; font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px; letter-spacing: .12em; cursor: pointer;
+      transition: background .2s, box-shadow .2s;
+    }
+    .om-submit:hover { background: #d4ff6a; box-shadow: 0 4px 20px rgba(184,118,184,0.35); }
+    .om-submit:active { transform: scale(0.97); }
+    .om-wa-btn {
+      width: 100%; padding: 13px; margin-top: 10px;
+      background: #25D366; border: none; border-radius: 50px;
+      color: #fff; font-family: 'Bebas Neue', sans-serif;
+      font-size: 17px; letter-spacing: .1em; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, box-shadow .2s;
+    }
+    .om-wa-btn:hover { background: #1ebe5d; box-shadow: 0 4px 20px rgba(37,211,102,0.35); }
+    .om-wa-btn:active { transform: scale(0.97); }
+    .om-success {
+      flex-direction: column; align-items: center; justify-content: center;
+      padding: 40px 20px; text-align: center;
+    }
+    .om-success-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(184,118,184,0.15); border: 2px solid #b876b8;
+      color: #b876b8; font-size: 32px; display: flex;
+      align-items: center; justify-content: center; margin-bottom: 16px;
+    }
+    .om-success-title { color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 28px; margin-bottom: 8px; }
+    .om-success-sub { color: #7a9a7a; font-size: 14px; line-height: 1.5; }
+    @media (max-width: 480px) {
+      .om-row { grid-template-columns: 1fr; }
+      .om-box { padding: 24px 18px; }
+    }
+  </style>
+
+  <!-- ═══ TUBA SUPPORT FAB ═══ -->
+  <button id="tubaSupportFab" onclick="openTubaSupport()" title="TubaX Support" aria-label="TubaX Support">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+      <line x1="12" y1="17" x2="12.01" y2="17" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <span>TubaX Support</span>
+  </button>
+
+  <div id="tubaSupportOverlay" onclick="if(event.target===this)closeTubaSupport()">
+    <div class="ts-box">
+      <button class="ts-close" onclick="closeTubaSupport()">✕</button>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#b876b8;letter-spacing:.2em;margin-bottom:10px;">// TUBAX SUPPORT</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:42px;line-height:1;margin-bottom:6px;color:#fff;">GET HELP</h2>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6b8f6b;margin-bottom:32px;">Having an issue with your order or product? We'll get back to you within 24 hours.</p>
+
+      <form id="tubaSupportForm">
+        <div class="ts-field">
+          <label class="ts-label">YOUR NAME *</label>
+          <input id="tsName" type="text" class="ts-input" placeholder="Your name">
+        </div>
+        <div class="ts-field">
+          <label class="ts-label">EMAIL *</label>
+          <input id="tsEmail" type="email" class="ts-input" placeholder="your@email.com">
+        </div>
+        <div class="ts-field">
+          <label class="ts-label">SUBJECT</label>
+          <input id="tsSubject" type="text" class="ts-input" placeholder="Order issue, Product query...">
+        </div>
+        <div class="ts-field">
+          <label class="ts-label">MESSAGE *</label>
+          <textarea id="tsMessage" class="ts-input" rows="5" placeholder="Describe your issue in detail..." style="resize:vertical;"></textarea>
+        </div>
+        <div id="tsSupportMsg" style="display:none;font-family:'JetBrains Mono',monospace;font-size:12px;padding:10px 14px;border-radius:6px;margin-bottom:14px;"></div>
+        <button type="submit" id="tsSupportBtn" style="padding:16px 32px;background:#b876b8;color:#000;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;border:none;cursor:pointer;width:100%;border-radius:4px;">SEND MESSAGE</button>
+      </form>
+
+      <div id="tubaSupportSuccess" style="display:none;text-align:center;padding:40px 24px;">
+        <div style="font-size:52px;margin-bottom:18px;">✅</div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:#b876b8;letter-spacing:2px;margin-bottom:10px;">MESSAGE SENT!</h2>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#b0c8b0;line-height:1.7;margin-bottom:24px;">We have received your message. We will reply within 24 hours. Thank you!</p>
+        <button onclick="closeTubaSupport()" style="padding:12px 32px;background:#b876b8;color:#000;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;border:none;cursor:pointer;border-radius:4px;">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #tubaSupportFab {
+      position: fixed; bottom: 32px; right: 32px; z-index: 900;
+      display: flex; align-items: center; gap: 9px; padding: 13px 22px;
+      background: rgba(10,13,10,0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(184,118,184,0.35); color: #b876b8; cursor: pointer;
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .12em;
+      border-radius: 50px; box-shadow: 0 4px 30px rgba(0,0,0,0.4); transition: all .25s;
+    }
+    #tubaSupportFab svg { opacity: .85; flex-shrink: 0; }
+    #tubaSupportFab:hover {
+      background: rgba(184,118,184,0.1); border-color: rgba(184,118,184,0.7);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 18px rgba(184,118,184,0.18);
+      transform: translateY(-2px); color: #d4ff6a;
+    }
+    @media(max-width:720px) {
+      #tubaSupportFab span { display: none; }
+      #tubaSupportFab { padding: 14px; border-radius: 50%; bottom: 20px; right: 20px; }
+    }
+
+    #tubaSupportOverlay {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    #tubaSupportOverlay.open { display: flex; }
+    .ts-box {
+      position: relative; background: #0f1410; border: 1px solid rgba(184,118,184,0.15);
+      border-radius: 18px; padding: 48px 40px 40px; width: 100%; max-width: 520px;
+      max-height: 90vh; overflow-y: auto;
+    }
+    .ts-close {
+      position: absolute; top: 18px; right: 20px; background: none; border: none;
+      color: #6b8f6b; font-size: 20px; cursor: pointer; line-height: 1;
+      transition: color .2s;
+    }
+    .ts-close:hover { color: #b876b8; }
+    .ts-field { margin-bottom: 18px; }
+    .ts-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .15em; color: #6b8f6b; margin-bottom: 7px; }
+    .ts-input {
+      width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(184,118,184,0.15);
+      border-radius: 8px; padding: 12px 14px; color: #fff;
+      font-family: 'JetBrains Mono', monospace; font-size: 13px;
+      outline: none; transition: border-color .2s; box-sizing: border-box;
+    }
+    .ts-input:focus { border-color: rgba(184,118,184,0.5); }
+  </style>
+
+  <script>
+    window.openTubaSupport = function () {
+      document.getElementById('tubaSupportForm').style.display = 'block';
+      document.getElementById('tubaSupportSuccess').style.display = 'none';
+      document.getElementById('tsSupportMsg').style.display = 'none';
+      document.getElementById('tubaSupportOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    window.closeTubaSupport = function () {
+      document.getElementById('tubaSupportOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    document.getElementById('tubaSupportForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name    = document.getElementById('tsName').value.trim();
+      var email   = document.getElementById('tsEmail').value.trim();
+      var subject = document.getElementById('tsSubject').value.trim();
+      var message = document.getElementById('tsMessage').value.trim();
+
+      if (!name || !email || !message) {
+        var msg = document.getElementById('tsSupportMsg');
+        msg.textContent = 'Name, email and message are required.';
+        msg.style.display = 'block';
+        msg.style.background = 'rgba(255,43,110,0.12)';
+        msg.style.color = '#ff2b6e';
+        return;
+      }
+
+      var btn = document.getElementById('tsSupportBtn');
+      btn.disabled = true; btn.style.opacity = '.6'; btn.textContent = 'SENDING...';
+
+      fetch('https://formspree.io/f/mjglbzbp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          subject: '🛒 TubaX Store Support — ' + (subject || 'General'),
+          name: name, email: email,
+          topic: subject || 'General',
+          message: message,
+          sentAt: new Date().toISOString()
+        })
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(){
+        btn.disabled = false; btn.style.opacity = '1'; btn.textContent = 'SEND MESSAGE';
+        document.getElementById('tubaSupportForm').style.display = 'none';
+        document.getElementById('tubaSupportSuccess').style.display = 'block';
+        document.getElementById('tubaSupportForm').reset();
+      })
+      .catch(function(){
+        btn.disabled = false; btn.style.opacity = '1'; btn.textContent = 'SEND MESSAGE';
+        var msg = document.getElementById('tsSupportMsg');
+        msg.textContent = 'Failed to send. Please try again.';
+        msg.style.display = 'block';
+        msg.style.background = 'rgba(255,43,110,0.12)';
+        msg.style.color = '#ff2b6e';
+      });
+    });
+  </script>
+
+</body>
+</html>
