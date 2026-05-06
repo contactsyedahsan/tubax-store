@@ -1327,7 +1327,7 @@
   </script>
 
   <script>
-  /* ═══ CANVAS PARTICLES ═══ */
+  /* ═══ BOKEH PARTICLES ═══ */
   (function(){
     var canvas = document.getElementById('bgCanvas');
     var ctx    = canvas.getContext('2d');
@@ -1340,59 +1340,55 @@
     window.addEventListener('resize', resize);
     resize();
 
-    function Particle() {
-      this.reset();
-    }
-    Particle.prototype.reset = function() {
-      this.x  = Math.random() * W;
-      this.y  = Math.random() * H;
-      this.vx = (Math.random() - 0.5) * 0.4;
-      this.vy = (Math.random() - 0.5) * 0.4;
-      this.r  = Math.random() * 1.5 + 0.3;
-      this.a  = Math.random() * 0.5 + 0.1;
-      this.color = Math.random() > 0.6
-        ? 'rgba(124,58,237,'
-        : Math.random() > 0.5
-          ? 'rgba(167,139,250,'
-          : 'rgba(6,182,212,';
+    var COLS = [
+      [124, 58, 237],  /* electric violet */
+      [167,139, 250],  /* soft lavender   */
+      [109,  40, 217], /* deep purple     */
+      [196, 181, 253], /* pale lavender   */
+      [255, 255, 255], /* soft white bokeh*/
+    ];
+
+    function Particle() { this.spawn(true); }
+    Particle.prototype.spawn = function(scatter) {
+      var c = COLS[Math.floor(Math.random() * COLS.length)];
+      this.cr = c[0]; this.cg = c[1]; this.cb = c[2];
+      this.x    = Math.random() * W;
+      this.y    = scatter ? Math.random() * H : H + 30;
+      this.vy   = -(Math.random() * 0.35 + 0.08);   /* float upward */
+      this.vx   = (Math.random() - 0.5) * 0.12;
+      this.rad  = Math.random() * 5 + 2;             /* bokeh 2–7 px */
+      this.maxA = Math.random() * 0.28 + 0.06;
+      this.alpha = scatter ? Math.random() * this.maxA : 0;
+      this.age  = scatter ? Math.random() * 400 : 0;
+      this.life = Math.random() * 300 + 250;
     };
     Particle.prototype.update = function() {
-      this.x += this.vx;
-      this.y += this.vy;
-      if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+      this.x  += this.vx;
+      this.y  += this.vy;
+      this.age++;
+      var t = this.age / this.life;
+      if      (t < 0.2)  this.alpha = this.maxA * (t / 0.2);
+      else if (t > 0.7)  this.alpha = this.maxA * ((1 - t) / 0.3);
+      else               this.alpha = this.maxA;
+      if (this.y < -30 || this.age >= this.life) this.spawn(false);
     };
     Particle.prototype.draw = function() {
+      var g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.rad * 2.2);
+      var rgb = this.cr + ',' + this.cg + ',' + this.cb;
+      g.addColorStop(0,   'rgba(' + rgb + ',' + this.alpha + ')');
+      g.addColorStop(0.5, 'rgba(' + rgb + ',' + (this.alpha * 0.45) + ')');
+      g.addColorStop(1,   'rgba(' + rgb + ',0)');
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = this.color + this.a + ')';
+      ctx.arc(this.x, this.y, this.rad * 2.2, 0, Math.PI * 2);
+      ctx.fillStyle = g;
       ctx.fill();
     };
 
-    for (var i = 0; i < 120; i++) particles.push(new Particle());
-
-    /* Connect nearby particles */
-    function drawLines() {
-      for (var i = 0; i < particles.length; i++) {
-        for (var j = i + 1; j < particles.length; j++) {
-          var dx = particles[i].x - particles[j].x;
-          var dy = particles[i].y - particles[j].y;
-          var dist = Math.sqrt(dx*dx + dy*dy);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = 'rgba(124,58,237,' + (0.09 * (1 - dist/120)) + ')';
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-    }
+    for (var i = 0; i < 70; i++) particles.push(new Particle());
 
     function loop() {
       ctx.clearRect(0, 0, W, H);
       particles.forEach(function(p){ p.update(); p.draw(); });
-      drawLines();
       requestAnimationFrame(loop);
     }
     loop();
@@ -1923,91 +1919,120 @@
     });
   </script>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       CLEAN PREMIUM LIGHT THEME OVERRIDE
-       ═══════════════════════════════════════════════════════════ -->
+  <!-- ═══ PURPLE MESH GRADIENT — Global Animated Background ═══ -->
   <style>
-    /* ── Global surface ── */
-    body { background: #F9FAFB !important; color: #111827 !important; }
+    /* ── Deep purple base + animated mesh ── */
+    body {
+      background-color: #0D0616 !important;
+      background-image:
+        radial-gradient(ellipse 75% 60% at 18% 28%, rgba(109,40,217,0.7) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 75% at 82% 72%, rgba(124,58,237,0.6) 0%, transparent 65%),
+        radial-gradient(ellipse 65% 50% at 52% 92%, rgba(76,29,149,0.75) 0%, transparent 60%) !important;
+      background-attachment: fixed !important;
+      background-size: 200% 200% !important;
+      animation: meshBodyPanT 28s ease-in-out infinite alternate !important;
+      color: #F1F5F9 !important;
+    }
+    @keyframes meshBodyPanT {
+      0%   { background-position: 0% 0%,   100% 100%, 50% 100%; }
+      40%  { background-position: 22% 14%,  78%  86%,  38%  88%; }
+      70%  { background-position: 12% 28%,  90%  68%,  58%  82%; }
+      100% { background-position: 8%  18%,  85%  78%,  48%  95%; }
+    }
 
-    /* ── Animated background — soft pastel orbs ── */
+    /* ── Aurora orbs — vivid violet palette ── */
+    .bg-glow-1 { background: radial-gradient(circle, rgba(109,40,217,0.88) 0%, rgba(109,40,217,0.28) 40%, transparent 70%) !important; }
+    .bg-glow-2 { background: radial-gradient(circle, rgba(124,58,237,0.78) 0%, rgba(124,58,237,0.22) 40%, transparent 70%) !important; }
+    .bg-glow-3 { background: radial-gradient(circle, rgba(167,139,250,0.62) 0%, rgba(167,139,250,0.14) 40%, transparent 70%) !important; }
+    .bg-glow-4 { background: radial-gradient(circle, rgba(76,29,149,0.82) 0%, rgba(76,29,149,0.24) 40%, transparent 70%) !important; }
+
+    /* ── Grid ── */
     .bg-grid {
       background-image:
-        linear-gradient(rgba(124,58,237,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(124,58,237,0.025) 1px, transparent 1px) !important;
+        linear-gradient(rgba(167,139,250,0.032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(167,139,250,0.032) 1px, transparent 1px) !important;
     }
-    .bg-glow-1 { background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, rgba(167,139,250,0.02) 40%, transparent 70%) !important; }
-    .bg-glow-2 { background: radial-gradient(circle, rgba(6,182,212,0.05) 0%, rgba(6,182,212,0.01) 40%, transparent 70%) !important; }
-    .bg-glow-3 { background: radial-gradient(circle, rgba(249,115,22,0.04) 0%, transparent 70%) !important; }
-    .bg-glow-4 { background: radial-gradient(circle, rgba(167,139,250,0.06) 0%, rgba(124,58,237,0.01) 40%, transparent 70%) !important; }
-    .scanline  { display: none !important; }
+    .scanline { display: block !important; }
 
     /* ── Navigation ── */
-    .tuba-nav {
-      background: rgba(255,255,255,0.92) !important;
-      border-bottom: 1px solid rgba(124,58,237,0.1) !important;
-      box-shadow: 0 1px 16px rgba(0,0,0,0.05) !important;
+    .store-nav {
+      background: rgba(13,6,22,0.82) !important;
+      border-bottom: 1px solid rgba(124,58,237,0.18) !important;
+      box-shadow: 0 1px 32px rgba(109,40,217,0.18) !important;
     }
-    .tuba-nav-link {
-      color: #374151 !important;
-      background: rgba(124,58,237,0.04) !important;
-      border-color: rgba(124,58,237,0.1) !important;
+    .store-nav-back { color: #DDD6FE !important; }
+    .store-nav-link {
+      color: rgba(255,255,255,0.82) !important;
+      background: rgba(124,58,237,0.09) !important;
+      border-color: rgba(124,58,237,0.2) !important;
       text-shadow: none !important;
     }
-    .tuba-nav-logo span { text-shadow: none !important; }
+    .store-nav-link:hover { color: #fff !important; background: rgba(124,58,237,0.2) !important; }
+    .store-nav-logo span { text-shadow: none !important; }
 
-    /* ── Product cards ── */
-    .product-card, .tuba-card {
-      background: #FFFFFF !important;
-      border: 1px solid rgba(124,58,237,0.1) !important;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04) !important;
+    /* ── Product cards — GLASSMORPHISM ── */
+    .store-card {
+      background: rgba(255,255,255,0.06) !important;
+      border: 1px solid rgba(255,255,255,0.10) !important;
+      box-shadow:
+        0 8px 32px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.06) !important;
+      backdrop-filter: blur(16px) saturate(160%) !important;
+      -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
     }
-    .product-card:hover, .tuba-card:hover {
-      border-color: rgba(124,58,237,0.35) !important;
-      box-shadow: 0 20px 60px rgba(124,58,237,0.12), 0 4px 16px rgba(0,0,0,0.07) !important;
+    .store-card:hover {
+      border-color: rgba(167,139,250,0.38) !important;
+      box-shadow:
+        0 24px 64px rgba(109,40,217,0.38),
+        inset 0 1px 0 rgba(167,139,250,0.15) !important;
     }
-    .product-card-img, .tuba-card-img { background: #F3F4F6 !important; }
-    .product-card-img::after, .tuba-card-img::after {
-      background: linear-gradient(transparent, rgba(249,250,251,0.8)) !important;
-    }
-    .product-name, .tuba-card-name {
-      color: #111827 !important;
-      text-shadow: none !important;
-    }
-    .product-desc, .tuba-card-desc { color: #6B7280 !important; }
-    .product-footer, .tuba-card-footer { border-top-color: rgba(124,58,237,0.07) !important; }
+    .store-card-img { background: rgba(255,255,255,0.04) !important; }
+    .store-card-img::after { background: linear-gradient(transparent, rgba(13,6,22,0.65)) !important; }
+    .store-card-name { color: #F1F5F9 !important; text-shadow: none !important; }
+    .store-card-desc { color: rgba(196,181,253,0.75) !important; }
+    .store-card-cat  { color: rgba(167,139,250,0.72) !important; text-shadow: none !important; }
+    .store-card-price { text-shadow: none !important; }
 
-    /* ── Filter / category pills ── */
-    .filter-btn, .cat-filter-btn {
-      background: #FFFFFF !important;
-      border-color: rgba(124,58,237,0.15) !important;
-      color: #374151 !important;
+    /* ── Category filter pills ── */
+    .store-cat-btn {
+      background: rgba(255,255,255,0.05) !important;
+      border-color: rgba(124,58,237,0.22) !important;
+      color: rgba(196,181,253,0.82) !important;
     }
-    .filter-btn.active, .cat-filter-btn.active {
-      background: var(--neon) !important;
-      color: #FFFFFF !important;
+    .store-cat-btn:hover { background: rgba(124,58,237,0.14) !important; color: #fff !important; }
+    .store-cat-btn.active { box-shadow: 0 4px 18px rgba(109,40,217,0.4) !important; }
+
+    /* ── Support modal ── */
+    .ts-box {
+      background: rgba(14,4,32,0.97) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-color: rgba(124,58,237,0.2) !important;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.7) !important;
+    }
+    .ts-label { color: rgba(196,181,253,0.72) !important; }
+    .ts-input { background: rgba(255,255,255,0.05) !important; border-color: rgba(124,58,237,0.22) !important; color: #F1F5F9 !important; }
+    .ts-input::placeholder { color: rgba(167,139,250,0.42) !important; }
+    .ts-input:focus { border-color: rgba(124,58,237,0.55) !important; background: rgba(124,58,237,0.07) !important; }
+    .ts-close { color: #A78BFA !important; }
+    .ts-close:hover { color: #fff !important; }
+
+    /* ── Support FAB ── */
+    #tubaSupportFab {
+      background: rgba(109,40,217,0.22) !important;
+      border-color: rgba(124,58,237,0.45) !important;
+      color: #C4B5FD !important;
+      box-shadow: 0 4px 24px rgba(109,40,217,0.32) !important;
+    }
+    #tubaSupportFab:hover {
+      background: rgba(124,58,237,0.38) !important;
+      box-shadow: 0 8px 36px rgba(109,40,217,0.55) !important;
+      color: #fff !important;
     }
 
-    /* ── Section backgrounds ── */
-    .tuba-hero    { background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 50%, #E0F2FE 100%) !important; }
-    .tuba-section { background: transparent !important; }
-
-    /* ── Support / modal boxes ── */
-    .ts-box, .tuba-support-box {
-      background: #FFFFFF !important;
-      border-color: rgba(124,58,237,0.1) !important;
-    }
-    .ts-input, .tuba-support-input {
-      background: #F9FAFB !important;
-      color: #111827 !important;
-      border-color: rgba(124,58,237,0.15) !important;
-    }
-
-    /* ── Kill all neon text-shadows ── */
-    .tuba-nav-logo span,
-    .product-name, .tuba-card-name,
-    .product-price, .tuba-card-price,
-    .product-cat,  .tuba-card-cat { text-shadow: none !important; }
+    /* ── Kill all stale text-shadows ── */
+    .store-nav-logo span,
+    .store-card-name, .store-card-cat, .store-card-price { text-shadow: none !important; }
   </style>
 
 </body>
