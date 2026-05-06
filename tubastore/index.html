@@ -51,12 +51,12 @@
       --magenta: #F43F5E;
       --gold:    #FBBF24;
       --accent:  #F97316;
-      --bg:      #080A0F;
-      --bg-2:    #0D1117;
-      --bg-3:    #131920;
-      --ink:     #F1F5F9;
-      --ink-muted: #94A3B8;
-      --line:    rgba(124,58,237,0.15);
+      --bg:      #F9FAFB;
+      --bg-2:    #FFFFFF;
+      --bg-3:    #F3F4F6;
+      --ink:     #111827;
+      --ink-muted: #6B7280;
+      --line:    rgba(124,58,237,0.12);
       --display: 'Bebas Neue', sans-serif;
       --mono:    'JetBrains Mono', monospace;
       --body:    'Inter', sans-serif;
@@ -1922,6 +1922,93 @@
       });
     });
   </script>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CLEAN PREMIUM LIGHT THEME OVERRIDE
+       ═══════════════════════════════════════════════════════════ -->
+  <style>
+    /* ── Global surface ── */
+    body { background: #F9FAFB !important; color: #111827 !important; }
+
+    /* ── Animated background — soft pastel orbs ── */
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(124,58,237,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,58,237,0.025) 1px, transparent 1px) !important;
+    }
+    .bg-glow-1 { background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, rgba(167,139,250,0.02) 40%, transparent 70%) !important; }
+    .bg-glow-2 { background: radial-gradient(circle, rgba(6,182,212,0.05) 0%, rgba(6,182,212,0.01) 40%, transparent 70%) !important; }
+    .bg-glow-3 { background: radial-gradient(circle, rgba(249,115,22,0.04) 0%, transparent 70%) !important; }
+    .bg-glow-4 { background: radial-gradient(circle, rgba(167,139,250,0.06) 0%, rgba(124,58,237,0.01) 40%, transparent 70%) !important; }
+    .scanline  { display: none !important; }
+
+    /* ── Navigation ── */
+    .tuba-nav {
+      background: rgba(255,255,255,0.92) !important;
+      border-bottom: 1px solid rgba(124,58,237,0.1) !important;
+      box-shadow: 0 1px 16px rgba(0,0,0,0.05) !important;
+    }
+    .tuba-nav-link {
+      color: #374151 !important;
+      background: rgba(124,58,237,0.04) !important;
+      border-color: rgba(124,58,237,0.1) !important;
+      text-shadow: none !important;
+    }
+    .tuba-nav-logo span { text-shadow: none !important; }
+
+    /* ── Product cards ── */
+    .product-card, .tuba-card {
+      background: #FFFFFF !important;
+      border: 1px solid rgba(124,58,237,0.1) !important;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04) !important;
+    }
+    .product-card:hover, .tuba-card:hover {
+      border-color: rgba(124,58,237,0.35) !important;
+      box-shadow: 0 20px 60px rgba(124,58,237,0.12), 0 4px 16px rgba(0,0,0,0.07) !important;
+    }
+    .product-card-img, .tuba-card-img { background: #F3F4F6 !important; }
+    .product-card-img::after, .tuba-card-img::after {
+      background: linear-gradient(transparent, rgba(249,250,251,0.8)) !important;
+    }
+    .product-name, .tuba-card-name {
+      color: #111827 !important;
+      text-shadow: none !important;
+    }
+    .product-desc, .tuba-card-desc { color: #6B7280 !important; }
+    .product-footer, .tuba-card-footer { border-top-color: rgba(124,58,237,0.07) !important; }
+
+    /* ── Filter / category pills ── */
+    .filter-btn, .cat-filter-btn {
+      background: #FFFFFF !important;
+      border-color: rgba(124,58,237,0.15) !important;
+      color: #374151 !important;
+    }
+    .filter-btn.active, .cat-filter-btn.active {
+      background: var(--neon) !important;
+      color: #FFFFFF !important;
+    }
+
+    /* ── Section backgrounds ── */
+    .tuba-hero    { background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 50%, #E0F2FE 100%) !important; }
+    .tuba-section { background: transparent !important; }
+
+    /* ── Support / modal boxes ── */
+    .ts-box, .tuba-support-box {
+      background: #FFFFFF !important;
+      border-color: rgba(124,58,237,0.1) !important;
+    }
+    .ts-input, .tuba-support-input {
+      background: #F9FAFB !important;
+      color: #111827 !important;
+      border-color: rgba(124,58,237,0.15) !important;
+    }
+
+    /* ── Kill all neon text-shadows ── */
+    .tuba-nav-logo span,
+    .product-name, .tuba-card-name,
+    .product-price, .tuba-card-price,
+    .product-cat,  .tuba-card-cat { text-shadow: none !important; }
+  </style>
 
 </body>
 </html>

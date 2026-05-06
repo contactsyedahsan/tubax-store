@@ -57,12 +57,12 @@
       --magenta: #F43F5E;
       --gold:    #FBBF24;
       --accent:  #F97316;
-      --bg:      #080A0F;
-      --bg-2:    #0D1117;
-      --bg-3:    #131920;
-      --ink:     #F1F5F9;
-      --ink-muted: #94A3B8;
-      --line:    rgba(124,58,237,0.15);
+      --bg:      #F9FAFB;
+      --bg-2:    #FFFFFF;
+      --bg-3:    #F3F4F6;
+      --ink:     #111827;
+      --ink-muted: #6B7280;
+      --line:    rgba(124,58,237,0.12);
       --brand-gradient: linear-gradient(135deg, #A78BFA 0%, #7C3AED 50%, #6D28D9 100%);
       --display: 'Bebas Neue', sans-serif;
       --mono:    'JetBrains Mono', monospace;
@@ -2537,6 +2537,228 @@
       <button class="cart-checkout-btn" onclick="cartCheckout()">PROCEED TO CHECKOUT</button>
     </div>
   </div>
+
+
+  <!-- ═══ LIGHT THEME OVERRIDES — injected last, wins cascade ═══ -->
+  <style>
+    /* ── Body ── */
+    body { background: #F9FAFB; color: #111827; }
+
+    /* ── Animated background — soft pastels on white ── */
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(124,58,237,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,58,237,0.025) 1px, transparent 1px);
+    }
+    .bg-glow-1 { background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, rgba(167,139,250,0.02) 40%, transparent 70%); }
+    .bg-glow-2 { background: radial-gradient(circle, rgba(6,182,212,0.05) 0%, rgba(6,182,212,0.01) 40%, transparent 70%); }
+    .bg-glow-3 { background: radial-gradient(circle, rgba(249,115,22,0.04) 0%, transparent 70%); }
+    .bg-glow-4 { background: radial-gradient(circle, rgba(167,139,250,0.06) 0%, rgba(124,58,237,0.01) 40%, transparent 70%); }
+    .scanline { display: none; } /* cyberpunk effect — not for light mode */
+
+    /* ── Nav ── */
+    .store-nav {
+      background: rgba(255,255,255,0.92);
+      border-bottom: 1px solid rgba(124,58,237,0.1);
+      box-shadow: 0 1px 16px rgba(0,0,0,0.05);
+    }
+    .store-nav-back { color: #374151; }
+    .store-nav-back:hover { color: var(--neon); box-shadow: none; }
+    .store-nav-link {
+      color: #374151;
+      background: rgba(124,58,237,0.04);
+      border-color: rgba(124,58,237,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      text-shadow: none;
+    }
+    .store-nav-link:hover { color: var(--neon); background: rgba(124,58,237,0.08); text-shadow: none; box-shadow: 0 4px 14px rgba(124,58,237,0.15); }
+    .store-nav-official { color: #374151; }
+    .store-nav-avatar { background: #F3F4F6; border-color: rgba(124,58,237,0.15); box-shadow: none; }
+    .cart-trigger { color: #374151; }
+    .cart-trigger:hover { color: var(--neon); }
+
+    /* ── Hero ── */
+    .store-hero-sub { color: #374151; }
+
+    /* ── Slider ── */
+    .store-slider { border-color: rgba(124,58,237,0.15); box-shadow: 0 8px 48px rgba(124,58,237,0.08); }
+    .slider-arrow { background: rgba(255,255,255,0.92); color: #374151; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .slider-arrow:hover { background: rgba(124,58,237,0.1); color: var(--neon); border-color: var(--neon); }
+    .slider-dot { background: rgba(0,0,0,0.18); }
+    .slider-dot.active { box-shadow: 0 0 6px rgba(124,58,237,0.5); }
+    .slide-sub { color: rgba(0,0,0,0.55); }
+    .slide-orig { color: rgba(0,0,0,0.38); }
+
+    /* ── Category filter buttons ── */
+    .store-cat-btn {
+      background: #FFFFFF;
+      border-color: rgba(124,58,237,0.15);
+      color: #6B7280;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .store-cat-btn:hover { background: rgba(124,58,237,0.06); }
+    .store-cat-btn.active { box-shadow: 0 4px 14px rgba(124,58,237,0.25); }
+
+    /* ── Product cards — white floating ── */
+    .store-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(124,58,237,0.1);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .store-card:hover {
+      border-color: rgba(124,58,237,0.35);
+      box-shadow: 0 20px 60px rgba(124,58,237,0.12), 0 4px 16px rgba(0,0,0,0.07);
+    }
+    .store-card::after { background: linear-gradient(45deg, transparent, rgba(124,58,237,0.02), transparent); }
+    .store-card-img { background: #F3F4F6; }
+    .store-card-img::after { background: linear-gradient(transparent, rgba(249,250,251,0.8)); }
+    .store-card-name { color: #111827; text-shadow: none; }
+    .store-card-cat, .store-card-price { text-shadow: none; }
+    .store-add-cart-btn { background: rgba(124,58,237,0.05); border-color: rgba(124,58,237,0.2); }
+    .store-add-cart-btn:hover { background: rgba(124,58,237,0.1); }
+    .store-buy-btn { box-shadow: 0 4px 14px rgba(124,58,237,0.28); }
+    .store-buy-btn:hover { box-shadow: 0 6px 20px rgba(124,58,237,0.4) !important; }
+    .badge-new { box-shadow: 0 2px 8px rgba(124,58,237,0.3); }
+
+    /* ── Toast ── */
+    #storeToast { background: rgba(255,255,255,0.97); color: #111827; border-color: rgba(124,58,237,0.2); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+
+    /* ── Cart drawer ── */
+    .cart-drawer { background: #FFFFFF; box-shadow: -8px 0 48px rgba(0,0,0,0.1); }
+    .cart-header { border-bottom-color: rgba(124,58,237,0.1); }
+    .cart-title { color: #111827; }
+    .cart-close { color: #374151; }
+    .cart-item { border-bottom-color: rgba(0,0,0,0.06); }
+    .cart-item-img { background: #F3F4F6; }
+    .cart-item-name { color: #111827; }
+    .cart-qty-btn { color: #374151; border-color: rgba(0,0,0,0.15); background: none; }
+    .cart-qty-btn:hover { color: var(--neon); border-color: var(--neon); }
+    .cart-qty { color: #111827; }
+    .cart-footer { background: #F9FAFB; border-top-color: rgba(124,58,237,0.1); }
+    .cart-overlay { background: rgba(0,0,0,0.45); }
+
+    /* ── New Arrivals — light lavender gradient ── */
+    .na-section {
+      background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 45%, #E0F2FE 100%);
+      border-color: rgba(124,58,237,0.15);
+      box-shadow: 0 8px 40px rgba(124,58,237,0.07);
+    }
+    .na-section::before { opacity: 0.22; }
+    .na-label { color: var(--neon); }
+    .na-title { color: #111827; }
+    .na-title span { color: #111827; text-shadow: none; }
+    .na-sub { color: #6B7280; }
+    .na-card {
+      background: rgba(255,255,255,0.88);
+      border-color: rgba(124,58,237,0.12);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .na-card:hover { border-color: rgba(124,58,237,0.35); box-shadow: 0 16px 40px rgba(124,58,237,0.1); }
+    .na-card-name { color: #111827; }
+    .na-card-desc { color: #6B7280; }
+
+    /* ── Best Selling — light warm gradient ── */
+    .bs-section {
+      background: linear-gradient(135deg, #FFF7ED 0%, #F5F3FF 50%, #E0F2FE 100%);
+      border-color: rgba(124,58,237,0.15);
+      box-shadow: 0 8px 40px rgba(124,58,237,0.06);
+    }
+    .bs-section::before { opacity: 0.18; }
+    .bs-card {
+      background: rgba(255,255,255,0.9);
+      border-color: rgba(124,58,237,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .bs-card:hover { border-color: rgba(124,58,237,0.35); box-shadow: 0 16px 40px rgba(124,58,237,0.1); }
+    .bs-rank { text-shadow: none; }
+
+    /* ── Reviews ── */
+    .rv-card {
+      background: #FFFFFF;
+      border-color: rgba(124,58,237,0.08);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .rv-card:hover { box-shadow: 0 12px 32px rgba(124,58,237,0.1); }
+    .rv-name { color: #111827; text-shadow: none; }
+    .rv-stars span { color: rgba(0,0,0,0.18); }
+
+    /* ── Social cards ── */
+    .sc-card {
+      background: #FFFFFF;
+      border-color: rgba(0,0,0,0.07);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .sc-platform { color: #111827; }
+
+    /* ── Category grid ── */
+    .cat-item { background: #FFFFFF; }
+    .cat-item:hover { background: #F3F4F6; }
+    .cat-item-title { color: #111827; }
+
+    /* ── About ── */
+    .ab-content {
+      background: #FFFFFF;
+      border-color: rgba(124,58,237,0.12);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    }
+    .ab-text p { color: #374151; }
+    .ab-stat-num { color: #111827; text-shadow: none; }
+    .ab-feat-card { background: rgba(124,58,237,0.04); border-color: rgba(124,58,237,0.1); }
+    .ab-feat-card:hover { background: rgba(124,58,237,0.08); border-color: var(--neon); }
+    .ab-feat-title { color: #111827; }
+
+    /* ── FAQ ── */
+    .faq-item { background: #FFFFFF; border-color: rgba(124,58,237,0.1); }
+    .faq-q { color: #111827; }
+    .faq-item.active { background: rgba(124,58,237,0.04); }
+
+    /* ── Order modal ── */
+    .om-box { background: #FFFFFF; border-color: rgba(124,58,237,0.18); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+    .om-pname { color: #111827; }
+    .om-lbl, .om-total-lbl { color: #6B7280; }
+    .om-input { background: #F9FAFB; border-color: rgba(124,58,237,0.18); color: #111827; }
+    .om-input::placeholder { color: #9CA3AF; }
+    .om-select option { background: #FFFFFF; color: #111827; }
+    .om-success-title { color: #111827; }
+    .om-success-sub { color: #6B7280; }
+
+    /* ── Support FAB ── */
+    #tubaSupportFab {
+      background: rgba(255,255,255,0.92);
+      border-color: rgba(124,58,237,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(124,58,237,0.08);
+    }
+    #tubaSupportFab:hover {
+      background: rgba(124,58,237,0.08);
+      box-shadow: 0 8px 32px rgba(124,58,237,0.2);
+      color: var(--neon);
+    }
+
+    /* ── Support modal ── */
+    .ts-box {
+      background: #FFFFFF;
+      border-color: rgba(124,58,237,0.15);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+    .ts-close { color: #9CA3AF; }
+    .ts-close:hover { color: var(--neon); }
+    .ts-label { color: #6B7280; }
+    .ts-input { background: #F9FAFB; border-color: rgba(124,58,237,0.18); color: #111827; }
+    .ts-input::placeholder { color: #9CA3AF; }
+    .ts-input:focus { border-color: rgba(124,58,237,0.5); background: #FFFFFF; }
+
+    /* ── Footer ── */
+    .store-footer { border-top-color: rgba(124,58,237,0.07); }
+
+    /* ── Kill all neon text-shadows on white ── */
+    .store-nav-logo span,
+    .na-label, .na-title span,
+    .store-card-cat, .store-card-name,
+    .store-card-price,
+    .rv-product, .rv-name,
+    .slide-tag,
+    .bs-rank { text-shadow: none; }
+  </style>
 
 </body>
 </html>
