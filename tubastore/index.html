@@ -17,7 +17,7 @@
       var link = document.createElement('link');
       link.rel = 'icon'; link.type = 'image/png';
       document.head.appendChild(link);
-      var svgStr = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><polygon fill="#b876b8" points="465.59 137.37 394.98 207.98 361.48 241.49 311.55 291.41 303.41 283.26 269.27 249.12 261.62 241.49 295.13 207.98 311.56 191.57 365.73 137.39 365.74 137.37 465.59 137.37"/><polygon fill="#b876b8" points="249.13 269.27 143.78 374.61 128.54 374.57 128.49 374.63 43.91 374.63 149.27 269.27 199.19 219.34 224.27 244.42 241.49 261.62 249.13 269.27"/><polygon fill="#ffffff" points="331.31 137.37 294.34 174.35 260.7 207.98 245 223.69 244.42 224.27 228.3 208.17 228.12 207.98 87.99 207.98 17.38 137.37 331.31 137.37"/><polygon fill="#ffffff" points="494.62 374.63 178.2 374.63 265.32 287.5 266.34 286.49 283.87 304.02 424.01 304.02 494.62 374.63"/></svg>';
+      var svgStr = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><polygon fill="#7C3AED" points="465.59 137.37 394.98 207.98 361.48 241.49 311.55 291.41 303.41 283.26 269.27 249.12 261.62 241.49 295.13 207.98 311.56 191.57 365.73 137.39 365.74 137.37 465.59 137.37"/><polygon fill="#7C3AED" points="249.13 269.27 143.78 374.61 128.54 374.57 128.49 374.63 43.91 374.63 149.27 269.27 199.19 219.34 224.27 244.42 241.49 261.62 249.13 269.27"/><polygon fill="#ffffff" points="331.31 137.37 294.34 174.35 260.7 207.98 245 223.69 244.42 224.27 228.3 208.17 228.12 207.98 87.99 207.98 17.38 137.37 331.31 137.37"/><polygon fill="#ffffff" points="494.62 374.63 178.2 374.63 265.32 287.5 266.34 286.49 283.87 304.02 424.01 304.02 494.62 374.63"/></svg>';
       var blob = new Blob([svgStr], { type: 'image/svg+xml' });
       var url = URL.createObjectURL(blob);
       var img = new Image();
@@ -27,12 +27,12 @@
         function draw() {
           frame++;
           ctx.clearRect(0, 0, 64, 64);
-          ctx.fillStyle = '#0a0d0a';
+          ctx.fillStyle = '#080A0F';
           ctx.beginPath();
           ctx.roundRect(0, 0, 64, 64, 10);
           ctx.fill();
           var pulse = Math.sin(frame * 0.07) * 0.5 + 0.5;
-          ctx.shadowColor = '#b876b8';
+          ctx.shadowColor = '#7C3AED';
           ctx.shadowBlur = 4 + pulse * 14;
           ctx.drawImage(img, 7, 7, 50, 50);
           ctx.shadowBlur = 0;
@@ -46,16 +46,17 @@
   </script>
   <style>
     :root {
-      --neon:    #b876b8;
-      --neon-2:  #00ffae;
-      --magenta: #ff2b6e;
-      --gold:    #ffd24a;
-      --bg:      #0a0d0a;
-      --bg-2:    #0f1410;
-      --bg-3:    #141a14;
-      --ink:     #e8f0e8;
-      --ink-muted: #5a7a5a;
-      --line:    rgba(184,118,184,0.1);
+      --neon:    #7C3AED;
+      --neon-2:  #06B6D4;
+      --magenta: #F43F5E;
+      --gold:    #FBBF24;
+      --accent:  #F97316;
+      --bg:      #080A0F;
+      --bg-2:    #0D1117;
+      --bg-3:    #131920;
+      --ink:     #F1F5F9;
+      --ink-muted: #94A3B8;
+      --line:    rgba(124,58,237,0.15);
       --display: 'Bebas Neue', sans-serif;
       --mono:    'JetBrains Mono', monospace;
       --body:    'Inter', sans-serif;
@@ -84,55 +85,74 @@
       z-index: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(184,118,184,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(184,118,184,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      animation: gridShift 20s linear infinite;
+        linear-gradient(rgba(124,58,237,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,58,237,0.045) 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: gridShift 28s linear infinite;
     }
     @keyframes gridShift {
       from { background-position: 0 0; }
-      to   { background-position: 60px 60px; }
+      to   { background-position: 80px 80px; }
     }
     .bg-glow-1 {
       position: fixed;
-      width: 600px; height: 600px;
+      width: 70vw; height: 70vw; max-width: 900px; max-height: 900px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(184,118,184,0.06) 0%, transparent 70%);
-      top: -100px; left: -100px;
-      animation: floatGlow1 12s ease-in-out infinite;
+      background: radial-gradient(circle, rgba(124,58,237,0.13) 0%, rgba(109,40,217,0.05) 40%, transparent 70%);
+      top: -15%; left: -8%;
+      animation: floatGlow1 22s ease-in-out infinite;
       pointer-events: none; z-index: 0;
+      filter: blur(60px); will-change: transform;
     }
     .bg-glow-2 {
       position: fixed;
-      width: 500px; height: 500px;
+      width: 60vw; height: 60vw; max-width: 800px; max-height: 800px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,255,174,0.05) 0%, transparent 70%);
-      bottom: -80px; right: -80px;
-      animation: floatGlow2 15s ease-in-out infinite;
+      background: radial-gradient(circle, rgba(6,182,212,0.09) 0%, rgba(6,182,212,0.03) 40%, transparent 70%);
+      bottom: -12%; right: -8%;
+      animation: floatGlow2 28s ease-in-out infinite;
       pointer-events: none; z-index: 0;
+      filter: blur(70px); will-change: transform;
     }
     .bg-glow-3 {
       position: fixed;
-      width: 400px; height: 400px;
+      width: 50vw; height: 50vw; max-width: 700px; max-height: 700px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,43,110,0.04) 0%, transparent 70%);
-      top: 40%; left: 50%;
+      background: radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 70%);
+      top: 45%; left: 55%;
       transform: translate(-50%, -50%);
-      animation: floatGlow3 18s ease-in-out infinite;
+      animation: floatGlow3 32s ease-in-out infinite;
       pointer-events: none; z-index: 0;
+      filter: blur(80px); will-change: transform;
+    }
+    .bg-glow-4 {
+      position: fixed;
+      width: 55vw; height: 55vw; max-width: 750px; max-height: 750px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167,139,250,0.09) 0%, rgba(124,58,237,0.02) 40%, transparent 70%);
+      bottom: 15%; left: 3%;
+      animation: floatGlow4 38s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+      filter: blur(65px); will-change: transform;
     }
     @keyframes floatGlow1 {
       0%,100% { transform: translate(0,0) scale(1); }
-      33%      { transform: translate(80px, 60px) scale(1.1); }
-      66%      { transform: translate(-40px, 100px) scale(0.9); }
+      33%      { transform: translate(6vw, 8vh) scale(1.08); }
+      66%      { transform: translate(-3vw, 5vh) scale(0.94); }
     }
     @keyframes floatGlow2 {
       0%,100% { transform: translate(0,0) scale(1); }
-      50%      { transform: translate(-100px, -60px) scale(1.15); }
+      40%      { transform: translate(-8vw, -6vh) scale(1.1); }
+      75%      { transform: translate(5vw, -10vh) scale(0.92); }
     }
     @keyframes floatGlow3 {
-      0%,100% { transform: translate(-50%,-50%) scale(1); opacity:.6; }
-      50%      { transform: translate(-50%,-50%) scale(1.3); opacity:.3; }
+      0%,100% { transform: translate(-50%,-50%) scale(1); opacity:.7; }
+      50%      { transform: translate(-50%,-50%) scale(1.25); opacity:.35; }
+    }
+    @keyframes floatGlow4 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      30%      { transform: translate(5vw, -5vh) scale(1.06); }
+      70%      { transform: translate(-4vw, 7vh) scale(0.95); }
     }
 
     /* ═══ SCAN LINE ═══ */
@@ -140,7 +160,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, transparent, rgba(184,118,184,0.4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent);
       animation: scanDown 6s linear infinite;
       pointer-events: none; z-index: 1;
     }
@@ -155,22 +175,22 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px;
       height: 64px;
-      background: rgba(10,13,10,0.85);
+      background: rgba(8,10,15,0.85);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(184,118,184,0.1);
+      border-bottom: 1px solid rgba(124,58,237,0.1);
     }
     .store-nav-logo {
       text-decoration: none;
       display: flex; align-items: center;
     }
-    .store-nav-logo svg { height: 36px; width: auto; filter: drop-shadow(0 0 8px rgba(184,118,184,0.5)); transition: filter .25s; }
-    .store-nav-logo:hover svg { filter: drop-shadow(0 0 16px rgba(184,118,184,0.8)); }
+    .store-nav-logo svg { height: 36px; width: auto; filter: drop-shadow(0 0 8px rgba(124,58,237,0.5)); transition: filter .25s; }
+    .store-nav-logo:hover svg { filter: drop-shadow(0 0 16px rgba(124,58,237,0.8)); }
     .store-nav-back {
       display: flex; align-items: center; gap: 8px;
       font-family: var(--mono); font-size: 11px;
       color: #fff; text-decoration: none;
       letter-spacing: .1em;
-      padding: 8px 18px; border: 1px solid rgba(184,118,184,0.2);
+      padding: 8px 18px; border: 1px solid rgba(124,58,237,0.2);
       border-radius: 50px;
       transition: all .2s;
     }
@@ -185,7 +205,7 @@
       border: 1px solid transparent;
       transition: all .2s;
     }
-    .store-nav-cat:hover { color: var(--neon); border-color: rgba(184,118,184,0.3); }
+    .store-nav-cat:hover { color: var(--neon); border-color: rgba(124,58,237,0.3); }
     .store-nav-cat.active { color: #000; background: var(--neon); border-color: var(--neon); }
     @media(max-width:768px) { .store-nav-cats { display: none; } }
 
@@ -225,8 +245,8 @@
       overflow: hidden;
       border-radius: 24px;
       height: 560px; min-height: 480px;
-      border: 1px solid rgba(184,118,184,0.2);
-      box-shadow: 0 0 80px rgba(184,118,184,0.12);
+      border: 1px solid rgba(124,58,237,0.2);
+      box-shadow: 0 0 80px rgba(124,58,237,0.12);
     }
     .store-slider-track {
       display: flex; height: 100%;
@@ -266,7 +286,7 @@
     }
     .slide-price-tag {
       font-family: var(--display); font-size: 36px;
-      color: #b876b8; letter-spacing: 2px; margin-bottom: 32px;
+      color: #7C3AED; letter-spacing: 2px; margin-bottom: 32px;
     }
     .slide-cta {
       display: inline-block; padding: 18px 44px; border-radius: 50px;
@@ -280,7 +300,7 @@
       width: 380px; height: 380px;
       display: flex; align-items: center; justify-content: center;
       animation: floatEmoji 4s ease-in-out infinite;
-      filter: drop-shadow(0 0 50px rgba(184,118,184,.3));
+      filter: drop-shadow(0 0 50px rgba(124,58,237,.3));
     }
     .slide-product-img img {
       width: 100%; height: 100%; object-fit: contain;
@@ -292,12 +312,12 @@
     .slider-arrow {
       position: absolute; top: 50%; transform: translateY(-50%);
       z-index: 10; width: 48px; height: 48px;
-      background: rgba(0,0,0,0.5); border: 1px solid rgba(184,118,184,0.2);
+      background: rgba(0,0,0,0.5); border: 1px solid rgba(124,58,237,0.2);
       color: #fff; font-size: 24px; cursor: pointer; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       transition: all .2s; user-select: none;
     }
-    .slider-arrow:hover { background: rgba(184,118,184,0.15); border-color: var(--neon); color: var(--neon); }
+    .slider-arrow:hover { background: rgba(124,58,237,0.15); border-color: var(--neon); color: var(--neon); }
     .slider-prev { left: 16px; }
     .slider-next { right: 16px; }
     .slider-dots {
@@ -324,12 +344,12 @@
     }
     .store-cat-btn {
       padding: 10px 26px; border-radius: 50px;
-      border: 1px solid rgba(184,118,184,0.2);
+      border: 1px solid rgba(124,58,237,0.2);
       background: transparent; color: var(--ink-muted);
       font-family: var(--mono); font-size: 11px; letter-spacing: .15em;
       cursor: pointer; transition: all .2s;
     }
-    .store-cat-btn:hover { border-color: var(--neon); color: var(--neon); background: rgba(184,118,184,0.04); }
+    .store-cat-btn:hover { border-color: var(--neon); color: var(--neon); background: rgba(124,58,237,0.04); }
     .store-cat-btn.active {
       background: var(--neon); border-color: var(--neon);
       color: #000; font-weight: 700;
@@ -348,8 +368,8 @@
       100% { opacity:1; transform: translateY(0) scale(1); }
     }
     .store-card {
-      background: rgba(15,20,16,0.8);
-      border: 1px solid rgba(184,118,184,0.1);
+      background: rgba(13,17,23,0.8);
+      border: 1px solid rgba(124,58,237,0.1);
       border-radius: 20px; overflow: hidden;
       backdrop-filter: blur(10px);
       transition: transform .3s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .3s;
@@ -359,15 +379,15 @@
     .store-card::before {
       content: '';
       position: absolute; inset: 0; border-radius: 20px; z-index: 0;
-      background: linear-gradient(135deg, rgba(184,118,184,0.06) 0%, transparent 60%);
+      background: linear-gradient(135deg, rgba(124,58,237,0.06) 0%, transparent 60%);
       opacity: 0; transition: opacity .3s;
       pointer-events: none;
     }
     .store-card:hover::before { opacity: 1; }
     .store-card:hover {
       transform: translateY(-10px) scale(1.02);
-      border-color: rgba(184,118,184,0.55);
-      box-shadow: 0 20px 60px rgba(184,118,184,0.18), 0 0 0 1px rgba(184,118,184,0.1);
+      border-color: rgba(124,58,237,0.55);
+      box-shadow: 0 20px 60px rgba(124,58,237,0.18), 0 0 0 1px rgba(124,58,237,0.1);
     }
     .store-card-img {
       width: 100%; aspect-ratio: 4/3;
@@ -380,12 +400,12 @@
     .store-card-img::after {
       content: '';
       position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
-      background: linear-gradient(transparent, rgba(10,13,10,0.8));
+      background: linear-gradient(transparent, rgba(8,10,15,0.8));
     }
     .store-card-img::before {
       content: '';
       position: absolute; inset: 0; z-index: 2;
-      background: linear-gradient(120deg, transparent 30%, rgba(184,118,184,0.08) 50%, transparent 70%);
+      background: linear-gradient(120deg, transparent 30%, rgba(124,58,237,0.08) 50%, transparent 70%);
       transform: translateX(-100%);
       transition: transform .6s ease;
       pointer-events: none;
@@ -448,14 +468,14 @@
       letter-spacing: .1em; cursor: pointer; white-space: nowrap;
       transition: background .2s, transform .15s, box-shadow .2s;
     }
-    .store-buy-btn:hover { background: #d4ff6a; box-shadow: 0 4px 16px rgba(184,118,184,0.3); }
+    .store-buy-btn:hover { background: #d4ff6a; box-shadow: 0 4px 16px rgba(124,58,237,0.3); }
     .store-buy-btn:active { transform: scale(0.95); }
 
     /* ═══ TOAST ═══ */
     #storeToast {
       position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px);
       z-index: 999;
-      background: rgba(15,20,16,0.95); border: 1px solid rgba(184,118,184,0.3);
+      background: rgba(13,17,23,0.95); border: 1px solid rgba(124,58,237,0.3);
       color: var(--ink); padding: 14px 24px; border-radius: 50px;
       font-family: var(--mono); font-size: 12px; letter-spacing: .05em;
       backdrop-filter: blur(20px);
@@ -478,19 +498,19 @@
       align-items: start;
     }
     .na-card {
-      background: rgba(15,20,16,0.85);
-      border: 1px solid rgba(184,118,184,0.12);
+      background: rgba(13,17,23,0.85);
+      border: 1px solid rgba(124,58,237,0.12);
       border-radius: 18px; overflow: hidden; padding: 20px;
       position: relative;
       transition: transform .25s, border-color .25s, box-shadow .25s;
     }
-    .na-card:hover { transform: translateY(-6px); border-color: rgba(184,118,184,0.4); box-shadow: 0 16px 40px rgba(184,118,184,0.1); }
+    .na-card:hover { transform: translateY(-6px); border-color: rgba(124,58,237,0.4); box-shadow: 0 16px 40px rgba(124,58,237,0.1); }
     .na-card-wide {
       display: flex; gap: 24px; align-items: center; padding: 28px;
     }
     .na-card-img { flex-shrink: 0; width: 190px; height: 190px; display: flex; align-items: center; justify-content: center; }
     .na-card-wide .na-card-img { width: 230px; height: 230px; }
-    .na-card-img img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 20px rgba(184,118,184,0.2)); }
+    .na-card-img img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 20px rgba(124,58,237,0.2)); }
     .na-badge {
       display: inline-block; padding: 4px 12px; border-radius: 50px;
       font-family: var(--mono); font-size: 9px; font-weight: 700;
@@ -506,24 +526,24 @@
       font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .1em;
       transition: transform .2s, box-shadow .2s;
     }
-    .na-btn:hover { transform: scale(1.04); box-shadow: 0 4px 16px rgba(184,118,184,0.3); }
+    .na-btn:hover { transform: scale(1.04); box-shadow: 0 4px 16px rgba(124,58,237,0.3); }
     @media(max-width:768px) { .na-grid { grid-template-columns: 1fr; } .na-card-wide { flex-direction: column; } }
 
     /* ═══ BEST SELLING ═══ */
     .bs-section { margin-bottom: 56px; }
     .bs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
     .bs-card {
-      background: rgba(15,20,16,0.85); border: 1px solid rgba(184,118,184,0.12);
+      background: rgba(13,17,23,0.85); border: 1px solid rgba(124,58,237,0.12);
       border-radius: 18px; padding: 24px; position: relative;
       display: flex; flex-direction: column; align-items: center; text-align: center;
       transition: transform .25s, border-color .25s, box-shadow .25s;
     }
-    .bs-card:hover { transform: translateY(-8px); border-color: rgba(184,118,184,0.45); box-shadow: 0 20px 50px rgba(184,118,184,0.12); }
-    .bs-rank { font-family: var(--display); font-size: 48px; color: #ffd24a; line-height: 1; margin-bottom: 10px; }
+    .bs-card:hover { transform: translateY(-8px); border-color: rgba(124,58,237,0.45); box-shadow: 0 20px 50px rgba(124,58,237,0.12); }
+    .bs-rank { font-family: var(--display); font-size: 48px; color: #FBBF24; line-height: 1; margin-bottom: 10px; }
     .bs-img { width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-    .bs-img img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 24px rgba(184,118,184,0.25)); }
+    .bs-img img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 24px rgba(124,58,237,0.25)); }
     .bs-info { width: 100%; }
-    .bs-stars { font-size: 14px; color: #ffd24a; margin-bottom: 8px; }
+    .bs-stars { font-size: 14px; color: #FBBF24; margin-bottom: 8px; }
     .bs-stars span { color: var(--ink-muted); font-size: 11px; font-family: var(--mono); }
     @media(max-width:768px) { .bs-grid { grid-template-columns: 1fr; } }
 
@@ -536,14 +556,14 @@
     }
     .slide-duo img {
       width: 270px; height: 270px; object-fit: contain;
-      filter: drop-shadow(0 0 50px rgba(184,118,184,.3));
+      filter: drop-shadow(0 0 50px rgba(124,58,237,.3));
       transition: transform .3s;
     }
     .slide-duo img:hover { transform: scale(1.07); }
     .slide-save-pill {
       display: inline-block; padding: 4px 14px; border-radius: 50px;
-      background: rgba(255,43,110,0.15); border: 1px solid rgba(255,43,110,0.45);
-      color: #ff2b6e; font-family: var(--mono); font-size: 10px;
+      background: rgba(244,63,94,0.15); border: 1px solid rgba(244,63,94,0.45);
+      color: #F43F5E; font-family: var(--mono); font-size: 10px;
       letter-spacing: .12em; font-weight: 700; margin-bottom: 8px;
     }
     .slide-orig {
@@ -556,29 +576,29 @@
     .rv-section { margin-bottom: 56px; }
     .rv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .rv-card {
-      background: rgba(15,20,16,0.85);
-      border: 1px solid rgba(184,118,184,0.12);
+      background: rgba(13,17,23,0.85);
+      border: 1px solid rgba(124,58,237,0.12);
       border-radius: 18px; padding: 26px 24px; position: relative;
       transition: transform .25s, border-color .25s, box-shadow .25s;
     }
-    .rv-card:hover { transform: translateY(-6px); border-color: rgba(184,118,184,0.4); box-shadow: 0 16px 40px rgba(184,118,184,0.1); }
+    .rv-card:hover { transform: translateY(-6px); border-color: rgba(124,58,237,0.4); box-shadow: 0 16px 40px rgba(124,58,237,0.1); }
     .rv-quote {
       position: absolute; top: 16px; right: 20px;
-      font-size: 52px; color: rgba(184,118,184,0.07);
+      font-size: 52px; color: rgba(124,58,237,0.07);
       font-family: Georgia, serif; line-height: 1; user-select: none;
     }
     .rv-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
     .rv-avatar {
       width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
-      background: linear-gradient(135deg, rgba(184,118,184,0.25), rgba(184,118,184,0.05));
-      border: 1px solid rgba(184,118,184,0.3);
+      background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(124,58,237,0.05));
+      border: 1px solid rgba(124,58,237,0.3);
       display: flex; align-items: center; justify-content: center;
       font-family: var(--display); font-size: 22px; color: var(--neon);
     }
     .rv-meta { flex: 1; }
     .rv-name { font-family: var(--display); font-size: 18px; color: #fff; letter-spacing: 1px; line-height: 1.1; }
     .rv-product { font-family: var(--mono); font-size: 9px; color: var(--neon); letter-spacing: .14em; margin-top: 3px; }
-    .rv-stars { font-size: 13px; color: #ffd24a; margin-bottom: 12px; }
+    .rv-stars { font-size: 13px; color: #FBBF24; margin-bottom: 12px; }
     .rv-stars span { color: rgba(255,255,255,0.2); }
     .rv-text {
       font-family: var(--mono); font-size: 11px;
@@ -587,7 +607,7 @@
     .rv-verified {
       display: inline-flex; align-items: center; gap: 5px;
       margin-top: 14px; font-family: var(--mono); font-size: 9px;
-      color: #00ffae; letter-spacing: .1em;
+      color: #06B6D4; letter-spacing: .1em;
     }
     @media(max-width:768px) { .rv-grid { grid-template-columns: 1fr; } }
 
@@ -595,8 +615,8 @@
     .sc-section { margin-bottom: 56px; }
     .sc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
     .sc-card {
-      background: rgba(15,20,16,0.85);
-      border: 1px solid rgba(184,118,184,0.1);
+      background: rgba(13,17,23,0.85);
+      border: 1px solid rgba(124,58,237,0.1);
       border-radius: 20px; padding: 36px 20px 28px;
       display: flex; flex-direction: column; align-items: center; gap: 10px;
       text-decoration: none; position: relative; overflow: hidden;
@@ -631,7 +651,7 @@
     @media(max-width:768px) { .sc-grid { grid-template-columns: repeat(2,1fr); } }
 
     /* ═══ PURPLE GLOW ═══ */
-    :root { --pg: rgba(184,118,184,0.75); }
+    :root { --pg: rgba(124,58,237,0.75); }
 
     /* text glow */
     .store-nav-logo span,
@@ -645,52 +665,52 @@
     /* active / filled button glow */
     .store-nav-cat.active,
     .store-cat-btn.active {
-      box-shadow: 0 0 14px rgba(184,118,184,0.55), 0 0 28px rgba(184,118,184,0.25);
+      box-shadow: 0 0 14px rgba(124,58,237,0.55), 0 0 28px rgba(124,58,237,0.25);
     }
 
     /* buy button glow */
     .store-buy-btn {
-      box-shadow: 0 0 12px rgba(184,118,184,0.45);
+      box-shadow: 0 0 12px rgba(124,58,237,0.45);
     }
     .store-buy-btn:hover {
-      box-shadow: 0 0 22px rgba(184,118,184,0.7), 0 4px 20px rgba(184,118,184,0.35) !important;
+      box-shadow: 0 0 22px rgba(124,58,237,0.7), 0 4px 20px rgba(124,58,237,0.35) !important;
     }
 
     /* NEW badge glow */
     .badge-new {
-      box-shadow: 0 0 10px rgba(184,118,184,0.6), 0 0 20px rgba(184,118,184,0.3);
+      box-shadow: 0 0 10px rgba(124,58,237,0.6), 0 0 20px rgba(124,58,237,0.3);
     }
 
     /* slider dot active glow */
     .slider-dot.active {
-      box-shadow: 0 0 8px rgba(184,118,184,0.8), 0 0 16px rgba(184,118,184,0.4);
+      box-shadow: 0 0 8px rgba(124,58,237,0.8), 0 0 16px rgba(124,58,237,0.4);
     }
 
     /* slider cta button glow */
     .slide-cta {
-      box-shadow: 0 0 20px rgba(184,118,184,0.55), 0 0 40px rgba(184,118,184,0.25) !important;
+      box-shadow: 0 0 20px rgba(124,58,237,0.55), 0 0 40px rgba(124,58,237,0.25) !important;
     }
 
     /* new arrivals / best selling order button */
     .na-btn {
-      box-shadow: 0 0 10px rgba(184,118,184,0.45);
+      box-shadow: 0 0 10px rgba(124,58,237,0.45);
     }
 
     /* whatsapp button glow */
     .store-wa-btn {
-      box-shadow: 0 0 10px rgba(184,118,184,0.35);
+      box-shadow: 0 0 10px rgba(124,58,237,0.35);
     }
 
     /* nav back button hover glow */
     .store-nav-back:hover {
-      box-shadow: 0 0 12px rgba(184,118,184,0.35);
+      box-shadow: 0 0 12px rgba(124,58,237,0.35);
     }
 
     /* ═══ FOOTER ═══ */
     .store-footer {
       position: relative; z-index: 2;
       text-align: center; padding: 32px 24px;
-      border-top: 1px solid rgba(184,118,184,0.07);
+      border-top: 1px solid rgba(124,58,237,0.07);
       font-family: var(--mono); font-size: 10px;
       color: var(--ink-muted); letter-spacing: .1em;
     }
@@ -785,8 +805,8 @@
         bottom: 20px; right: 20px;
         padding: 14px; border-radius: 50%;
         background: #1a0d1a;
-        border: 2px solid #b876b8;
-        box-shadow: 0 0 18px rgba(184,118,184,0.6), 0 4px 20px rgba(0,0,0,0.7);
+        border: 2px solid #7C3AED;
+        box-shadow: 0 0 18px rgba(124,58,237,0.6), 0 4px 20px rgba(0,0,0,0.7);
         z-index: 9999;
       }
       #tubaSupportFab span { display: none; }
@@ -812,6 +832,7 @@
   <div class="bg-glow-1"></div>
   <div class="bg-glow-2"></div>
   <div class="bg-glow-3"></div>
+  <div class="bg-glow-4"></div>
   <div class="scanline"></div>
 
   <!-- Nav -->
@@ -819,9 +840,9 @@
     <a href="" onclick="location.reload();return false;" class="store-nav-logo">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 643.5 164">
         <defs>
-          <style>.nl-1{fill:#b577b3}.nl-2{fill:#fff}.nl-3{fill:url(#nl-g3)}.nl-4{fill:url(#nl-g2);filter:url(#nl-ds)}.nl-5{fill:url(#nl-g1)}</style>
-          <linearGradient id="nl-g1" x1="102.69" y1="-36.53" x2="102.69" y2="151.74" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#b577b2"/><stop offset="1" stop-color="#8a52a0"/></linearGradient>
-          <linearGradient id="nl-g2" x1="104.16" y1="127.47" x2="102.97" y2="30.66" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#b477b1"/><stop offset="1" stop-color="#8a53a0"/></linearGradient>
+          <style>.nl-1{fill:#7C3AED}.nl-2{fill:#fff}.nl-3{fill:url(#nl-g3)}.nl-4{fill:url(#nl-g2);filter:url(#nl-ds)}.nl-5{fill:url(#nl-g1)}</style>
+          <linearGradient id="nl-g1" x1="102.69" y1="-36.53" x2="102.69" y2="151.74" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#6D28D9"/></linearGradient>
+          <linearGradient id="nl-g2" x1="104.16" y1="127.47" x2="102.97" y2="30.66" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#6D28D9"/></linearGradient>
           <filter id="nl-ds" x="0" y="0" width="206" height="164" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="5"/><feGaussianBlur result="blur" stdDeviation="4"/><feFlood flood-color="#000" flood-opacity=".5"/><feComposite in2="blur" operator="in"/><feComposite in="SourceGraphic"/></filter>
           <linearGradient id="nl-g3" x1="549.66" y1="65.61" x2="643.5" y2="65.61" xlink:href="#nl-g2"/>
         </defs>
@@ -868,11 +889,11 @@
     <!-- Hero -->
     <div class="store-hero">
       <div class="store-hero-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 643.5 164" style="width:100%;max-width:520px;height:auto;filter:drop-shadow(0 0 28px rgba(184,118,184,0.55));">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 643.5 164" style="width:100%;max-width:520px;height:auto;filter:drop-shadow(0 0 28px rgba(124,58,237,0.55));">
           <defs>
-            <style>.sh-1{fill:#b577b3}.sh-2{fill:#fff}.sh-3{fill:url(#sh-g3)}.sh-4{fill:url(#sh-g2);filter:url(#sh-ds)}.sh-5{fill:url(#sh-g1)}</style>
-            <linearGradient id="sh-g1" x1="102.69" y1="-36.53" x2="102.69" y2="151.74" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#b577b2"/><stop offset="1" stop-color="#8a52a0"/></linearGradient>
-            <linearGradient id="sh-g2" x1="104.16" y1="127.47" x2="102.97" y2="30.66" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#b477b1"/><stop offset="1" stop-color="#8a53a0"/></linearGradient>
+            <style>.sh-1{fill:#7C3AED}.sh-2{fill:#fff}.sh-3{fill:url(#sh-g3)}.sh-4{fill:url(#sh-g2);filter:url(#sh-ds)}.sh-5{fill:url(#sh-g1)}</style>
+            <linearGradient id="sh-g1" x1="102.69" y1="-36.53" x2="102.69" y2="151.74" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#6D28D9"/></linearGradient>
+            <linearGradient id="sh-g2" x1="104.16" y1="127.47" x2="102.97" y2="30.66" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#6D28D9"/></linearGradient>
             <filter id="sh-ds" x="0" y="0" width="206" height="164" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="5"/><feGaussianBlur result="blur" stdDeviation="4"/><feFlood flood-color="#000" flood-opacity=".5"/><feComposite in2="blur" operator="in"/><feComposite in="SourceGraphic"/></filter>
             <linearGradient id="sh-g3" x1="549.66" y1="65.61" x2="643.5" y2="65.61" xlink:href="#sh-g2"/>
           </defs>
@@ -909,15 +930,15 @@
         <div class="store-slide" data-slide-idx="1">
           <div class="slide-bg" style="background:linear-gradient(120deg,#020d02 0%,#071a07 40%,#0d3010 70%,#041004 100%);"></div>
           <div class="slide-scanlines"></div>
-          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(184,118,184,0.18) 0%,transparent 70%);"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(124,58,237,0.18) 0%,transparent 70%);"></div>
           <div class="slide-content">
-            <div class="slide-tag" style="background:var(--neon);color:#000;box-shadow:0 0 20px rgba(184,118,184,0.5);">⚡ BUNDLE DEAL</div>
-            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(184,118,184,0.3);">HEADSET<span style="color:var(--neon);display:block;">+ AIRBUDS</span></div>
+            <div class="slide-tag" style="background:var(--neon);color:#000;box-shadow:0 0 20px rgba(124,58,237,0.5);">⚡ BUNDLE DEAL</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(124,58,237,0.3);">HEADSET<span style="color:var(--neon);display:block;">+ AIRBUDS</span></div>
             <div class="slide-sub">Buy both together and save big — 30% off combined price. Limited stock!</div>
             <div class="slide-save-pill">🎁 YOU SAVE PKR 3,600</div>
             <span class="slide-orig">PKR 12,000</span>
             <div class="slide-price-tag">PKR 8,400</div>
-            <button class="slide-cta" style="background:var(--neon);color:#000;box-shadow:0 0 30px rgba(184,118,184,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
+            <button class="slide-cta" style="background:var(--neon);color:#000;box-shadow:0 0 30px rgba(124,58,237,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
           </div>
           <div class="slide-duo">
             <img src="../ZorX-TUBA Store/headphones.png" alt="Headset" onerror="this.style.display='none'">
@@ -929,15 +950,15 @@
         <div class="store-slide" data-slide-idx="2">
           <div class="slide-bg" style="background:linear-gradient(120deg,#0d0015 0%,#1a0030 40%,#300060 70%,#1a0040 100%);"></div>
           <div class="slide-scanlines"></div>
-          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(255,43,110,0.2) 0%,transparent 70%);"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(244,63,94,0.2) 0%,transparent 70%);"></div>
           <div class="slide-content">
-            <div class="slide-tag" style="background:var(--magenta);color:#fff;box-shadow:0 0 20px rgba(255,43,110,0.5);">🔥 COMBO DEAL</div>
-            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(255,43,110,0.3);">KEYBOARD<span style="color:#ff2b6e;display:block;">+ MOUSE</span></div>
+            <div class="slide-tag" style="background:var(--magenta);color:#fff;box-shadow:0 0 20px rgba(244,63,94,0.5);">🔥 COMBO DEAL</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(244,63,94,0.3);">KEYBOARD<span style="color:#F43F5E;display:block;">+ MOUSE</span></div>
             <div class="slide-sub">Ultimate setup combo — mechanical keyboard + precision gaming mouse at 30% off!</div>
             <div class="slide-save-pill">🎁 YOU SAVE PKR 3,000</div>
             <span class="slide-orig">PKR 10,000</span>
-            <div class="slide-price-tag" style="color:#ff2b6e;">PKR 7,000</div>
-            <button class="slide-cta" style="background:var(--magenta);color:#fff;box-shadow:0 0 30px rgba(255,43,110,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
+            <div class="slide-price-tag" style="color:#F43F5E;">PKR 7,000</div>
+            <button class="slide-cta" style="background:var(--magenta);color:#fff;box-shadow:0 0 30px rgba(244,63,94,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
           </div>
           <div class="slide-duo">
             <img src="../ZorX-TUBA Store/keyboard.png" alt="Keyboard" onerror="this.style.display='none'">
@@ -949,15 +970,15 @@
         <div class="store-slide" data-slide-idx="3">
           <div class="slide-bg" style="background:linear-gradient(120deg,#000d1a 0%,#001830 40%,#002a4a 70%,#001020 100%);"></div>
           <div class="slide-scanlines"></div>
-          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(0,255,174,0.18) 0%,transparent 70%);"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(6,182,212,0.18) 0%,transparent 70%);"></div>
           <div class="slide-content">
-            <div class="slide-tag" style="background:#00ffae;color:#000;box-shadow:0 0 20px rgba(0,255,174,0.5);">✦ BEST VALUE</div>
-            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(0,255,174,0.3);">HEADSET<span style="color:#00ffae;display:block;">+ MOUSE</span></div>
+            <div class="slide-tag" style="background:#06B6D4;color:#000;box-shadow:0 0 20px rgba(6,182,212,0.5);">✦ BEST VALUE</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(6,182,212,0.3);">HEADSET<span style="color:#06B6D4;display:block;">+ MOUSE</span></div>
             <div class="slide-sub">Hear every footstep, click with precision — 30% off this gaming essentials bundle!</div>
             <div class="slide-save-pill">🎁 YOU SAVE PKR 2,400</div>
             <span class="slide-orig">PKR 8,000</span>
-            <div class="slide-price-tag" style="color:#00ffae;">PKR 5,600</div>
-            <button class="slide-cta" style="background:#00ffae;color:#000;box-shadow:0 0 30px rgba(0,255,174,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
+            <div class="slide-price-tag" style="color:#06B6D4;">PKR 5,600</div>
+            <button class="slide-cta" style="background:#06B6D4;color:#000;box-shadow:0 0 30px rgba(6,182,212,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
           </div>
           <div class="slide-duo">
             <img src="../ZorX-TUBA Store/headphones.png" alt="Headset" onerror="this.style.display='none'">
@@ -969,16 +990,16 @@
         <div class="store-slide" data-slide-idx="4">
           <div class="slide-bg" style="background:linear-gradient(120deg,#0a0015 0%,#15002a 40%,#250040 70%,#100020 100%);"></div>
           <div class="slide-scanlines"></div>
-          <div class="slide-glow" style="background:radial-gradient(ellipse 70% 70% at 65% 50%,rgba(184,118,184,0.25) 0%,transparent 70%);"></div>
+          <div class="slide-glow" style="background:radial-gradient(ellipse 70% 70% at 65% 50%,rgba(124,58,237,0.25) 0%,transparent 70%);"></div>
           <div class="slide-content">
-            <div class="slide-tag" style="background:var(--neon);color:#000;box-shadow:0 0 20px rgba(184,118,184,0.6);">🖥️ GAMING PC</div>
-            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(184,118,184,0.4);">TUBAX<span style="color:var(--neon);display:block;">GAMING PC</span></div>
+            <div class="slide-tag" style="background:var(--neon);color:#000;box-shadow:0 0 20px rgba(124,58,237,0.6);">🖥️ GAMING PC</div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(124,58,237,0.4);">TUBAX<span style="color:var(--neon);display:block;">GAMING PC</span></div>
             <div class="slide-sub">Beast-level performance — built for competitive gaming. Dominate every match.</div>
             <div class="slide-price-tag" style="color:var(--neon);">PKR 1,00,000</div>
-            <button class="slide-cta" style="background:var(--neon);color:#000;box-shadow:0 0 30px rgba(184,118,184,0.5);" onclick="filterCat('all')">ORDER NOW →</button>
+            <button class="slide-cta" style="background:var(--neon);color:#000;box-shadow:0 0 30px rgba(124,58,237,0.5);" onclick="filterCat('all')">ORDER NOW →</button>
           </div>
           <div style="position:absolute;right:0;top:0;bottom:0;width:52%;display:flex;align-items:center;justify-content:center;padding:16px 32px 16px 0;">
-            <img src="../ZorX-TUBA Store/PC_IMAGE.png" alt="TubaX Gaming PC" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 40px rgba(184,118,184,0.6));" onerror="this.style.display='none'">
+            <img src="../ZorX-TUBA Store/PC_IMAGE.png" alt="TubaX Gaming PC" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 40px rgba(124,58,237,0.6));" onerror="this.style.display='none'">
           </div>
         </div>
 
@@ -989,11 +1010,11 @@
           <div class="slide-glow" style="background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(255,210,74,0.2) 0%,transparent 70%);"></div>
           <div class="slide-content">
             <div class="slide-tag" style="background:var(--gold);color:#000;box-shadow:0 0 20px rgba(255,210,74,0.5);">🎯 MEGA BUNDLE</div>
-            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(255,210,74,0.3);">AIRBUDS<span style="color:#ffd24a;display:block;">+ KEYBOARD</span></div>
+            <div class="slide-title" style="color:#fff;text-shadow:0 0 40px rgba(255,210,74,0.3);">AIRBUDS<span style="color:#FBBF24;display:block;">+ KEYBOARD</span></div>
             <div class="slide-sub">Wireless audio + clicky keys — the pro player combo at 30% off combined price!</div>
             <div class="slide-save-pill">🎁 YOU SAVE PKR 3,600</div>
             <span class="slide-orig">PKR 12,000</span>
-            <div class="slide-price-tag" style="color:#ffd24a;">PKR 8,400</div>
+            <div class="slide-price-tag" style="color:#FBBF24;">PKR 8,400</div>
             <button class="slide-cta" style="background:var(--gold);color:#000;box-shadow:0 0 30px rgba(255,210,74,0.4);" onclick="filterCat('all')">GRAB DEAL →</button>
           </div>
           <div class="slide-duo">
@@ -1028,19 +1049,19 @@
         </div>
         <div class="na-card">
           <div class="na-card-img"><img src="../ZorX-TUBA Store/airpods.png" alt="AirBuds"></div>
-          <span class="na-badge" style="background:#ff2b6e;">🔥 SALE</span>
+          <span class="na-badge" style="background:#F43F5E;">🔥 SALE</span>
           <div class="na-card-name">TubaX AirBuds Pro</div>
           <div class="na-card-desc">ANC · 30hr battery · 10min = 2hr charge</div>
-          <div class="na-card-price" style="color:#ff2b6e;"><s style="color:#555;font-size:13px;">PKR 7,000</s> PKR 5,500</div>
-          <button class="na-btn" style="background:#ff2b6e;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('airbuds')">SHOP NOW →</button>
+          <div class="na-card-price" style="color:#F43F5E;"><s style="color:#555;font-size:13px;">PKR 7,000</s> PKR 5,500</div>
+          <button class="na-btn" style="background:#F43F5E;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('airbuds')">SHOP NOW →</button>
         </div>
         <div class="na-card">
           <div class="na-card-img"><img src="../ZorX-TUBA Store/mouse.png" alt="Mouse"></div>
-          <span class="na-badge" style="background:#ffd24a;color:#000;">🎯 HOT</span>
+          <span class="na-badge" style="background:#FBBF24;color:#000;">🎯 HOT</span>
           <div class="na-card-name">TubaX Precision Pro</div>
           <div class="na-card-desc">25600 DPI · 6 Buttons · RGB Lighting</div>
-          <div class="na-card-price" style="color:#ffd24a;">PKR 3,500</div>
-          <button class="na-btn" style="background:#ffd24a;color:#000;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('mouse')">SHOP NOW →</button>
+          <div class="na-card-price" style="color:#FBBF24;">PKR 3,500</div>
+          <button class="na-btn" style="background:#FBBF24;color:#000;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('mouse')">SHOP NOW →</button>
         </div>
       </div>
     </div>
@@ -1057,12 +1078,12 @@
           <div class="bs-rank">#1</div>
           <div class="bs-img"><img src="../ZorX-TUBA Store/keyboard.png" alt="Keyboard"></div>
           <div class="bs-info">
-            <span class="na-badge" style="background:#ffd24a;color:#000;">🔥 BEST SELLER</span>
+            <span class="na-badge" style="background:#FBBF24;color:#000;">🔥 BEST SELLER</span>
             <div class="na-card-name">TubaX Mech Pro</div>
             <div class="na-card-desc">Cherry MX Switches · RGB Per-Key · TKL Layout</div>
             <div class="bs-stars">★★★★★ <span>(128 sold)</span></div>
-            <div class="na-card-price" style="color:#ffd24a;">PKR 6,500</div>
-            <button class="na-btn" style="background:#ffd24a;color:#000;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('keyboard')">ORDER NOW →</button>
+            <div class="na-card-price" style="color:#FBBF24;">PKR 6,500</div>
+            <button class="na-btn" style="background:#FBBF24;color:#000;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('keyboard')">ORDER NOW →</button>
           </div>
         </div>
         <div class="bs-card">
@@ -1081,12 +1102,12 @@
           <div class="bs-rank" style="color:#cd7f32;">#3</div>
           <div class="bs-img"><img src="../ZorX-TUBA Store/airpods.png" alt="AirBuds"></div>
           <div class="bs-info">
-            <span class="na-badge" style="background:#ff2b6e;">🎵 POPULAR</span>
+            <span class="na-badge" style="background:#F43F5E;">🎵 POPULAR</span>
             <div class="na-card-name">TubaX AirBuds Pro</div>
             <div class="na-card-desc">ANC · 30hr Battery · Fast Charge</div>
             <div class="bs-stars">★★★★☆ <span>(76 sold)</span></div>
-            <div class="na-card-price" style="color:#ff2b6e;">PKR 5,500</div>
-            <button class="na-btn" style="background:#ff2b6e;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('airbuds')">ORDER NOW →</button>
+            <div class="na-card-price" style="color:#F43F5E;">PKR 5,500</div>
+            <button class="na-btn" style="background:#F43F5E;" onclick="document.getElementById('storeCats').scrollIntoView({behavior:'smooth'});filterCat('airbuds')">ORDER NOW →</button>
           </div>
         </div>
       </div>
@@ -1309,11 +1330,11 @@
       this.vy = (Math.random() - 0.5) * 0.4;
       this.r  = Math.random() * 1.5 + 0.3;
       this.a  = Math.random() * 0.5 + 0.1;
-      this.color = Math.random() > 0.7
-        ? 'rgba(0,255,174,'
+      this.color = Math.random() > 0.6
+        ? 'rgba(124,58,237,'
         : Math.random() > 0.5
-          ? 'rgba(184,118,184,'
-          : 'rgba(255,43,110,';
+          ? 'rgba(167,139,250,'
+          : 'rgba(6,182,212,';
     };
     Particle.prototype.update = function() {
       this.x += this.vx;
@@ -1340,7 +1361,7 @@
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = 'rgba(184,118,184,' + (0.06 * (1 - dist/120)) + ')';
+            ctx.strokeStyle = 'rgba(124,58,237,' + (0.09 * (1 - dist/120)) + ')';
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -1659,44 +1680,44 @@
     }
     .om-backdrop.open { display: flex; }
     .om-box {
-      background: #0f1410; border: 1px solid rgba(184,118,184,0.25);
+      background: #0D1117; border: 1px solid rgba(124,58,237,0.25);
       border-radius: 20px; width: 100%; max-width: 520px;
       max-height: 90vh; overflow-y: auto; padding: 32px 28px;
-      position: relative; box-shadow: 0 0 40px rgba(184,118,184,0.1);
+      position: relative; box-shadow: 0 0 40px rgba(124,58,237,0.1);
     }
     .om-close {
       position: absolute; top: 16px; right: 18px;
       background: none; border: none; color: #666; font-size: 18px;
       cursor: pointer; line-height: 1;
     }
-    .om-close:hover { color: #b876b8; }
-    .om-label { color: #b876b8; font-family: monospace; font-size: 11px; letter-spacing: .15em; margin-bottom: 6px; }
+    .om-close:hover { color: #7C3AED; }
+    .om-label { color: #7C3AED; font-family: monospace; font-size: 11px; letter-spacing: .15em; margin-bottom: 6px; }
     .om-pname { color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: .05em; }
-    .om-pprice { color: #b876b8; font-family: monospace; font-size: 15px; margin-bottom: 22px; }
+    .om-pprice { color: #7C3AED; font-family: monospace; font-size: 15px; margin-bottom: 22px; }
     .om-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
     .om-field { display: flex; flex-direction: column; }
     .om-lbl { color: #7a9a7a; font-size: 10px; letter-spacing: .12em; font-family: monospace; margin-bottom: 6px; }
     .om-input {
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(184,118,184,0.15);
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(124,58,237,0.15);
       border-radius: 10px; color: #fff; font-size: 14px; padding: 10px 14px;
       outline: none; font-family: inherit; transition: border-color .2s;
     }
-    .om-input:focus { border-color: #b876b8; }
+    .om-input:focus { border-color: #7C3AED; }
     .om-select { cursor: pointer; }
-    .om-select option { background: #0f1410; }
+    .om-select option { background: #0D1117; }
     .om-total-row {
       display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid rgba(184,118,184,0.1); padding-top: 16px; margin-bottom: 18px;
+      border-top: 1px solid rgba(124,58,237,0.1); padding-top: 16px; margin-bottom: 18px;
     }
     .om-total-lbl { color: #7a9a7a; font-size: 11px; letter-spacing: .12em; font-family: monospace; }
-    .om-total-val { color: #ffd24a; font-family: 'Bebas Neue', sans-serif; font-size: 22px; }
+    .om-total-val { color: #FBBF24; font-family: 'Bebas Neue', sans-serif; font-size: 22px; }
     .om-submit {
-      width: 100%; padding: 14px; background: #b876b8; border: none;
+      width: 100%; padding: 14px; background: #7C3AED; border: none;
       border-radius: 50px; color: #000; font-family: 'Bebas Neue', sans-serif;
       font-size: 18px; letter-spacing: .12em; cursor: pointer;
       transition: background .2s, box-shadow .2s;
     }
-    .om-submit:hover { background: #d4ff6a; box-shadow: 0 4px 20px rgba(184,118,184,0.35); }
+    .om-submit:hover { background: #d4ff6a; box-shadow: 0 4px 20px rgba(124,58,237,0.35); }
     .om-submit:active { transform: scale(0.97); }
     .om-wa-btn {
       width: 100%; padding: 13px; margin-top: 10px;
@@ -1714,8 +1735,8 @@
     }
     .om-success-icon {
       width: 64px; height: 64px; border-radius: 50%;
-      background: rgba(184,118,184,0.15); border: 2px solid #b876b8;
-      color: #b876b8; font-size: 32px; display: flex;
+      background: rgba(124,58,237,0.15); border: 2px solid #7C3AED;
+      color: #7C3AED; font-size: 32px; display: flex;
       align-items: center; justify-content: center; margin-bottom: 16px;
     }
     .om-success-title { color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 28px; margin-bottom: 8px; }
@@ -1739,7 +1760,7 @@
   <div id="tubaSupportOverlay" onclick="if(event.target===this)closeTubaSupport()">
     <div class="ts-box">
       <button class="ts-close" onclick="closeTubaSupport()">✕</button>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#b876b8;letter-spacing:.2em;margin-bottom:10px;">// TUBAX SUPPORT</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7C3AED;letter-spacing:.2em;margin-bottom:10px;">// TUBAX SUPPORT</div>
       <h2 style="font-family:'Bebas Neue',sans-serif;font-size:42px;line-height:1;margin-bottom:6px;color:#fff;">GET HELP</h2>
       <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6b8f6b;margin-bottom:32px;">Having an issue with your order or product? We'll get back to you within 24 hours.</p>
 
@@ -1761,14 +1782,14 @@
           <textarea id="tsMessage" class="ts-input" rows="5" placeholder="Describe your issue in detail..." style="resize:vertical;"></textarea>
         </div>
         <div id="tsSupportMsg" style="display:none;font-family:'JetBrains Mono',monospace;font-size:12px;padding:10px 14px;border-radius:6px;margin-bottom:14px;"></div>
-        <button type="submit" id="tsSupportBtn" style="padding:16px 32px;background:#b876b8;color:#000;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;border:none;cursor:pointer;width:100%;border-radius:4px;">SEND MESSAGE</button>
+        <button type="submit" id="tsSupportBtn" style="padding:16px 32px;background:#7C3AED;color:#000;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;border:none;cursor:pointer;width:100%;border-radius:4px;">SEND MESSAGE</button>
       </form>
 
       <div id="tubaSupportSuccess" style="display:none;text-align:center;padding:40px 24px;">
         <div style="font-size:52px;margin-bottom:18px;">✅</div>
-        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:#b876b8;letter-spacing:2px;margin-bottom:10px;">MESSAGE SENT!</h2>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:#7C3AED;letter-spacing:2px;margin-bottom:10px;">MESSAGE SENT!</h2>
         <p style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#b0c8b0;line-height:1.7;margin-bottom:24px;">We have received your message. We will reply within 24 hours. Thank you!</p>
-        <button onclick="closeTubaSupport()" style="padding:12px 32px;background:#b876b8;color:#000;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;border:none;cursor:pointer;border-radius:4px;">CLOSE</button>
+        <button onclick="closeTubaSupport()" style="padding:12px 32px;background:#7C3AED;color:#000;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;border:none;cursor:pointer;border-radius:4px;">CLOSE</button>
       </div>
     </div>
   </div>
@@ -1777,15 +1798,15 @@
     #tubaSupportFab {
       position: fixed; bottom: 32px; right: 32px; z-index: 900;
       display: flex; align-items: center; gap: 9px; padding: 13px 22px;
-      background: rgba(10,13,10,0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(184,118,184,0.35); color: #b876b8; cursor: pointer;
+      background: rgba(8,10,15,0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(124,58,237,0.35); color: #7C3AED; cursor: pointer;
       font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .12em;
       border-radius: 50px; box-shadow: 0 4px 30px rgba(0,0,0,0.4); transition: all .25s;
     }
     #tubaSupportFab svg { opacity: .85; flex-shrink: 0; }
     #tubaSupportFab:hover {
-      background: rgba(184,118,184,0.1); border-color: rgba(184,118,184,0.7);
-      box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 18px rgba(184,118,184,0.18);
+      background: rgba(124,58,237,0.1); border-color: rgba(124,58,237,0.7);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 18px rgba(124,58,237,0.18);
       transform: translateY(-2px); color: #d4ff6a;
     }
     @media(max-width:720px) {
@@ -1800,7 +1821,7 @@
     }
     #tubaSupportOverlay.open { display: flex; }
     .ts-box {
-      position: relative; background: #0f1410; border: 1px solid rgba(184,118,184,0.15);
+      position: relative; background: #0D1117; border: 1px solid rgba(124,58,237,0.15);
       border-radius: 18px; padding: 48px 40px 40px; width: 100%; max-width: 520px;
       max-height: 90vh; overflow-y: auto;
     }
@@ -1809,16 +1830,16 @@
       color: #6b8f6b; font-size: 20px; cursor: pointer; line-height: 1;
       transition: color .2s;
     }
-    .ts-close:hover { color: #b876b8; }
+    .ts-close:hover { color: #7C3AED; }
     .ts-field { margin-bottom: 18px; }
     .ts-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .15em; color: #6b8f6b; margin-bottom: 7px; }
     .ts-input {
-      width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(184,118,184,0.15);
+      width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(124,58,237,0.15);
       border-radius: 8px; padding: 12px 14px; color: #fff;
       font-family: 'JetBrains Mono', monospace; font-size: 13px;
       outline: none; transition: border-color .2s; box-sizing: border-box;
     }
-    .ts-input:focus { border-color: rgba(184,118,184,0.5); }
+    .ts-input:focus { border-color: rgba(124,58,237,0.5); }
   </style>
 
   <script>
@@ -1845,8 +1866,8 @@
         var msg = document.getElementById('tsSupportMsg');
         msg.textContent = 'Name, email and message are required.';
         msg.style.display = 'block';
-        msg.style.background = 'rgba(255,43,110,0.12)';
-        msg.style.color = '#ff2b6e';
+        msg.style.background = 'rgba(244,63,94,0.12)';
+        msg.style.color = '#F43F5E';
         return;
       }
 
@@ -1876,8 +1897,8 @@
         var msg = document.getElementById('tsSupportMsg');
         msg.textContent = 'Failed to send. Please try again.';
         msg.style.display = 'block';
-        msg.style.background = 'rgba(255,43,110,0.12)';
-        msg.style.color = '#ff2b6e';
+        msg.style.background = 'rgba(244,63,94,0.12)';
+        msg.style.color = '#F43F5E';
       });
     });
   </script>
