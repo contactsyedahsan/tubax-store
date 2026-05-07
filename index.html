@@ -3260,6 +3260,43 @@
     .faq-item.active .faq-q { color: #C060FF !important; }
     .faq-item { transition: all 0.3s ease !important; }
 
+    /* ── Category Filter — fix crop + visibility ── */
+    .store-cats {
+      padding-top: 48px !important;
+      margin-top: 0 !important;
+      padding-bottom: 12px !important;
+      margin-bottom: 32px !important;
+      justify-content: center !important;
+      flex-wrap: wrap !important;
+      gap: 10px !important;
+      overflow: visible !important;
+    }
+    .store-cat-btn {
+      background: rgba(139,0,255,0.08) !important;
+      border: 1px solid rgba(139,0,255,0.35) !important;
+      color: #ccc !important;
+      font-size: 11px !important;
+      letter-spacing: 0.15em !important;
+      padding: 10px 24px !important;
+      border-radius: 50px !important;
+      transition: all 0.25s cubic-bezier(0.22,1,0.36,1) !important;
+      box-shadow: none !important;
+      white-space: nowrap !important;
+    }
+    .store-cat-btn:hover {
+      background: rgba(139,0,255,0.18) !important;
+      border-color: rgba(192,96,255,0.7) !important;
+      color: #fff !important;
+      box-shadow: 0 0 18px rgba(139,0,255,0.25) !important;
+    }
+    .store-cat-btn.active {
+      background: linear-gradient(135deg, #8B00FF, #5A008A) !important;
+      border-color: #8B00FF !important;
+      color: #fff !important;
+      box-shadow: 0 0 20px rgba(139,0,255,0.65), 0 0 40px rgba(139,0,255,0.28) !important;
+      font-weight: 700 !important;
+    }
+
     /* ── Cat Items ── */
     .cat-item-title {
       font-family: 'Bebas Neue', sans-serif !important;
