@@ -3047,5 +3047,157 @@
     }
   </style>
 
+  <!-- ══════════ CUSTOM CROSSHAIR CURSOR ══════════ -->
+  <style>
+    /* Hide default cursor on desktop only */
+    @media (pointer: fine) {
+      *, *::before, *::after { cursor: none !important; }
+
+      #cx-cursor {
+        position: fixed;
+        top: 0; left: 0;
+        width: 12px; height: 12px;
+        background: #00D4AA;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 999999;
+        transform: translate(-50%, -50%);
+        transition: width .18s, height .18s, background .18s, opacity .18s;
+        box-shadow: 0 0 8px #00D4AA, 0 0 24px rgba(0,212,170,.35);
+        mix-blend-mode: normal;
+      }
+
+      #cx-ring {
+        position: fixed;
+        top: 0; left: 0;
+        width: 42px; height: 42px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(0,212,170,.55);
+        pointer-events: none;
+        z-index: 999998;
+        transform: translate(-50%, -50%);
+        transition: width .32s cubic-bezier(.23,1,.32,1),
+                    height .32s cubic-bezier(.23,1,.32,1),
+                    border-color .25s, opacity .25s;
+      }
+
+      /* Crosshair lines */
+      #cx-ring::before, #cx-ring::after {
+        content: '';
+        position: absolute;
+        background: rgba(0,212,170,.45);
+        transition: background .25s;
+      }
+      #cx-ring::before { /* horizontal */
+        width: 10px; height: 1px;
+        top: 50%; left: -14px;
+        transform: translateY(-50%);
+        box-shadow: 35px 0 0 rgba(0,212,170,.45);
+      }
+      #cx-ring::after { /* vertical */
+        width: 1px; height: 10px;
+        left: 50%; top: -14px;
+        transform: translateX(-50%);
+        box-shadow: 0 35px 0 rgba(0,212,170,.45);
+      }
+
+      /* Hover state — dot expands, ring shrinks and brightens */
+      #cx-cursor.hovered {
+        width: 6px; height: 6px;
+        background: #fff;
+        box-shadow: 0 0 12px #00D4AA, 0 0 32px rgba(0,212,170,.6);
+      }
+      #cx-ring.hovered {
+        width: 28px; height: 28px;
+        border-color: rgba(0,212,170,1);
+      }
+      #cx-ring.hovered::before { background: rgba(0,212,170,.9); box-shadow: 23px 0 0 rgba(0,212,170,.9); }
+      #cx-ring.hovered::after  { background: rgba(0,212,170,.9); box-shadow: 0 23px 0 rgba(0,212,170,.9); }
+
+      /* Click pulse */
+      #cx-ring.clicking {
+        width: 18px; height: 18px;
+        border-color: #fff;
+        opacity: .7;
+      }
+
+      /* Trail / click ripple */
+      .cx-ripple {
+        position: fixed;
+        border-radius: 50%;
+        border: 1px solid rgba(0,212,170,.7);
+        pointer-events: none;
+        z-index: 999997;
+        animation: cx-ripple-out .55s ease-out forwards;
+        transform: translate(-50%, -50%);
+      }
+      @keyframes cx-ripple-out {
+        from { width: 12px; height: 12px; opacity: .8; }
+        to   { width: 56px; height: 56px; opacity: 0; }
+      }
+    }
+  </style>
+
+  <div id="cx-cursor"></div>
+  <div id="cx-ring"></div>
+
+  <script>
+  (function(){
+    if(window.matchMedia('(pointer: fine)').matches === false) return;
+
+    var dot  = document.getElementById('cx-cursor');
+    var ring = document.getElementById('cx-ring');
+    var mx = -100, my = -100;
+    var rx = -100, ry = -100;
+
+    /* Smooth ring follow */
+    function lerp(a, b, t){ return a + (b - a) * t; }
+    function loop(){
+      rx = lerp(rx, mx, 0.13);
+      ry = lerp(ry, my, 0.13);
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(loop);
+    }
+    loop();
+
+    document.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top  = my + 'px';
+    });
+
+    /* Hover detection */
+    var hoverSels = 'a, button, [role="button"], input, textarea, select, label, .store-cat-item, .na-card, .bs-card, .cat-item, .slider-arrow, .store-prod-card';
+    document.addEventListener('mouseover', function(e){
+      if(e.target.closest(hoverSels)){
+        dot.classList.add('hovered');
+        ring.classList.add('hovered');
+      }
+    });
+    document.addEventListener('mouseout', function(e){
+      if(e.target.closest(hoverSels)){
+        dot.classList.remove('hovered');
+        ring.classList.remove('hovered');
+      }
+    });
+
+    /* Click ripple */
+    document.addEventListener('mousedown', function(e){
+      ring.classList.add('clicking');
+      var r = document.createElement('div');
+      r.className = 'cx-ripple';
+      r.style.left = e.clientX + 'px';
+      r.style.top  = e.clientY + 'px';
+      document.body.appendChild(r);
+      setTimeout(function(){ r.remove(); }, 560);
+    });
+    document.addEventListener('mouseup', function(){
+      ring.classList.remove('clicking');
+    });
+  })();
+  </script>
+  <!-- ══════════ END CUSTOM CURSOR ══════════ -->
+
 </body>
 </html>
