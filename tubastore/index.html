@@ -2264,6 +2264,103 @@
     }
   </style>
 
+  <!-- ══════════ FLOWUP THEME OVERRIDE ══════════ -->
+  <style>
+    body { background: #07031A !important; }
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(110,50,220,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110,50,220,0.055) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(124,58,237,0.022) 1px, transparent 1px) !important;
+      background-size: 70px 70px, 70px 70px, 140px 140px !important;
+    }
+    .bg-glow-1 { background: radial-gradient(circle, rgba(80,20,160,0.28) 0%, rgba(50,10,120,0.1) 40%, transparent 70%) !important; filter: blur(100px) !important; }
+    .bg-glow-2 { background: radial-gradient(circle, rgba(40,8,130,0.22) 0%, rgba(25,5,80,0.05) 40%, transparent 70%) !important; }
+    .bg-glow-3 { background: radial-gradient(circle, rgba(180,70,10,0.1) 0%, transparent 70%) !important; }
+    .bg-glow-4 { background: radial-gradient(circle, rgba(90,18,200,0.2) 0%, rgba(60,12,160,0.05) 40%, transparent 70%) !important; }
+    .store-nav { background: rgba(7,3,26,0.94) !important; border-bottom-color: rgba(124,58,237,0.18) !important; }
+    .store-card { background: rgba(12,5,42,0.9) !important; }
+    .store-card:hover { background: rgba(18,8,60,0.97) !important; }
+    .store-card-img { background: #080225 !important; }
+    .cat-item { background: #080220 !important; }
+    .cat-item:hover { background: #0e052e !important; }
+    .na-section, .bs-section { background: linear-gradient(135deg, #1a0050 0%, #2e0075 55%, #180045 100%) !important; }
+    .na-section::before, .bs-section::before {
+      background:
+        radial-gradient(circle at 28% 28%, #5b21b6 0%, transparent 40%),
+        radial-gradient(circle at 76% 62%, #7c3aed 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, #4c1d95 0%, transparent 50%),
+        radial-gradient(circle at 14% 82%, #3b0f8a 0%, transparent 40%) !important;
+    }
+    .rv-card, .sc-card { background: rgba(12,5,42,0.9) !important; }
+    .ab-content { background: rgba(12,5,42,0.92) !important; }
+    .ab-feat-card { background: rgba(12,5,42,0.65) !important; }
+    .faq-item { background: rgba(12,5,42,0.7) !important; }
+    .cart-drawer { background: rgba(10,3,36,0.99) !important; }
+    .slide-cta {
+      background: linear-gradient(135deg, #ea580c 0%, #f97316 55%, #fb923c 100%) !important;
+      box-shadow: 0 0 22px rgba(249,115,22,0.58), 0 0 44px rgba(249,115,22,0.26) !important;
+      color: #fff !important;
+    }
+    .store-buy-btn {
+      background: linear-gradient(135deg, #ea580c, #f97316) !important;
+      box-shadow: 0 0 12px rgba(249,115,22,0.42) !important;
+      color: #fff !important;
+    }
+    .store-buy-btn:hover { box-shadow: 0 0 22px rgba(249,115,22,0.68), 0 4px 20px rgba(249,115,22,0.36) !important; }
+    .na-label { color: #f97316 !important; }
+    .na-title span { color: #f97316 !important; text-shadow: 0 0 20px rgba(249,115,22,0.35) !important; }
+
+    .fp-orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 1; will-change: transform; }
+    .fp-orb-o1 { width: 130px; height: 130px; top: 7%; right: 9%; background: radial-gradient(circle at 34% 30%, #ffd080 0%, #f97316 28%, #c2440a 58%, #6b2100 100%); box-shadow: 0 24px 70px rgba(249,115,22,0.52), inset -14px -20px 38px rgba(0,0,0,0.42); animation: orbF1 20s ease-in-out infinite; }
+    .fp-orb-o2 { width: 74px; height: 74px; bottom: 24%; left: 2%; background: radial-gradient(circle at 34% 30%, #ffd080 0%, #f97316 30%, #c2440a 60%, #6b2100 100%); box-shadow: 0 14px 42px rgba(249,115,22,0.48), inset -8px -12px 24px rgba(0,0,0,0.38); animation: orbF2 24s ease-in-out infinite; animation-delay: -9s; }
+    .fp-orb-o3 { width: 36px; height: 36px; top: 44%; right: 1.8%; background: radial-gradient(circle at 34% 30%, #ffd080 0%, #f97316 40%, #c2440a 100%); box-shadow: 0 8px 24px rgba(249,115,22,0.42); animation: orbF3 15s ease-in-out infinite; animation-delay: -5s; }
+    .fp-orb-p1 { width: 108px; height: 108px; top: 68%; right: 6%; background: radial-gradient(circle at 34% 30%, #ddd6fe 0%, #7c3aed 28%, #4c1d95 58%, #2e1065 100%); box-shadow: 0 20px 56px rgba(124,58,237,0.52), inset -10px -16px 30px rgba(0,0,0,0.42); animation: orbF2 28s ease-in-out infinite; animation-delay: -13s; }
+    .fp-orb-g1 { width: 90px; height: 90px; top: 28%; left: 0.5%; background: radial-gradient(circle at 34% 30%, #ede9fe 0%, #9270c0 28%, #5040a0 58%, #281870 100%); box-shadow: 0 16px 48px rgba(100,80,180,0.38), inset -8px -12px 22px rgba(0,0,0,0.38); animation: orbF1 34s ease-in-out infinite; animation-delay: -22s; }
+    .fp-orb-g2 { width: 52px; height: 52px; bottom: 10%; right: 16%; background: radial-gradient(circle at 34% 30%, #bfdbfe 0%, #6080c0 30%, #303080 100%); box-shadow: 0 10px 30px rgba(80,100,180,0.36); animation: orbF3 21s ease-in-out infinite; animation-delay: -7s; }
+    @keyframes orbF1 { 0%,100%{transform:translateY(0) translateX(0) scale(1);} 25%{transform:translateY(-32px) translateX(15px) scale(1.05);} 55%{transform:translateY(-16px) translateX(-9px) scale(0.97);} 80%{transform:translateY(-40px) translateX(6px) scale(1.02);} }
+    @keyframes orbF2 { 0%,100%{transform:translateY(0) translateX(0) scale(1);} 35%{transform:translateY(26px) translateX(-17px) scale(1.06);} 70%{transform:translateY(-22px) translateX(13px) scale(0.95);} }
+    @keyframes orbF3 { 0%,100%{transform:translateY(0) scale(1);} 50%{transform:translateY(-24px) scale(1.1);} }
+
+    .sr-up { opacity:0; transform:translateY(38px); transition:opacity .68s cubic-bezier(.2,.8,.2,1),transform .68s cubic-bezier(.2,.8,.2,1); }
+    .sr-up.sr-in { opacity:1; transform:translateY(0); }
+    .sr-fade { opacity:0; transition:opacity 1s ease; }
+    .sr-fade.sr-in { opacity:1; }
+    .sr-d1{transition-delay:.08s;} .sr-d2{transition-delay:.16s;} .sr-d3{transition-delay:.24s;} .sr-d4{transition-delay:.32s;} .sr-d5{transition-delay:.40s;} .sr-d6{transition-delay:.48s;}
+  </style>
+
+  <script>
+  (function(){
+    ['fp-orb-o1','fp-orb-o2','fp-orb-o3','fp-orb-p1','fp-orb-g1','fp-orb-g2'].forEach(function(c){
+      var el=document.createElement('div'); el.className='fp-orb '+c; document.body.appendChild(el);
+    });
+    var wCvs=document.createElement('canvas');
+    wCvs.style.cssText='position:fixed;inset:0;z-index:0;pointer-events:none;';
+    document.body.insertBefore(wCvs,document.body.firstChild);
+    var wCtx=wCvs.getContext('2d'),wW,wH,wT=0;
+    function rz(){wW=wCvs.width=window.innerWidth;wH=wCvs.height=window.innerHeight;}
+    window.addEventListener('resize',rz);rz();
+    function drawW(){
+      wCtx.clearRect(0,0,wW,wH);wT+=0.0016;
+      var n=Math.min(10,Math.floor(wH/80));
+      for(var j=0;j<n;j++){
+        var yB=(wH/(n+1))*(j+1),amp=22+j*9,freq=0.007-j*0.0003,ph=wT*(j%2===0?1:-0.65)+j*1.2,op=Math.max(0.018,0.065-j*0.005);
+        wCtx.beginPath();wCtx.moveTo(0,yB+Math.sin(ph)*amp);
+        for(var x=0;x<=wW;x+=6)wCtx.lineTo(x,yB+Math.sin(x*freq+ph)*amp+Math.sin(x*freq*1.6+ph*0.55)*(amp*0.28));
+        wCtx.strokeStyle='rgba(110,50,220,'+op+')';wCtx.lineWidth=1;wCtx.stroke();
+      }
+      requestAnimationFrame(drawW);
+    }
+    drawW();
+    if(!window.IntersectionObserver)return;
+    var srObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('sr-in');srObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -55px 0px'});
+    document.querySelectorAll('.na-section,.bs-section,.cat-grid-section,.rv-section,.sc-section,.ab-section,.faq-section').forEach(function(el){el.classList.add('sr-fade');srObs.observe(el);});
+    var dlys=['','sr-d1','sr-d2','sr-d3','sr-d4','sr-d5','sr-d6'];
+    document.querySelectorAll('.na-card,.bs-card,.rv-card,.sc-card,.ab-feat-card,.faq-item,.cat-item').forEach(function(el,i){el.classList.add('sr-up');var d=dlys[i%dlys.length];if(d)el.classList.add(d);srObs.observe(el);});
+    document.querySelectorAll('.na-header,.ab-content,.ab-features').forEach(function(el){el.classList.add('sr-up');srObs.observe(el);});
+  })();
+  </script>
+  <!-- ══════════ END FLOWUP THEME ══════════ -->
 
 </body>
 </html>
